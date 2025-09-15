@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://df8httx5hk1fy"]
+
+[ext_resource type="Script" uid="uid://0moff8ydjl24" path="res://Scripts/Player/CameraController.gd" id="1_xp5r3"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_dxdiq"]
+
+[node name="Camera Controller" type="SpringArm3D"]
+shape = SubResource("SphereShape3D_dxdiq")
+margin = 0.5
+script = ExtResource("1_xp5r3")
+
+[node name="Pivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Pivot"]
+current = true

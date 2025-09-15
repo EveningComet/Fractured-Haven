@@ -1,0 +1,55 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdxynk8wrarjk"]
+
+[ext_resource type="Script" uid="uid://cwfhekgf3t18s" path="res://Scripts/UI/MainMenuController.gd" id="1_3hri7"]
+
+[node name="Main Menu" type="Node"]
+
+[node name="MainMenuController" type="Node" parent="." node_paths=PackedStringArray("start_test_game_button", "quit_button", "button_holder")]
+script = ExtResource("1_3hri7")
+start_test_game_button = NodePath("../CanvasLayer/Control/VBoxContainer/Start Test Game Button")
+quit_button = NodePath("../CanvasLayer/Control/VBoxContainer/Quit Game Button")
+button_holder = NodePath("../CanvasLayer/Control/VBoxContainer")
+_start_test_game = "uid://7kbrpbhs038f"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = 160.0
+offset_right = 100.0
+offset_bottom = 270.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Start Test Game Button" type="Button" parent="CanvasLayer/Control/VBoxContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Start Test Game"
+
+[node name="Start Game" type="Button" parent="CanvasLayer/Control/VBoxContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Start Game"
+
+[node name="Quit Game Button" type="Button" parent="CanvasLayer/Control/VBoxContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Quit"

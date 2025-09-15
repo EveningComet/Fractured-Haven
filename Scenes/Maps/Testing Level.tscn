@@ -1,0 +1,89 @@
+[gd_scene load_steps=14 format=3 uid="uid://cxhdetyqj8r0p"]
+
+[ext_resource type="Script" uid="uid://dm52vxni74eyj" path="res://Scripts/World/Partition/Partition.gd" id="1_lyqys"]
+[ext_resource type="Texture2D" uid="uid://cxymice35l0bo" path="res://Imported Assets/KenneyNL Prototyping Textures/Dark/texture_01.png" id="2_rmiod"]
+[ext_resource type="Texture2D" uid="uid://cnt2uiewxhing" path="res://Imported Assets/KenneyNL Prototyping Textures/Light/texture_01.png" id="3_jmi3t"]
+[ext_resource type="Script" uid="uid://bsmpeomvkmf3s" path="res://Scripts/Character/Actor.gd" id="5_h00v1"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xvkea"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_w65gp"]
+sky_material = SubResource("ProceduralSkyMaterial_xvkea")
+
+[sub_resource type="Environment" id="Environment_lk5v0"]
+background_mode = 2
+sky = SubResource("Sky_w65gp")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rmiod"]
+size = Vector3(10, 5, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jmi3t"]
+albedo_texture = ExtResource("2_rmiod")
+uv1_triplanar = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jmi3t"]
+size = Vector3(10, 5, 5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f607v"]
+albedo_texture = ExtResource("3_jmi3t")
+uv1_triplanar = true
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_h00v1"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_h00v1"]
+
+[node name="Testing Level" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_lk5v0")
+
+[node name="Partition" type="Area3D" parent="."]
+script = ExtResource("1_lyqys")
+metadata/_custom_type_script = "uid://dm52vxni74eyj"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Partition"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+shape = SubResource("BoxShape3D_rmiod")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Partition"]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Partition/CSGCombiner3D"]
+size = Vector3(10, 1, 10)
+material = SubResource("StandardMaterial3D_jmi3t")
+
+[node name="Partition2" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
+script = ExtResource("1_lyqys")
+metadata/_custom_type_script = "uid://dm52vxni74eyj"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Partition2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+shape = SubResource("BoxShape3D_jmi3t")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Partition2"]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Partition2/CSGCombiner3D"]
+size = Vector3(10, 1, 5)
+material = SubResource("StandardMaterial3D_f607v")
+
+[node name="Actor" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+script = ExtResource("5_h00v1")
+owned_by_player = true
+metadata/_custom_type_script = "uid://bsmpeomvkmf3s"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Actor"]
+shape = SubResource("CapsuleShape3D_h00v1")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="Actor"]
+mesh = SubResource("CapsuleMesh_h00v1")

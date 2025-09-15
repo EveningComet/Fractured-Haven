@@ -1,0 +1,54 @@
+[gd_scene load_steps=9 format=3 uid="uid://7kbrpbhs038f"]
+
+[ext_resource type="PackedScene" uid="uid://cxhdetyqj8r0p" path="res://Scenes/Maps/Testing Level.tscn" id="1_iukft"]
+[ext_resource type="Script" uid="uid://docpccg8hlw8t" path="res://Scripts/Player/PlayerController.gd" id="2_gl6un"]
+[ext_resource type="Script" uid="uid://cv7sn3bxvpx2p" path="res://Scripts/Player/Input Control/PlayerInputController.gd" id="3_j5yw3"]
+[ext_resource type="Script" uid="uid://c0e6lo5fi7jfk" path="res://Scripts/Player/Input Control/Input Control States/WaitingForUnitSelection.gd" id="4_kldst"]
+[ext_resource type="Script" uid="uid://clysu2ej4f7t2" path="res://Scripts/Player/Input Control/Input Control States/DirectingUnits.gd" id="5_b2bpf"]
+[ext_resource type="Script" uid="uid://carff2xcksj1e" path="res://Scripts/Player/SelectionController.gd" id="6_7lihs"]
+[ext_resource type="Script" uid="uid://dkwyg8sbl73ui" path="res://Scripts/Player/SelectionBox.gd" id="7_fgofq"]
+[ext_resource type="PackedScene" uid="uid://df8httx5hk1fy" path="res://Scenes/Player/Camera Controller.tscn" id="8_2irst"]
+
+[node name="Game" type="Node"]
+
+[node name="Testing Level" parent="." instance=ExtResource("1_iukft")]
+
+[node name="PlayerController" type="Node" parent="."]
+script = ExtResource("2_gl6un")
+metadata/_custom_type_script = "uid://docpccg8hlw8t"
+
+[node name="PlayerInputController" type="Node" parent="PlayerController" node_paths=PackedStringArray("selection_controller", "camera_controller")]
+script = ExtResource("3_j5yw3")
+selection_controller = NodePath("../SelectionController")
+camera_controller = NodePath("../../Camera Controller")
+initial_state = NodePath("WaitingForUnitSelection")
+metadata/_custom_type_script = "uid://cv7sn3bxvpx2p"
+
+[node name="WaitingForUnitSelection" type="Node" parent="PlayerController/PlayerInputController"]
+script = ExtResource("4_kldst")
+metadata/_custom_type_script = "uid://c0e6lo5fi7jfk"
+
+[node name="DirectingUnits" type="Node" parent="PlayerController/PlayerInputController"]
+script = ExtResource("5_b2bpf")
+metadata/_custom_type_script = "uid://clysu2ej4f7t2"
+
+[node name="SelectionController" type="Node" parent="PlayerController" node_paths=PackedStringArray("selection_box")]
+script = ExtResource("6_7lihs")
+selection_box = NodePath("../../Selection Box Canvas/SelectionBox")
+metadata/_custom_type_script = "uid://carff2xcksj1e"
+
+[node name="Camera Controller" parent="." instance=ExtResource("8_2irst")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 5)
+
+[node name="Selection Box Canvas" type="CanvasLayer" parent="."]
+
+[node name="SelectionBox" type="Control" parent="Selection Box Canvas"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("7_fgofq")
+metadata/_custom_type_script = "uid://dkwyg8sbl73ui"
