@@ -30,7 +30,7 @@ var curr_sp: int:
 		stat_changed.emit( self )
 
 var max_sp: int:
-	get: return 10
+	get: return Formulas.get_max_sp_value(self)
 
 func add_modifier(stat_type: StatHelper.StatTypes, mod_to_add: StatModifier) -> void:
 	stats[stat_type].add_modifier( mod_to_add )
@@ -47,8 +47,8 @@ func take_damage(dd: DamageData) -> void:
 	# Subtract the damage based on the damage type
 	match damage_type:
 		StatHelper.DamageTypes.Base:
-			pass
 			#damage_amount -= Formulas.get_defense(self)
+			pass
 		
 		# All other damage types get scaled
 		_:
@@ -71,7 +71,7 @@ func heal(amount: int) -> void:
 
 func full_restore() -> void:
 	curr_hp = max_hp
-	#curr_sp = max_sp
+	curr_sp = max_sp
 
 func remove_sp(amount_to_remove: int) -> void:
 	curr_sp -= amount_to_remove

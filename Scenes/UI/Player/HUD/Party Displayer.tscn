@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bduickeol2wiu"]
+
+[ext_resource type="Script" uid="uid://bi1xshrayo6hb" path="res://Scripts/UI/Player/HUD/PartyDisplayer.gd" id="1_rqaeb"]
+[ext_resource type="PackedScene" uid="uid://bnixp61kx1gea" path="res://Scenes/UI/Player/HUD/Party Member Clickable Button.tscn" id="2_fgihr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rqaeb"]
+
+[node name="Party Displayer" type="PanelContainer" node_paths=PackedStringArray("_party_container")]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_rqaeb")
+script = ExtResource("1_rqaeb")
+pm_button_prefab = ExtResource("2_fgihr")
+_party_container = NodePath("Party Container")
+metadata/_custom_type_script = "uid://bi1xshrayo6hb"
+
+[node name="Party Container" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1

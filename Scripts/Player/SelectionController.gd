@@ -48,7 +48,6 @@ func select_units_from_projection(m_pos: Vector2) -> void:
 		if u != null:
 			curr_pawns.append(u)
 	else:
-		var diff = m_pos - _drag_start
 		var x_min = min(_drag_start.x, m_pos.x)
 		var y_min = min(_drag_start.y, m_pos.y)
 		var rect = Rect2(
@@ -62,10 +61,9 @@ func select_units_from_projection(m_pos: Vector2) -> void:
 				#_stats_to_pawn[u.combatant.stats] = u
 				curr_pawns.append(u)
 	pawns_selected.emit(curr_pawns)
-	print("SelectionController :: Selected %s" % [curr_pawns])
 
 func _get_unit_under_mouse(m_pos: Vector2):
-	var result = Utils.raycast_mouse(m_pos, get_viewport().get_camera_3d())
+	var result = Utils.raycast_mouse(m_pos, get_viewport().get_camera_3d(), _ray_length)
 	if result and result.collider is Actor and PlayerPartyController.active_party.has(result.collider):
 		return result.collider
 

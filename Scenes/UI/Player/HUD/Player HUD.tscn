@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://ct417dgr6r0gu"]
+
+[ext_resource type="Script" uid="uid://dcbx0sprxe585" path="res://Scripts/UI/Player/HUD/PlayerHUD.gd" id="1_5o13q"]
+[ext_resource type="PackedScene" uid="uid://bduickeol2wiu" path="res://Scenes/UI/Player/HUD/Party Displayer.tscn" id="2_nscv0"]
+
+[node name="Player HUD" type="CanvasLayer"]
+script = ExtResource("1_5o13q")
+metadata/_custom_type_script = "uid://dcbx0sprxe585"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Party Displayer" parent="Control" instance=ExtResource("2_nscv0")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -60.0
+offset_right = 20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CreatureBlueprint" load_steps=6 format=3 uid="uid://6dpuup7y770b"]
+
+[ext_resource type="Script" uid="uid://c0jl23t6vw8iv" path="res://Scripts/Character/CharacterStats.gd" id="1_m77cd"]
+[ext_resource type="Script" uid="uid://c2twaqy62eh5w" path="res://Scripts/Character/CreatureBlueprint.gd" id="1_wjue1"]
+[ext_resource type="Script" uid="uid://dbcd3ncj7kmei" path="res://Scripts/Stats/Stat.gd" id="2_ay32l"]
+[ext_resource type="Script" uid="uid://ciuuac3t3scx5" path="res://Scripts/Character/Skill/SkillData.gd" id="4_ay32l"]
+
+[sub_resource type="Resource" id="Resource_6jdmy"]
+script = ExtResource("1_m77cd")
+metadata/_custom_type_script = "uid://c0jl23t6vw8iv"
+
+[resource]
+script = ExtResource("1_wjue1")
+localization_name = "Scarlett Lord"
+localization_description = "Once a noble king, now a specter."
+base_stats = SubResource("Resource_6jdmy")
+metadata/_custom_type_script = "uid://c2twaqy62eh5w"

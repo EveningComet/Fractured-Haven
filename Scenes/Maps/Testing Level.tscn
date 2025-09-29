@@ -1,9 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://cxhdetyqj8r0p"]
+[gd_scene load_steps=13 format=3 uid="uid://cxhdetyqj8r0p"]
 
+[ext_resource type="PackedScene" uid="uid://csjsqepnvhs0v" path="res://Scenes/Characters/Templates/Actor Template.tscn" id="1_f607v"]
 [ext_resource type="Script" uid="uid://dm52vxni74eyj" path="res://Scripts/World/Partition/Partition.gd" id="1_lyqys"]
 [ext_resource type="Texture2D" uid="uid://cxymice35l0bo" path="res://Imported Assets/KenneyNL Prototyping Textures/Dark/texture_01.png" id="2_rmiod"]
 [ext_resource type="Texture2D" uid="uid://cnt2uiewxhing" path="res://Imported Assets/KenneyNL Prototyping Textures/Light/texture_01.png" id="3_jmi3t"]
-[ext_resource type="Script" uid="uid://bsmpeomvkmf3s" path="res://Scripts/Character/Actor.gd" id="5_h00v1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xvkea"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -32,9 +32,8 @@ size = Vector3(10, 5, 5)
 albedo_texture = ExtResource("3_jmi3t")
 uv1_triplanar = true
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_h00v1"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_h00v1"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_f607v"]
+size = Vector3(10, 5, 10)
 
 [node name="Testing Level" type="Node3D"]
 
@@ -45,45 +44,54 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_lk5v0")
 
-[node name="Partition" type="Area3D" parent="."]
+[node name="Actor" parent="." instance=ExtResource("1_f607v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="Partitions" type="Node3D" parent="."]
+
+[node name="Partition" type="Area3D" parent="Partitions"]
 script = ExtResource("1_lyqys")
 metadata/_custom_type_script = "uid://dm52vxni74eyj"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Partition"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Partitions/Partition"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
 shape = SubResource("BoxShape3D_rmiod")
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Partition"]
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Partitions/Partition"]
 use_collision = true
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Partition/CSGCombiner3D"]
+[node name="CSGBox3D" type="CSGBox3D" parent="Partitions/Partition/CSGCombiner3D"]
 size = Vector3(10, 1, 10)
 material = SubResource("StandardMaterial3D_jmi3t")
 
-[node name="Partition2" type="Area3D" parent="."]
+[node name="Partition2" type="Area3D" parent="Partitions"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
 script = ExtResource("1_lyqys")
 metadata/_custom_type_script = "uid://dm52vxni74eyj"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Partition2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Partitions/Partition2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
 shape = SubResource("BoxShape3D_jmi3t")
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Partition2"]
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Partitions/Partition2"]
 use_collision = true
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Partition2/CSGCombiner3D"]
+[node name="CSGBox3D" type="CSGBox3D" parent="Partitions/Partition2/CSGCombiner3D"]
 size = Vector3(10, 1, 5)
 material = SubResource("StandardMaterial3D_f607v")
 
-[node name="Actor" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
-script = ExtResource("5_h00v1")
-owned_by_player = true
-metadata/_custom_type_script = "uid://bsmpeomvkmf3s"
+[node name="Partition3" type="Area3D" parent="Partitions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 0)
+script = ExtResource("1_lyqys")
+metadata/_custom_type_script = "uid://dm52vxni74eyj"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Actor"]
-shape = SubResource("CapsuleShape3D_h00v1")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Partitions/Partition3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+shape = SubResource("BoxShape3D_f607v")
 
-[node name="CSGMesh3D" type="CSGMesh3D" parent="Actor"]
-mesh = SubResource("CapsuleMesh_h00v1")
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Partitions/Partition3"]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Partitions/Partition3/CSGCombiner3D"]
+size = Vector3(10, 1, 10)
+material = SubResource("StandardMaterial3D_jmi3t")

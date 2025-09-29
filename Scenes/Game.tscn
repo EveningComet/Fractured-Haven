@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://7kbrpbhs038f"]
+[gd_scene load_steps=10 format=3 uid="uid://7kbrpbhs038f"]
 
 [ext_resource type="PackedScene" uid="uid://cxhdetyqj8r0p" path="res://Scenes/Maps/Testing Level.tscn" id="1_iukft"]
 [ext_resource type="Script" uid="uid://docpccg8hlw8t" path="res://Scripts/Player/PlayerController.gd" id="2_gl6un"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://carff2xcksj1e" path="res://Scripts/Player/SelectionController.gd" id="6_7lihs"]
 [ext_resource type="Script" uid="uid://dkwyg8sbl73ui" path="res://Scripts/Player/SelectionBox.gd" id="7_fgofq"]
 [ext_resource type="PackedScene" uid="uid://df8httx5hk1fy" path="res://Scenes/Player/Camera Controller.tscn" id="8_2irst"]
+[ext_resource type="PackedScene" uid="uid://ct417dgr6r0gu" path="res://Scenes/UI/Player/HUD/Player HUD.tscn" id="9_bf53h"]
 
 [node name="Game" type="Node"]
 
@@ -52,3 +53,5 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("7_fgofq")
 metadata/_custom_type_script = "uid://dkwyg8sbl73ui"
+
+[node name="Player HUD" parent="." instance=ExtResource("9_bf53h")]

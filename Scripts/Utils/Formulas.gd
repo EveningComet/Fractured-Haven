@@ -1,14 +1,18 @@
 ## Stores various calculations.
 class_name Formulas extends Node
 
-# Scaling values
-
 const MAX_ATTACK_RATE: float = 10.00
 const MIN_ATTACK_RATE: float = 0.20
 
 static func get_max_hp_value(stats: CharacterStats) -> int:
 	var sum: int = 0
 	for attribute: StatHelper.StatTypes in StatHelper.physical_attributes:
+		sum += stats.stats[attribute].get_calculated_value()
+	return sum
+
+static func get_max_sp_value(stats: CharacterStats) -> int:
+	var sum: int = 0
+	for attribute in StatHelper.mental_attributes:
 		sum += stats.stats[attribute].get_calculated_value()
 	return sum
 

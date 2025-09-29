@@ -1,10 +1,6 @@
 ## Stores various helper functions.
 class_name Utils extends Node
 
-## The max amount of activatable skills the player can have set
-## in the skill bar at one time.
-const MAX_ACTIVE_SKILLS: int = 8
-
 ## Checks the passed parent node to see if it contains a node of the passed type.
 static func get_node_of_type(parent: Node, type):
 	for child in parent.get_children():

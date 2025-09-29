@@ -8,7 +8,7 @@ enum StatTypes {
 	Agility,
 	Strength,
 	Endurance,
-	Reasoning,
+	Reason,
 	Intuition,
 	Psyche,
 	
@@ -69,4 +69,10 @@ static var physical_attributes: Array[StatTypes] = [
 	StatTypes.Agility,
 	StatTypes.Strength,
 	StatTypes.Endurance
+]
+
+static var mental_attributes: Array[StatTypes] = [
+	StatTypes.Reason,
+	StatTypes.Intuition,
+	StatTypes.Psyche
 ]

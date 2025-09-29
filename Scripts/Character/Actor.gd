@@ -7,6 +7,8 @@ var partition: Partition = null:
 	set(value):
 		partition = value
 
+@onready var combatant: Combatant = $Combatant
+
 ## TODO: Delete this. Only for testing.
 @export var owned_by_player: bool = false
 func _ready() -> void:

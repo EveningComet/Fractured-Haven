@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bnixp61kx1gea"]
+
+[ext_resource type="Script" uid="uid://c6jiaktyyovie" path="res://Scripts/UI/Player/HUD/PartyMemberClickableButton.gd" id="1_y53lp"]
+
+[node name="Party Member Clickable Button" type="Button"]
+custom_minimum_size = Vector2(80, 60)
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("1_y53lp")
+metadata/_custom_type_script = "uid://c6jiaktyyovie"

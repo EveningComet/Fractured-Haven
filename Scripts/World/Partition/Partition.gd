@@ -1,4 +1,4 @@
-## Think of this as a tile in a strategy game.
+## Think of this as a tile in a strategy game. [Actor]s operate in these areas.
 class_name Partition extends Area3D
 
 ## The neighbors.

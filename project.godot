@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Fractured Haven"
-config/description="A partybuilding RPG. It takes some inspiration from Dungeon Of The Endless."
+config/description="An RPG. It takes some inspiration from Dungeon Of The Endless."
 run/main_scene="uid://bdxynk8wrarjk"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
@@ -21,6 +21,12 @@ config/icon="res://icon.svg"
 SceneManager="*res://addons/scene_manager/SceneManager.tscn"
 SoundManager="*res://addons/sound_manager/sound_manager.gd"
 PlayerPartyController="*res://Scripts/Autoloads/PlayerPartyController.gd"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/stretch/mode="viewport"
 
 [editor_plugins]
 

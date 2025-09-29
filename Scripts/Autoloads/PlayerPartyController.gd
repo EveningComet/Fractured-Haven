@@ -1,6 +1,6 @@
 extends Node
 
-signal party_changed(paty: Array[Actor])
+signal party_changed(party: Array[Actor])
 
 ## The maximum number of party members the player can have in their party, not
 ## including summons.
