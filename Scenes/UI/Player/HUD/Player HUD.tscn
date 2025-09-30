@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://ct417dgr6r0gu"]
+[gd_scene load_steps=4 format=3 uid="uid://ct417dgr6r0gu"]
 
 [ext_resource type="Script" uid="uid://dcbx0sprxe585" path="res://Scripts/UI/Player/HUD/PlayerHUD.gd" id="1_5o13q"]
 [ext_resource type="PackedScene" uid="uid://bduickeol2wiu" path="res://Scenes/UI/Player/HUD/Party Displayer.tscn" id="2_nscv0"]
+[ext_resource type="PackedScene" uid="uid://dygne515qye1m" path="res://Scenes/UI/Player/HUD/Skillbar.tscn" id="3_yu8td"]
 
 [node name="Player HUD" type="CanvasLayer"]
 script = ExtResource("1_5o13q")
@@ -16,7 +17,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 
-[node name="Party Displayer" parent="Control" instance=ExtResource("2_nscv0")]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -29,3 +30,9 @@ offset_right = 20.0
 offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 0
+
+[node name="Skillbar" parent="Control/VBoxContainer" instance=ExtResource("3_yu8td")]
+layout_mode = 2
+
+[node name="Party Displayer" parent="Control/VBoxContainer" instance=ExtResource("2_nscv0")]
+layout_mode = 2

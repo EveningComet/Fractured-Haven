@@ -3,4 +3,4 @@ class_name TargetingData extends Resource
 
 var user: Actor
 var partitions: Array[Partition] = []
-var target: Actor
+var targets: Array[Actor] = []

@@ -17,3 +17,6 @@ metadata/_custom_type_script = "uid://bi1xshrayo6hb"
 [node name="Party Container" type="HBoxContainer" parent="."]
 layout_mode = 2
 alignment = 1
+
+[node name="Party Member Clickable Button" parent="Party Container" instance=ExtResource("2_fgihr")]
+layout_mode = 2

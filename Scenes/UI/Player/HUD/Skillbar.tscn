@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://dygne515qye1m"]
+
+[ext_resource type="Script" uid="uid://b6bt3xkyd6o2" path="res://Scripts/UI/Player/HUD/Skillbar.gd" id="1_yw7ym"]
+
+[node name="Skillbar" type="PanelContainer" node_paths=PackedStringArray("_slot_container")]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_yw7ym")
+_slot_container = NodePath("Skill Container")
+metadata/_custom_type_script = "uid://b6bt3xkyd6o2"
+
+[node name="Skill Container" type="GridContainer" parent="."]
+layout_mode = 2
+columns = 8

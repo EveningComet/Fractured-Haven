@@ -7,6 +7,7 @@ class_name PartyDisplayer extends PanelContainer
 @export var _party_container: Container
 
 func _ready() -> void:
+	_clear_contents()
 	PlayerPartyController.party_changed.connect(_on_party_changed)
 	_on_party_changed(PlayerPartyController.active_party)
 
