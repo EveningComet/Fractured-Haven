@@ -5,16 +5,10 @@ const MAX_ATTACK_RATE: float = 10.00
 const MIN_ATTACK_RATE: float = 0.20
 
 static func get_max_hp_value(stats: CharacterStats) -> int:
-	var sum: int = 0
-	for attribute: StatHelper.StatTypes in StatHelper.physical_attributes:
-		sum += stats.stats[attribute].get_calculated_value()
-	return sum
+	return floor(stats.stats[StatHelper.StatTypes.MaxHP].get_calculated_value())
 
 static func get_max_sp_value(stats: CharacterStats) -> int:
-	var sum: int = 0
-	for attribute in StatHelper.mental_attributes:
-		sum += stats.stats[attribute].get_calculated_value()
-	return sum
+	return floor(stats.stats[StatHelper.StatTypes.MaxSP].get_calculated_value())
 
 ## Return a float percentage for damage resistance.
 static func get_resistance(stats: CharacterStats, damage_type: StatHelper.DamageTypes) -> float:

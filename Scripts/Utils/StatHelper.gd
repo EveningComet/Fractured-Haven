@@ -3,38 +3,29 @@ class_name StatHelper
 
 ## Used to assist with accessing stats easily.
 enum StatTypes {
-	# Attributes
-	Fighting,
-	Agility,
-	Strength,
-	Endurance,
-	Reason,
-	Intuition,
-	Psyche,
-	
-	# Vitals
+	# Attributes/ Core Stats
 	MaxHP,                # Max hit points
 	CurrentHP,            # Current hit points
-	MaxSP,                # Our max mana/stamina/etc.
-	CurrentSP,            # Our current mana/stamina/etc.
+	MaxSP,                # Max special points
+	CurrentSP,            # Current special points
+	Technique,            # Physical power
+	Will,                 # Special power
+	Toughness,            # Defense, lowers all non-elemental/typed damage
+	Agility,              # Evasion
+	Cunning,              # Attack rate/activation/cast time
+	Perception,           # Chance to hit
 	
 	MoveSpeed,
 	
-	# Derived stats
+	# Other stats
 	CriticalHitChance,
-	Evasion,
-	Perception,
 	
-	PhysicalPower,
-	SpecialPower,
 	HeatMods,
 	ColdMods,
 	ElectricityMods,
 	PsychicMods,
 	
 	# Resistances (Damage Type)
-	# Except for regular damage, the rest are primarily percentage based (0.0-1.0)
-	Defense,
 	HeatRes,
 	ColdRes,
 	ElectricityRes,
@@ -57,22 +48,9 @@ enum DamageTypes {
 
 ## Easy accessor for returning the resistance for damage types.
 static var damage_to_res_map: Dictionary = {
-	DamageTypes.Base: StatTypes.Defense,
+	DamageTypes.Base: StatTypes.Toughness,
 	DamageTypes.Heat: StatTypes.HeatRes,
 	DamageTypes.Cold: StatTypes.ColdRes,
 	DamageTypes.Electricity: StatTypes.ElectricityRes,
 	DamageTypes.Psychic: StatTypes.PsychicRes
 }
-
-static var physical_attributes: Array[StatTypes] = [
-	StatTypes.Fighting,
-	StatTypes.Agility,
-	StatTypes.Strength,
-	StatTypes.Endurance
-]
-
-static var mental_attributes: Array[StatTypes] = [
-	StatTypes.Reason,
-	StatTypes.Intuition,
-	StatTypes.Psyche
-]

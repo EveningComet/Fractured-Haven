@@ -8,7 +8,7 @@ class_name SkillEffect extends Resource
 
 ## What stat does this use? Used as an enum to allow for easily selecting what
 ## stat to use.
-@export var stat_used: StatHelper.StatTypes = StatHelper.StatTypes.PhysicalPower
+@export var stat_used: StatHelper.StatTypes = StatHelper.StatTypes.Technique
 
 func execute(targeting_data: TargetingData) -> void:
 	pass

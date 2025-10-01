@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://csjsqepnvhs0v"]
+[gd_scene load_steps=12 format=3 uid="uid://csjsqepnvhs0v"]
 
 [ext_resource type="Script" uid="uid://bsmpeomvkmf3s" path="res://Scripts/Character/Actor.gd" id="1_f8xlf"]
 [ext_resource type="Script" uid="uid://8sde302rbesp" path="res://Scripts/Character/Combatant.gd" id="2_v5tki"]
@@ -6,31 +6,45 @@
 [ext_resource type="Script" uid="uid://dbcd3ncj7kmei" path="res://Scripts/Stats/Stat.gd" id="4_54hwr"]
 [ext_resource type="Script" uid="uid://8jc6ikkn1obd" path="res://Scripts/Character/CharLevel.gd" id="5_wmx78"]
 
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_h00v1"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_h00v1"]
+
+[sub_resource type="Resource" id="Resource_autx6"]
+script = ExtResource("4_54hwr")
+base_value = 50.0
+metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
+
+[sub_resource type="Resource" id="Resource_54hwr"]
+script = ExtResource("4_54hwr")
+base_value = 50.0
+metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
+
 [sub_resource type="Resource" id="Resource_qhyyr"]
 script = ExtResource("3_autx6")
+stats = Dictionary[int, ExtResource("4_54hwr")]({
+0: SubResource("Resource_autx6"),
+1: SubResource("Resource_54hwr")
+})
 metadata/_custom_type_script = "uid://c0jl23t6vw8iv"
 
 [sub_resource type="Resource" id="Resource_w2eqh"]
 script = ExtResource("5_wmx78")
 metadata/_custom_type_script = "uid://8jc6ikkn1obd"
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_h00v1"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_h00v1"]
-
 [node name="Actor Template" type="CharacterBody3D"]
 script = ExtResource("1_f8xlf")
 owned_by_player = true
 metadata/_custom_type_script = "uid://bsmpeomvkmf3s"
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+mesh = SubResource("CapsuleMesh_h00v1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_h00v1")
 
 [node name="Combatant" type="Node" parent="."]
 script = ExtResource("2_v5tki")
 stats = SubResource("Resource_qhyyr")
 char_level = SubResource("Resource_w2eqh")
 metadata/_custom_type_script = "uid://8sde302rbesp"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("CapsuleShape3D_h00v1")
-
-[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
-mesh = SubResource("CapsuleMesh_h00v1")

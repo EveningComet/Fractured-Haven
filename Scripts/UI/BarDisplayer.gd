@@ -6,12 +6,12 @@ class_name BarDisplayer extends ProgressBar
 	get: return uses_label
 	set(value):
 		uses_label = value
-		if uses_label == true and value_displayer != null:
-			value_displayer.show()
-		elif uses_label == false and value_displayer != null:
-			value_displayer.hide()
+		if uses_label == true and value_label != null:
+			value_label.show()
+		elif uses_label == false and value_label != null:
+			value_label.hide()
 
-@export var value_displayer: Label
+@export var value_label: Label
 
 ## Update the display with the passed values.
 func update_display(new_value: int, max_v: int = 100) -> void:
@@ -19,4 +19,4 @@ func update_display(new_value: int, max_v: int = 100) -> void:
 	value     = new_value
 	
 	if uses_label == true:
-		value_displayer.set_text( str(new_value) )
+		value_label.set_text( str(new_value) )

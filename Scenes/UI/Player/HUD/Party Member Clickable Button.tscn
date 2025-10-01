@@ -1,10 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://bnixp61kx1gea"]
+[gd_scene load_steps=3 format=3 uid="uid://bnixp61kx1gea"]
 
 [ext_resource type="Script" uid="uid://c6jiaktyyovie" path="res://Scripts/UI/Player/HUD/PartyMemberClickableButton.gd" id="1_y53lp"]
+[ext_resource type="PackedScene" uid="uid://jwyy3n4n32k" path="res://Scenes/UI/Bar Displayer.tscn" id="2_gp7tc"]
 
-[node name="Party Member Clickable Button" type="Button"]
-custom_minimum_size = Vector2(80, 60)
+[node name="Party Member Clickable Button" type="Button" node_paths=PackedStringArray("hp_bar")]
+custom_minimum_size = Vector2(120, 100)
 offset_right = 8.0
 offset_bottom = 8.0
 script = ExtResource("1_y53lp")
+hp_bar = NodePath("HP Bar")
 metadata/_custom_type_script = "uid://c6jiaktyyovie"
+
+[node name="HP Bar" parent="." instance=ExtResource("2_gp7tc")]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_right = 0.0
+offset_bottom = 4.0
+grow_horizontal = 2
+mouse_filter = 1
