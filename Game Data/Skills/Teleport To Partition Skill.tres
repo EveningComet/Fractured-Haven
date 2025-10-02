@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="SkillData" load_steps=5 format=3 uid="uid://c008ji6wltrhw"]
+[gd_resource type="Resource" script_class="SkillData" load_steps=6 format=3 uid="uid://c008ji6wltrhw"]
 
 [ext_resource type="Script" uid="uid://b7py1wkn0b4gg" path="res://Scripts/Character/Skill/Effects/SkillEffect.gd" id="1_a8f2o"]
 [ext_resource type="Script" uid="uid://ciuuac3t3scx5" path="res://Scripts/Character/Skill/SkillData.gd" id="2_7qd1i"]
 [ext_resource type="Script" uid="uid://cv2eqqoqx68a0" path="res://Scripts/Character/Skill/Effects/TeleportToPartition.gd" id="2_ncfsk"]
+[ext_resource type="Texture2D" uid="uid://4aqpm67myqtb" path="res://Imported Assets/Icon/icon.svg" id="3_ncfsk"]
 
 [sub_resource type="Resource" id="Resource_7jotq"]
 script = ExtResource("2_ncfsk")
@@ -10,5 +11,9 @@ metadata/_custom_type_script = "uid://cv2eqqoqx68a0"
 
 [resource]
 script = ExtResource("2_7qd1i")
+localization_name = "Teleport"
+localization_description = "Teleport to a nearby area."
+icon = ExtResource("3_ncfsk")
+range_in_partitions = 3
 effects = Array[ExtResource("1_a8f2o")]([SubResource("Resource_7jotq")])
 metadata/_custom_type_script = "uid://ciuuac3t3scx5"

@@ -1,36 +1,59 @@
-[gd_scene load_steps=12 format=3 uid="uid://csjsqepnvhs0v"]
+[gd_scene load_steps=19 format=3 uid="uid://csjsqepnvhs0v"]
 
 [ext_resource type="Script" uid="uid://bsmpeomvkmf3s" path="res://Scripts/Character/Actor.gd" id="1_f8xlf"]
 [ext_resource type="Script" uid="uid://8sde302rbesp" path="res://Scripts/Character/Combatant.gd" id="2_v5tki"]
 [ext_resource type="Script" uid="uid://c0jl23t6vw8iv" path="res://Scripts/Character/CharacterStats.gd" id="3_autx6"]
 [ext_resource type="Script" uid="uid://dbcd3ncj7kmei" path="res://Scripts/Stats/Stat.gd" id="4_54hwr"]
+[ext_resource type="Script" uid="uid://bjxna3hubfe3e" path="res://Scripts/Character/CharacterData.gd" id="4_qhyyr"]
+[ext_resource type="Script" uid="uid://ciuuac3t3scx5" path="res://Scripts/Character/Skill/SkillData.gd" id="5_w2eqh"]
 [ext_resource type="Script" uid="uid://8jc6ikkn1obd" path="res://Scripts/Character/CharLevel.gd" id="5_wmx78"]
+[ext_resource type="Resource" uid="uid://c008ji6wltrhw" path="res://Game Data/Skills/Teleport To Partition Skill.tres" id="6_w2eqh"]
+[ext_resource type="Script" uid="uid://b2v63vqu1bac0" path="res://Scripts/Character/Trait/Trait.gd" id="8_7oekl"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_h00v1"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_h00v1"]
 
-[sub_resource type="Resource" id="Resource_autx6"]
-script = ExtResource("4_54hwr")
-base_value = 50.0
-metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
+[sub_resource type="Resource" id="Resource_uql5u"]
+script = ExtResource("5_wmx78")
+metadata/_custom_type_script = "uid://8jc6ikkn1obd"
 
-[sub_resource type="Resource" id="Resource_54hwr"]
+[sub_resource type="Resource" id="Resource_o5a55"]
 script = ExtResource("4_54hwr")
 base_value = 50.0
 metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
 
 [sub_resource type="Resource" id="Resource_qhyyr"]
+script = ExtResource("4_54hwr")
+base_value = 50.0
+metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
+
+[sub_resource type="Resource" id="Resource_w2eqh"]
+script = ExtResource("4_54hwr")
+base_value = 25.0
+metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
+
+[sub_resource type="Resource" id="Resource_7oekl"]
+script = ExtResource("4_54hwr")
+base_value = 25.0
+metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
+
+[sub_resource type="Resource" id="Resource_tjtog"]
 script = ExtResource("3_autx6")
 stats = Dictionary[int, ExtResource("4_54hwr")]({
-0: SubResource("Resource_autx6"),
-1: SubResource("Resource_54hwr")
+0: SubResource("Resource_o5a55"),
+1: SubResource("Resource_qhyyr"),
+2: SubResource("Resource_w2eqh"),
+3: SubResource("Resource_7oekl")
 })
 metadata/_custom_type_script = "uid://c0jl23t6vw8iv"
 
-[sub_resource type="Resource" id="Resource_w2eqh"]
-script = ExtResource("5_wmx78")
-metadata/_custom_type_script = "uid://8jc6ikkn1obd"
+[sub_resource type="Resource" id="Resource_uf240"]
+script = ExtResource("4_qhyyr")
+char_level = SubResource("Resource_uql5u")
+stats = SubResource("Resource_tjtog")
+skills = Array[ExtResource("5_w2eqh")]([ExtResource("6_w2eqh")])
+metadata/_custom_type_script = "uid://bjxna3hubfe3e"
 
 [node name="Actor Template" type="CharacterBody3D"]
 script = ExtResource("1_f8xlf")
@@ -45,6 +68,5 @@ shape = SubResource("CapsuleShape3D_h00v1")
 
 [node name="Combatant" type="Node" parent="."]
 script = ExtResource("2_v5tki")
-stats = SubResource("Resource_qhyyr")
-char_level = SubResource("Resource_w2eqh")
+character_data = SubResource("Resource_uf240")
 metadata/_custom_type_script = "uid://8sde302rbesp"

@@ -6,10 +6,15 @@ class_name PartyDisplayer extends PanelContainer
 ## The node storing the displayable party.
 @export var _party_container: Container
 
+var _selection_controller: SelectionController
+
 func _ready() -> void:
 	_clear_contents()
 	PlayerPartyController.party_changed.connect(_on_party_changed)
 	_on_party_changed(PlayerPartyController.active_party)
+
+func setup(sc: SelectionController) -> void:
+	_selection_controller = sc
 
 func _clear_contents() -> void:
 	for c in _party_container.get_children():
@@ -21,3 +26,6 @@ func _on_party_changed(party: Array[Actor]) -> void:
 		var pm_button: PartyMemberClickableButton = pm_button_prefab.instantiate()
 		pm_button.set_party_member(pm)
 		_party_container.add_child(pm_button)
+
+func _on_pm_button_pressed(pm: Actor) -> void:
+	_selection_controller

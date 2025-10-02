@@ -4,8 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://bduickeol2wiu" path="res://Scenes/UI/Player/HUD/Party Displayer.tscn" id="2_nscv0"]
 [ext_resource type="PackedScene" uid="uid://dygne515qye1m" path="res://Scenes/UI/Player/HUD/Skillbar.tscn" id="3_yu8td"]
 
-[node name="Player HUD" type="CanvasLayer"]
+[node name="Player HUD" type="CanvasLayer" node_paths=PackedStringArray("_skill_bar", "_party_displayer")]
 script = ExtResource("1_5o13q")
+_skill_bar = NodePath("Control/VBoxContainer/Skillbar")
+_party_displayer = NodePath("Control/VBoxContainer/Party Displayer")
 metadata/_custom_type_script = "uid://dcbx0sprxe585"
 
 [node name="Control" type="Control" parent="."]
@@ -30,6 +32,7 @@ offset_right = 20.0
 offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_constants/separation = 5
 
 [node name="Skillbar" parent="Control/VBoxContainer" instance=ExtResource("3_yu8td")]
 layout_mode = 2

@@ -1,14 +1,39 @@
-[gd_scene load_steps=2 format=3 uid="uid://dygne515qye1m"]
+[gd_scene load_steps=3 format=3 uid="uid://dygne515qye1m"]
 
 [ext_resource type="Script" uid="uid://b6bt3xkyd6o2" path="res://Scripts/UI/Player/HUD/Skillbar.gd" id="1_yw7ym"]
+[ext_resource type="PackedScene" uid="uid://dc0jull4516lq" path="res://Scenes/UI/Player/HUD/Skillslot.tscn" id="2_xtbro"]
 
 [node name="Skillbar" type="PanelContainer" node_paths=PackedStringArray("_slot_container")]
+custom_minimum_size = Vector2(32, 32)
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_yw7ym")
-_slot_container = NodePath("Skill Container")
+skill_button_prefab = ExtResource("2_xtbro")
+_slot_container = NodePath("MarginContainer/CenterContainer/Skill Container")
 metadata/_custom_type_script = "uid://b6bt3xkyd6o2"
 
-[node name="Skill Container" type="GridContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Skill Container" type="GridContainer" parent="MarginContainer/CenterContainer"]
 layout_mode = 2
 columns = 8
+
+[node name="Skillslot" parent="MarginContainer/CenterContainer/Skill Container" instance=ExtResource("2_xtbro")]
+layout_mode = 2
+
+[node name="Skillslot2" parent="MarginContainer/CenterContainer/Skill Container" instance=ExtResource("2_xtbro")]
+layout_mode = 2
+
+[node name="Skillslot3" parent="MarginContainer/CenterContainer/Skill Container" instance=ExtResource("2_xtbro")]
+layout_mode = 2
+
+[node name="Skillslot4" parent="MarginContainer/CenterContainer/Skill Container" instance=ExtResource("2_xtbro")]
+layout_mode = 2
