@@ -1,3 +1,4 @@
+@abstract
 ## Base class for a state machine.
 class_name StateMachine extends Node
 

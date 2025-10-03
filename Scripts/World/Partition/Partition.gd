@@ -10,8 +10,12 @@ var monitored: Array[Actor] = []
 func _ready() -> void:
 	body_entered.connect( _on_body_entered )
 	body_exited.connect( _on_body_exited )
-	
+	setup_connections()
 	# TODO: Way to automate connections?
+
+func setup_connections() -> void:
+	for c: Connection in connections:
+		c.partition = get_node(c.to_path)
 	
 func _on_body_entered(body) -> void:
 	if body is Actor:

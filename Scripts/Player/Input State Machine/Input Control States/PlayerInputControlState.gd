@@ -1,3 +1,4 @@
+@abstract
 ## Base class for a state that controls what the player can do at a given time.
 class_name PlayerInputControlState extends State
 

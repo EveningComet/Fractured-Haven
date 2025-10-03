@@ -6,13 +6,15 @@ class_name Skillbar extends PanelContainer
 ## Holds the displayed skills.
 @export var _slot_container: Container
 
-var _selection_controller: SelectionController = null
+var _selection_controller: SelectionController   = null
+var _input_controller:     PlayerInputController = null
 
 func _ready() -> void:
 	_clear()
 	hide()
 
-func setup(sc: SelectionController) -> void:
+func setup(ic: PlayerInputController, sc: SelectionController) -> void:
+	_input_controller     = ic
 	_selection_controller = sc
 	_selection_controller.pawns_selected.connect(_on_characters_selected)
 
@@ -35,4 +37,9 @@ func _on_characters_selected(selected: Array[Actor]) -> void:
 			var skill_slot: Skillslot = skill_button_prefab.instantiate()
 			skill_slot.setup(unit, s)
 			_slot_container.add_child(skill_slot)
+			skill_slot.pressed.connect(_on_skill_button_pressed.bind(unit, s))
 	show()
+
+func _on_skill_button_pressed(user: Actor, skill: SkillData) -> void:
+	if OS.is_debug_build() == true:
+		print("Skillbar :: Noticed that the player is trying to perform a skill.")

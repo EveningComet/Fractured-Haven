@@ -1,3 +1,4 @@
+@abstract
 ## Base class for a state inside a state machine.
 class_name State extends Node
 

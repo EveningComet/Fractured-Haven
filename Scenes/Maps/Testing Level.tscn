@@ -21,7 +21,7 @@ glow_enabled = true
 
 [sub_resource type="Resource" id="Resource_p7cp4"]
 script = ExtResource("3_h00v1")
-to = NodePath("../Partition2")
+to_path = NodePath("../Partition2")
 metadata/_custom_type_script = "uid://ryu4fospsa37"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rmiod"]
@@ -33,12 +33,12 @@ uv1_triplanar = true
 
 [sub_resource type="Resource" id="Resource_h00v1"]
 script = ExtResource("3_h00v1")
-to = NodePath("../Partition")
+to_path = NodePath("../Partition")
 metadata/_custom_type_script = "uid://ryu4fospsa37"
 
 [sub_resource type="Resource" id="Resource_kx3jy"]
 script = ExtResource("3_h00v1")
-to = NodePath("../Partition3")
+to_path = NodePath("../Partition3")
 metadata/_custom_type_script = "uid://ryu4fospsa37"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jmi3t"]
@@ -50,7 +50,7 @@ uv1_triplanar = true
 
 [sub_resource type="Resource" id="Resource_1yaum"]
 script = ExtResource("3_h00v1")
-to = NodePath("../Partition2")
+to_path = NodePath("../Partition2")
 metadata/_custom_type_script = "uid://ryu4fospsa37"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_f607v"]
