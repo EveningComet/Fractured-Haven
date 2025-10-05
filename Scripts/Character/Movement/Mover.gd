@@ -63,7 +63,7 @@ func _move(delta: float) -> void:
 	
 	if nav_agent.is_navigation_finished() == true:
 		return
-	orient_to_direction(_target_velocity, delta)
+	orient_to_direction(-_target_velocity, delta)
 	_cb.set_velocity(_target_velocity)
 	_cb.move_and_slide()
 

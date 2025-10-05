@@ -1,19 +1,20 @@
-[gd_scene load_steps=29 format=3 uid="uid://csjsqepnvhs0v"]
+[gd_scene load_steps=31 format=3 uid="uid://csjsqepnvhs0v"]
 
 [ext_resource type="Script" uid="uid://bsmpeomvkmf3s" path="res://Scripts/Character/Actor.gd" id="1_f8xlf"]
 [ext_resource type="Script" uid="uid://8sde302rbesp" path="res://Scripts/Character/Combatant.gd" id="2_v5tki"]
 [ext_resource type="Script" uid="uid://c0jl23t6vw8iv" path="res://Scripts/Character/CharacterStats.gd" id="3_autx6"]
+[ext_resource type="PackedScene" uid="uid://cthdv6ab3pmaq" path="res://Scenes/Characters/Models/Necrobot.tscn" id="3_uf240"]
 [ext_resource type="Script" uid="uid://dbcd3ncj7kmei" path="res://Scripts/Stats/Stat.gd" id="4_54hwr"]
 [ext_resource type="Script" uid="uid://bjxna3hubfe3e" path="res://Scripts/Character/CharacterData.gd" id="4_qhyyr"]
 [ext_resource type="Script" uid="uid://ciuuac3t3scx5" path="res://Scripts/Character/Skill/SkillData.gd" id="5_w2eqh"]
 [ext_resource type="Script" uid="uid://8jc6ikkn1obd" path="res://Scripts/Character/CharLevel.gd" id="5_wmx78"]
 [ext_resource type="Resource" uid="uid://c008ji6wltrhw" path="res://Game Data/Skills/Teleport To Partition Skill.tres" id="6_w2eqh"]
 [ext_resource type="Script" uid="uid://b2v63vqu1bac0" path="res://Scripts/Character/Trait/Trait.gd" id="8_7oekl"]
+[ext_resource type="Resource" uid="uid://cix0ryioer8n1" path="res://Game Data/Skills/Make 'Em Bleed.tres" id="9_60to4"]
 [ext_resource type="Script" uid="uid://cada6c8iy7u5b" path="res://Scripts/Character/Movement/Mover.gd" id="10_7oekl"]
 [ext_resource type="Script" uid="uid://38ya1yc1jqft" path="res://Scripts/Character/Movement/Locomotion States/CLGround.gd" id="11_o5a55"]
 [ext_resource type="Script" uid="uid://dj3c5i13ppjbo" path="res://Scripts/Character/Movement/CreatureLocomotionController.gd" id="11_uql5u"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_h00v1"]
+[ext_resource type="Script" uid="uid://c8g84r6lr3p11" path="res://Scripts/Character/SkinHandler.gd" id="13_tjtog"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_h00v1"]
 
@@ -96,7 +97,7 @@ metadata/_custom_type_script = "uid://c0jl23t6vw8iv"
 script = ExtResource("4_qhyyr")
 char_level = SubResource("Resource_uql5u")
 stats = SubResource("Resource_tjtog")
-skills = Array[ExtResource("5_w2eqh")]([ExtResource("6_w2eqh")])
+skills = Array[ExtResource("5_w2eqh")]([ExtResource("6_w2eqh"), ExtResource("9_60to4")])
 metadata/_custom_type_script = "uid://bjxna3hubfe3e"
 
 [node name="Actor Template" type="CharacterBody3D"]
@@ -104,10 +105,14 @@ script = ExtResource("1_f8xlf")
 owned_by_player = true
 metadata/_custom_type_script = "uid://bsmpeomvkmf3s"
 
-[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
-mesh = SubResource("CapsuleMesh_h00v1")
+[node name="SkinHandler" type="Node3D" parent="."]
+script = ExtResource("13_tjtog")
+metadata/_custom_type_script = "uid://c8g84r6lr3p11"
+
+[node name="Necrobot" parent="SkinHandler" instance=ExtResource("3_uf240")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_h00v1")
 
 [node name="Combatant" type="Node" parent="."]

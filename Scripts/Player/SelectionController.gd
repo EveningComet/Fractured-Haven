@@ -58,7 +58,7 @@ func select_units_from_projection(m_pos: Vector2) -> void:
 		var cam = get_viewport().get_camera_3d()
 		for u: Actor in PlayerPartyController.active_party:
 			if rect.has_point(cam.unproject_position(u.global_position)):
-				#_stats_to_pawn[u.combatant.stats] = u
+				_stats_to_pawn[u.combatant.character_data.stats] = u
 				curr_pawns.append(u)
 	pawns_selected.emit(curr_pawns)
 

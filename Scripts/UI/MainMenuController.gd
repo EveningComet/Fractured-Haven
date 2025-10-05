@@ -1,8 +1,7 @@
 ## Manages the main menu.
 class_name MainMenuController extends Node
 
-@export var start_test_game_button: Button
-@export var start_game_button:      Button
+@export var start_game_button: Button
 @export var quit_button:            Button
 
 @export var button_holder: Container
@@ -12,7 +11,7 @@ class_name MainMenuController extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	start_test_game_button.pressed.connect(_on_start_game_pressed)
+	start_game_button.pressed.connect(_on_start_game_pressed)
 	quit_button.pressed.connect(_on_quit_button_pressed)
 	
 	# Allow gamepad controls

@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=11 format=3 uid="uid://cix0ryioer8n1"]
+
+[ext_resource type="Script" uid="uid://c0eaac5ubaplw" path="res://Scripts/Character/Skill/Targeting AOE/UnitSkillArea.gd" id="1_drdkv"]
+[ext_resource type="Script" uid="uid://b7py1wkn0b4gg" path="res://Scripts/Character/Skill/Effects/SkillEffect.gd" id="1_trj0x"]
+[ext_resource type="Texture2D" uid="uid://qft70xy0guyv" path="res://Imported Assets/GUI/Freegameart Cyberpunk Skill Icons/cyberpunk icon 48.png" id="2_8n3hn"]
+[ext_resource type="Script" uid="uid://ciuuac3t3scx5" path="res://Scripts/Character/Skill/SkillData.gd" id="2_bl03a"]
+[ext_resource type="Script" uid="uid://0cuvkxut4tyd" path="res://Scripts/Character/Skill/Effects/ApplyStatusEffect.gd" id="3_87g14"]
+[ext_resource type="Script" uid="uid://ghc0xhg5fg4d" path="res://Scripts/Character/Skill/Targeting Range/ConstantRange.gd" id="3_drdkv"]
+[ext_resource type="Resource" uid="uid://bclc05ckubohh" path="res://Game Data/Status Effects/Bleed.tres" id="4_445ch"]
+
+[sub_resource type="Resource" id="Resource_87g14"]
+script = ExtResource("1_drdkv")
+metadata/_custom_type_script = "uid://c0eaac5ubaplw"
+
+[sub_resource type="Resource" id="Resource_6b6t7"]
+script = ExtResource("3_87g14")
+status_to_apply = ExtResource("4_445ch")
+metadata/_custom_type_script = "uid://0cuvkxut4tyd"
+
+[sub_resource type="Resource" id="Resource_huav5"]
+script = ExtResource("3_drdkv")
+range_in_partitions = 0
+metadata/_custom_type_script = "uid://ghc0xhg5fg4d"
+
+[resource]
+script = ExtResource("2_bl03a")
+localization_name = "Make 'Em Bleed"
+localization_description = "Ow the edge. Inflicts bleed."
+icon = ExtResource("2_8n3hn")
+range = SubResource("Resource_huav5")
+aoe = SubResource("Resource_87g14")
+effects = Array[ExtResource("1_trj0x")]([SubResource("Resource_6b6t7")])
+metadata/_custom_type_script = "uid://ciuuac3t3scx5"

@@ -4,9 +4,9 @@
 
 [node name="Main Menu" type="Node"]
 
-[node name="MainMenuController" type="Node" parent="." node_paths=PackedStringArray("start_test_game_button", "quit_button", "button_holder")]
+[node name="MainMenuController" type="Node" parent="." node_paths=PackedStringArray("start_game_button", "quit_button", "button_holder")]
 script = ExtResource("1_3hri7")
-start_test_game_button = NodePath("../CanvasLayer/Control/VBoxContainer/Start Test Game Button")
+start_game_button = NodePath("../CanvasLayer/Control/VBoxContainer/Start Test Game Button")
 quit_button = NodePath("../CanvasLayer/Control/VBoxContainer/Quit Game Button")
 button_holder = NodePath("../CanvasLayer/Control/VBoxContainer")
 _start_test_game = "uid://7kbrpbhs038f"
@@ -41,12 +41,6 @@ custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "Start Test Game"
-
-[node name="Start Game" type="Button" parent="CanvasLayer/Control/VBoxContainer"]
-custom_minimum_size = Vector2(200, 50)
-layout_mode = 2
-theme_override_font_sizes/font_size = 25
-text = "Start Game"
 
 [node name="Quit Game Button" type="Button" parent="CanvasLayer/Control/VBoxContainer"]
 custom_minimum_size = Vector2(200, 50)

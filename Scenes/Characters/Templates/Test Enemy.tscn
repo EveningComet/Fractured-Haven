@@ -1,0 +1,137 @@
+[gd_scene load_steps=30 format=3 uid="uid://c6ie0wxho0avl"]
+
+[ext_resource type="Script" uid="uid://bsmpeomvkmf3s" path="res://Scripts/Character/Actor.gd" id="1_f532h"]
+[ext_resource type="Script" uid="uid://8sde302rbesp" path="res://Scripts/Character/Combatant.gd" id="2_1n8ps"]
+[ext_resource type="Script" uid="uid://8jc6ikkn1obd" path="res://Scripts/Character/CharLevel.gd" id="3_k14ek"]
+[ext_resource type="PackedScene" uid="uid://cthdv6ab3pmaq" path="res://Scenes/Characters/Models/Necrobot.tscn" id="3_uwg7e"]
+[ext_resource type="Script" uid="uid://bjxna3hubfe3e" path="res://Scripts/Character/CharacterData.gd" id="4_uwg7e"]
+[ext_resource type="Script" uid="uid://ciuuac3t3scx5" path="res://Scripts/Character/Skill/SkillData.gd" id="5_sc38e"]
+[ext_resource type="Resource" uid="uid://c008ji6wltrhw" path="res://Game Data/Skills/Teleport To Partition Skill.tres" id="6_6ia7f"]
+[ext_resource type="Script" uid="uid://c0jl23t6vw8iv" path="res://Scripts/Character/CharacterStats.gd" id="7_vnr3a"]
+[ext_resource type="Script" uid="uid://dbcd3ncj7kmei" path="res://Scripts/Stats/Stat.gd" id="8_hjuwb"]
+[ext_resource type="Script" uid="uid://b2v63vqu1bac0" path="res://Scripts/Character/Trait/Trait.gd" id="9_ngjnx"]
+[ext_resource type="Script" uid="uid://cada6c8iy7u5b" path="res://Scripts/Character/Movement/Mover.gd" id="10_mu78d"]
+[ext_resource type="Script" uid="uid://dj3c5i13ppjbo" path="res://Scripts/Character/Movement/CreatureLocomotionController.gd" id="11_cwlyn"]
+[ext_resource type="Script" uid="uid://38ya1yc1jqft" path="res://Scripts/Character/Movement/Locomotion States/CLGround.gd" id="12_vghwm"]
+[ext_resource type="Script" uid="uid://c8g84r6lr3p11" path="res://Scripts/Character/SkinHandler.gd" id="13_1n8ps"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_h00v1"]
+
+[sub_resource type="Resource" id="Resource_f532h"]
+script = ExtResource("3_k14ek")
+metadata/_custom_type_script = "uid://8jc6ikkn1obd"
+
+[sub_resource type="Resource" id="Resource_o5a55"]
+script = ExtResource("8_hjuwb")
+base_value = 50.0
+metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
+
+[sub_resource type="Resource" id="Resource_qhyyr"]
+script = ExtResource("8_hjuwb")
+base_value = 50.0
+metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
+
+[sub_resource type="Resource" id="Resource_w2eqh"]
+script = ExtResource("8_hjuwb")
+base_value = 25.0
+metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
+
+[sub_resource type="Resource" id="Resource_7oekl"]
+script = ExtResource("8_hjuwb")
+base_value = 25.0
+metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
+
+[sub_resource type="Resource" id="Resource_60to4"]
+script = ExtResource("8_hjuwb")
+base_value = 10.0
+metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
+
+[sub_resource type="Resource" id="Resource_74tio"]
+script = ExtResource("8_hjuwb")
+base_value = 5.0
+metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
+
+[sub_resource type="Resource" id="Resource_nxrt6"]
+script = ExtResource("8_hjuwb")
+base_value = 5.0
+metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
+
+[sub_resource type="Resource" id="Resource_8g2d5"]
+script = ExtResource("8_hjuwb")
+base_value = 10.0
+metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
+
+[sub_resource type="Resource" id="Resource_mnpw0"]
+script = ExtResource("8_hjuwb")
+base_value = 10.0
+metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
+
+[sub_resource type="Resource" id="Resource_n2xmr"]
+script = ExtResource("8_hjuwb")
+metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
+
+[sub_resource type="Resource" id="Resource_ewwog"]
+script = ExtResource("8_hjuwb")
+base_value = 7.5
+metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
+
+[sub_resource type="Resource" id="Resource_1n8ps"]
+script = ExtResource("7_vnr3a")
+stats = Dictionary[int, ExtResource("8_hjuwb")]({
+0: SubResource("Resource_o5a55"),
+1: SubResource("Resource_qhyyr"),
+2: SubResource("Resource_w2eqh"),
+3: SubResource("Resource_7oekl"),
+4: SubResource("Resource_60to4"),
+5: SubResource("Resource_74tio"),
+6: SubResource("Resource_nxrt6"),
+7: SubResource("Resource_8g2d5"),
+8: SubResource("Resource_mnpw0"),
+9: SubResource("Resource_n2xmr"),
+10: SubResource("Resource_ewwog")
+})
+metadata/_custom_type_script = "uid://c0jl23t6vw8iv"
+
+[sub_resource type="Resource" id="Resource_k14ek"]
+script = ExtResource("4_uwg7e")
+char_level = SubResource("Resource_f532h")
+stats = SubResource("Resource_1n8ps")
+skills = Array[ExtResource("5_sc38e")]([ExtResource("6_6ia7f")])
+metadata/_custom_type_script = "uid://bjxna3hubfe3e"
+
+[node name="Test Enemy" type="CharacterBody3D"]
+script = ExtResource("1_f532h")
+metadata/_custom_type_script = "uid://bsmpeomvkmf3s"
+
+[node name="SkinHandler" type="Node3D" parent="."]
+script = ExtResource("13_1n8ps")
+metadata/_custom_type_script = "uid://c8g84r6lr3p11"
+
+[node name="Necrobot" parent="SkinHandler" instance=ExtResource("3_uwg7e")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_h00v1")
+
+[node name="Combatant" type="Node" parent="."]
+script = ExtResource("2_1n8ps")
+character_data = SubResource("Resource_k14ek")
+metadata/_custom_type_script = "uid://8sde302rbesp"
+
+[node name="Mover" type="Node" parent="." node_paths=PackedStringArray("nav_agent")]
+script = ExtResource("10_mu78d")
+nav_agent = NodePath("../NavigationAgent3D")
+metadata/_custom_type_script = "uid://cada6c8iy7u5b"
+
+[node name="CreatureLocomotionController" type="Node" parent="." node_paths=PackedStringArray("combatant", "nav_agent")]
+script = ExtResource("11_cwlyn")
+combatant = NodePath("../Combatant")
+nav_agent = NodePath("../NavigationAgent3D")
+initial_state = NodePath("CLGround")
+metadata/_custom_type_script = "uid://dj3c5i13ppjbo"
+
+[node name="CLGround" type="Node" parent="CreatureLocomotionController"]
+script = ExtResource("12_vghwm")
+metadata/_custom_type_script = "uid://38ya1yc1jqft"
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]

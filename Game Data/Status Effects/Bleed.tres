@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="StatusEffect" load_steps=8 format=3 uid="uid://bclc05ckubohh"]
+
+[ext_resource type="Script" uid="uid://dgk6l8djvrkuv" path="res://Scripts/Character/Status Effect/Definitions/StatusEffectDefinition.gd" id="1_oj0ed"]
+[ext_resource type="Script" uid="uid://cai4aytsnjimb" path="res://Scripts/Character/Status Effect/StatusEffect.gd" id="2_0l13m"]
+[ext_resource type="Texture2D" uid="uid://qft70xy0guyv" path="res://Imported Assets/GUI/Freegameart Cyberpunk Skill Icons/cyberpunk icon 48.png" id="2_y5s8r"]
+[ext_resource type="Script" uid="uid://dhawf7kcnt6om" path="res://Scripts/Stats/StatModifier.gd" id="4_y0dw1"]
+[ext_resource type="Script" uid="uid://kcujsumottt8" path="res://Scripts/Character/Status Effect/Definitions/TickSED.gd" id="5_y0dw1"]
+
+[sub_resource type="Resource" id="Resource_xw0tq"]
+script = ExtResource("4_y0dw1")
+stat_changing = 4
+value = 5.0
+metadata/_custom_type_script = "uid://dhawf7kcnt6om"
+
+[sub_resource type="Resource" id="Resource_6w3l7"]
+script = ExtResource("5_y0dw1")
+is_dot = true
+mod = SubResource("Resource_xw0tq")
+damage_type = 5
+metadata/_custom_type_script = "uid://kcujsumottt8"
+
+[resource]
+script = ExtResource("2_0l13m")
+localization_name = "Bleed"
+localization_description = "Take damage overtime."
+display_icon = ExtResource("2_y5s8r")
+is_negative = true
+tick_effects = Array[ExtResource("1_oj0ed")]([SubResource("Resource_6w3l7")])

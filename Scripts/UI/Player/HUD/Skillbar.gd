@@ -25,8 +25,6 @@ func _clear() -> void:
 ## When the player has selected their unit(s), display the relevant skills.
 func _on_characters_selected(selected: Array[Actor]) -> void:
 	_clear()
-	if OS.is_debug_build() == true:
-		print("Skillbar :: Detected selected characters. {%s}" % [selected])
 	if selected.size() < 1:
 		hide()
 		return

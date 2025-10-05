@@ -10,4 +10,4 @@ func execute(targeting_data: TargetingData) -> void:
 		t.get_tree().get_root().add_child(p)
 		p.global_position = t.global_position
 		# TODO: Setting the raw position like this is bad form.
-		t.global_position = targeting_data.partitions[0].global_position + Vector3.UP
+		t.global_position = targeting_data.partitions[0].global_position + Vector3(0.0, 2.5, 0.0)

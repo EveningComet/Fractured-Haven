@@ -1,0 +1,65 @@
+[gd_scene load_steps=14 format=3 uid="uid://cthdv6ab3pmaq"]
+
+[ext_resource type="PackedScene" uid="uid://bqxsxrpex6ljp" path="res://Imported Assets/Models/Necrobot/Necrobot.glb" id="1_36syl"]
+[ext_resource type="Script" uid="uid://lruu11ua8cgc" path="res://Scripts/Character/CharacterSkin.gd" id="2_j804v"]
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_36syl"]
+filter_enabled = true
+filters = ["metarig/Skeleton3D:chest", "metarig/Skeleton3D:forearm.L", "metarig/Skeleton3D:forearm.L.001", "metarig/Skeleton3D:forearm.L.002", "metarig/Skeleton3D:forearm.L.003", "metarig/Skeleton3D:forearm.L.004", "metarig/Skeleton3D:forearm.L.005", "metarig/Skeleton3D:forearm.R", "metarig/Skeleton3D:forearm.R.001", "metarig/Skeleton3D:forearm.R.002", "metarig/Skeleton3D:forearm.R.003", "metarig/Skeleton3D:forearm.R.004", "metarig/Skeleton3D:forearm.R.005", "metarig/Skeleton3D:hand.L", "metarig/Skeleton3D:hand.L.001", "metarig/Skeleton3D:hand.L.002", "metarig/Skeleton3D:hand.L.003", "metarig/Skeleton3D:hand.L.004", "metarig/Skeleton3D:hand.L.005", "metarig/Skeleton3D:hand.L.006", "metarig/Skeleton3D:hand.L.007", "metarig/Skeleton3D:hand.R", "metarig/Skeleton3D:hand.R.001", "metarig/Skeleton3D:hand.R.002", "metarig/Skeleton3D:hand.R.003", "metarig/Skeleton3D:hand.R.004", "metarig/Skeleton3D:hand.R.005", "metarig/Skeleton3D:hand.R.006", "metarig/Skeleton3D:hand.R.007", "metarig/Skeleton3D:head", "metarig/Skeleton3D:neck", "metarig/Skeleton3D:neck.001", "metarig/Skeleton3D:shoulder.L", "metarig/Skeleton3D:shoulder.R", "metarig/Skeleton3D:spine", "metarig/Skeleton3D:upper_arm.L", "metarig/Skeleton3D:upper_arm.R"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_36syl"]
+animation = &"IdleAnimationNEW"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_j804v"]
+animation = &"RunTest1_003"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_08qiq"]
+animation = &"RunTest1_003"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vjuk5"]
+animation = &"RunTest1_003"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_i1iqq"]
+animation = &"RunTest1_003"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_36syl"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_36syl")
+blend_point_0/pos = Vector2(0, 0)
+blend_point_1/node = SubResource("AnimationNodeAnimation_j804v")
+blend_point_1/pos = Vector2(0, 1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_08qiq")
+blend_point_2/pos = Vector2(0, -1)
+blend_point_3/node = SubResource("AnimationNodeAnimation_vjuk5")
+blend_point_3/pos = Vector2(1, 0)
+blend_point_4/node = SubResource("AnimationNodeAnimation_i1iqq")
+blend_point_4/pos = Vector2(-1, 0)
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_u3x87"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_36syl"]
+states/locomotion/node = SubResource("AnimationNodeBlendSpace2D_36syl")
+states/locomotion/position = Vector2(410, 120)
+transitions = ["Start", "locomotion", SubResource("AnimationNodeStateMachineTransition_u3x87")]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_pl4wn"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_36syl"]
+graph_offset = Vector2(-528.40375, 69.88723)
+nodes/locomotion/node = SubResource("AnimationNodeStateMachine_36syl")
+nodes/locomotion/position = Vector2(-340, 100)
+nodes/Blend2/node = SubResource("AnimationNodeBlend2_36syl")
+nodes/Blend2/position = Vector2(-20, 140)
+"nodes/upper body/node" = SubResource("AnimationNodeStateMachine_pl4wn")
+"nodes/upper body/position" = Vector2(-460, 380)
+node_connections = [&"output", 0, &"Blend2", &"Blend2", 0, &"locomotion", &"Blend2", 1, &"upper body"]
+
+[node name="Necrobot" instance=ExtResource("1_36syl")]
+transform = Transform3D(-1.0927847e-08, 0, 0.25, 0, 0.25, 0, -0.25, 0, -1.0927847e-08, 0, 0, 0)
+script = ExtResource("2_j804v")
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="2"]
+tree_root = SubResource("AnimationNodeBlendTree_36syl")
+anim_player = NodePath("../AnimationPlayer")
+parameters/locomotion/locomotion/blend_position = Vector2(0, 0)
+parameters/Blend2/blend_amount = 0.0
