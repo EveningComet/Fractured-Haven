@@ -25,7 +25,9 @@ func _on_party_changed(party: Array[Actor]) -> void:
 	for pm: Actor in party:
 		var pm_button: PartyMemberClickableButton = pm_button_prefab.instantiate()
 		pm_button.set_party_member(pm)
+		pm_button.pressed.connect( _on_pm_button_pressed.bind(pm) )
 		_party_container.add_child(pm_button)
 
+## When the player presses one of the party member buttons, select that character.
 func _on_pm_button_pressed(pm: Actor) -> void:
 	_selection_controller

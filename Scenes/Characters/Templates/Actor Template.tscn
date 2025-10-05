@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://csjsqepnvhs0v"]
+[gd_scene load_steps=29 format=3 uid="uid://csjsqepnvhs0v"]
 
 [ext_resource type="Script" uid="uid://bsmpeomvkmf3s" path="res://Scripts/Character/Actor.gd" id="1_f8xlf"]
 [ext_resource type="Script" uid="uid://8sde302rbesp" path="res://Scripts/Character/Combatant.gd" id="2_v5tki"]
@@ -9,6 +9,9 @@
 [ext_resource type="Script" uid="uid://8jc6ikkn1obd" path="res://Scripts/Character/CharLevel.gd" id="5_wmx78"]
 [ext_resource type="Resource" uid="uid://c008ji6wltrhw" path="res://Game Data/Skills/Teleport To Partition Skill.tres" id="6_w2eqh"]
 [ext_resource type="Script" uid="uid://b2v63vqu1bac0" path="res://Scripts/Character/Trait/Trait.gd" id="8_7oekl"]
+[ext_resource type="Script" uid="uid://cada6c8iy7u5b" path="res://Scripts/Character/Movement/Mover.gd" id="10_7oekl"]
+[ext_resource type="Script" uid="uid://38ya1yc1jqft" path="res://Scripts/Character/Movement/Locomotion States/CLGround.gd" id="11_o5a55"]
+[ext_resource type="Script" uid="uid://dj3c5i13ppjbo" path="res://Scripts/Character/Movement/CreatureLocomotionController.gd" id="11_uql5u"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_h00v1"]
 
@@ -38,13 +41,54 @@ script = ExtResource("4_54hwr")
 base_value = 25.0
 metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
 
+[sub_resource type="Resource" id="Resource_60to4"]
+script = ExtResource("4_54hwr")
+base_value = 10.0
+metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
+
+[sub_resource type="Resource" id="Resource_74tio"]
+script = ExtResource("4_54hwr")
+base_value = 5.0
+metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
+
+[sub_resource type="Resource" id="Resource_nxrt6"]
+script = ExtResource("4_54hwr")
+base_value = 5.0
+metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
+
+[sub_resource type="Resource" id="Resource_8g2d5"]
+script = ExtResource("4_54hwr")
+base_value = 10.0
+metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
+
+[sub_resource type="Resource" id="Resource_mnpw0"]
+script = ExtResource("4_54hwr")
+base_value = 10.0
+metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
+
+[sub_resource type="Resource" id="Resource_n2xmr"]
+script = ExtResource("4_54hwr")
+metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
+
+[sub_resource type="Resource" id="Resource_ewwog"]
+script = ExtResource("4_54hwr")
+base_value = 7.5
+metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
+
 [sub_resource type="Resource" id="Resource_tjtog"]
 script = ExtResource("3_autx6")
 stats = Dictionary[int, ExtResource("4_54hwr")]({
 0: SubResource("Resource_o5a55"),
 1: SubResource("Resource_qhyyr"),
 2: SubResource("Resource_w2eqh"),
-3: SubResource("Resource_7oekl")
+3: SubResource("Resource_7oekl"),
+4: SubResource("Resource_60to4"),
+5: SubResource("Resource_74tio"),
+6: SubResource("Resource_nxrt6"),
+7: SubResource("Resource_8g2d5"),
+8: SubResource("Resource_mnpw0"),
+9: SubResource("Resource_n2xmr"),
+10: SubResource("Resource_ewwog")
 })
 metadata/_custom_type_script = "uid://c0jl23t6vw8iv"
 
@@ -70,3 +114,21 @@ shape = SubResource("CapsuleShape3D_h00v1")
 script = ExtResource("2_v5tki")
 character_data = SubResource("Resource_uf240")
 metadata/_custom_type_script = "uid://8sde302rbesp"
+
+[node name="Mover" type="Node" parent="." node_paths=PackedStringArray("nav_agent")]
+script = ExtResource("10_7oekl")
+nav_agent = NodePath("../NavigationAgent3D")
+metadata/_custom_type_script = "uid://cada6c8iy7u5b"
+
+[node name="CreatureLocomotionController" type="Node" parent="." node_paths=PackedStringArray("combatant", "nav_agent")]
+script = ExtResource("11_uql5u")
+combatant = NodePath("../Combatant")
+nav_agent = NodePath("../NavigationAgent3D")
+initial_state = NodePath("CLGround")
+metadata/_custom_type_script = "uid://dj3c5i13ppjbo"
+
+[node name="CLGround" type="Node" parent="CreatureLocomotionController"]
+script = ExtResource("11_o5a55")
+metadata/_custom_type_script = "uid://38ya1yc1jqft"
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]

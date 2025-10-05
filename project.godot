@@ -11,10 +11,10 @@ config_version=5
 [application]
 
 config/name="Fractured Haven"
-config/description="An RPG. It takes some inspiration from Dungeon Of The Endless."
+config/description="An RPG. It takes some inspiration from Dungeon Of The Endless and combines that with creature collecting and party building."
 run/main_scene="uid://bdxynk8wrarjk"
 config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="uid://4aqpm67myqtb"
+config/icon="uid://cc34pnqtusqw"
 
 [autoload]
 

@@ -14,3 +14,4 @@ func set_party_member(new_pm: Actor) -> void:
 
 func _on_stats_changed(stats: CharacterStats) -> void:
 	hp_bar.update_display(stats.curr_hp, stats.max_hp)
+	sp_bar.update_display(stats.curr_sp, stats.max_sp)

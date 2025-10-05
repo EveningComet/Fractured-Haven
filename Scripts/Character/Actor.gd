@@ -9,6 +9,8 @@ var partition: Partition = null:
 
 @onready var combatant: Combatant = $Combatant
 
+@onready var mover: Mover = $Mover
+
 ## TODO: Delete this. Only for testing.
 @export var owned_by_player: bool = false
 func _ready() -> void:

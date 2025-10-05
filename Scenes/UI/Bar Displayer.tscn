@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://c3wryh02khwcn" path="res://Scripts/UI/BarDisplayer.gd" id="1_lr86i"]
 
 [node name="Bar Displayer" type="ProgressBar" node_paths=PackedStringArray("value_label")]
-custom_minimum_size = Vector2(100, 25)
+custom_minimum_size = Vector2(25, 25)
 offset_right = 4.0
 offset_bottom = 27.0
 value = 50.0

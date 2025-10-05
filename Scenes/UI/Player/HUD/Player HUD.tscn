@@ -32,7 +32,7 @@ offset_right = 20.0
 offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_constants/separation = 5
+theme_override_constants/separation = 10
 
 [node name="Skillbar" parent="Control/VBoxContainer" instance=ExtResource("3_yu8td")]
 layout_mode = 2
