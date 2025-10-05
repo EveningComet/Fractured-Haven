@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://cxhdetyqj8r0p"]
+[gd_scene load_steps=19 format=3 uid="uid://cxhdetyqj8r0p"]
 
 [ext_resource type="PackedScene" uid="uid://csjsqepnvhs0v" path="res://Scenes/Characters/Templates/Actor Template.tscn" id="1_f607v"]
 [ext_resource type="Script" uid="uid://dm52vxni74eyj" path="res://Scripts/World/Partition/Partition.gd" id="1_lyqys"]
+[ext_resource type="Script" uid="uid://cbfor4a0t7nl1" path="res://Scripts/World/Partition/Board.gd" id="2_p7cp4"]
 [ext_resource type="Texture2D" uid="uid://cxymice35l0bo" path="res://Imported Assets/KenneyNL Prototyping Textures/Dark/texture_01.png" id="2_rmiod"]
 [ext_resource type="Script" uid="uid://ryu4fospsa37" path="res://Scripts/World/Partition/Connection.gd" id="3_h00v1"]
 [ext_resource type="Texture2D" uid="uid://cnt2uiewxhing" path="res://Imported Assets/KenneyNL Prototyping Textures/Light/texture_01.png" id="3_jmi3t"]
@@ -68,54 +69,55 @@ environment = SubResource("Environment_lk5v0")
 [node name="Actor" parent="." instance=ExtResource("1_f607v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 
-[node name="Partitions" type="Node3D" parent="."]
+[node name="Board" type="Node3D" parent="."]
+script = ExtResource("2_p7cp4")
 
-[node name="Partition" type="Area3D" parent="Partitions"]
+[node name="Partition" type="Area3D" parent="Board"]
 script = ExtResource("1_lyqys")
 connections = Array[ExtResource("3_h00v1")]([SubResource("Resource_p7cp4")])
 metadata/_custom_type_script = "uid://dm52vxni74eyj"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Partitions/Partition"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Board/Partition"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
 shape = SubResource("BoxShape3D_rmiod")
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Partitions/Partition"]
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Board/Partition"]
 use_collision = true
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Partitions/Partition/CSGCombiner3D"]
+[node name="CSGBox3D" type="CSGBox3D" parent="Board/Partition/CSGCombiner3D"]
 size = Vector3(10, 1, 10)
 material = SubResource("StandardMaterial3D_jmi3t")
 
-[node name="Partition2" type="Area3D" parent="Partitions"]
+[node name="Partition2" type="Area3D" parent="Board"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
 script = ExtResource("1_lyqys")
 connections = Array[ExtResource("3_h00v1")]([SubResource("Resource_h00v1"), SubResource("Resource_kx3jy")])
 metadata/_custom_type_script = "uid://dm52vxni74eyj"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Partitions/Partition2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Board/Partition2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
 shape = SubResource("BoxShape3D_jmi3t")
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Partitions/Partition2"]
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Board/Partition2"]
 use_collision = true
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Partitions/Partition2/CSGCombiner3D"]
+[node name="CSGBox3D" type="CSGBox3D" parent="Board/Partition2/CSGCombiner3D"]
 size = Vector3(10, 1, 5)
 material = SubResource("StandardMaterial3D_f607v")
 
-[node name="Partition3" type="Area3D" parent="Partitions"]
+[node name="Partition3" type="Area3D" parent="Board"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 0)
 script = ExtResource("1_lyqys")
 connections = Array[ExtResource("3_h00v1")]([SubResource("Resource_1yaum")])
 metadata/_custom_type_script = "uid://dm52vxni74eyj"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Partitions/Partition3"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Board/Partition3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
 shape = SubResource("BoxShape3D_f607v")
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Partitions/Partition3"]
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Board/Partition3"]
 use_collision = true
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Partitions/Partition3/CSGCombiner3D"]
+[node name="CSGBox3D" type="CSGBox3D" parent="Board/Partition3/CSGCombiner3D"]
 size = Vector3(10, 1, 10)
 material = SubResource("StandardMaterial3D_jmi3t")
