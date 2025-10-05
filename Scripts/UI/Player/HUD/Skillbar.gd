@@ -40,6 +40,9 @@ func _on_characters_selected(selected: Array[Actor]) -> void:
 			skill_slot.pressed.connect(_on_skill_button_pressed.bind(unit, s))
 	show()
 
+## When the player has pressed a skill button, pass the related user and the skill
+## to the [PlayerInputController].
 func _on_skill_button_pressed(user: Actor, skill: SkillData) -> void:
 	if OS.is_debug_build() == true:
 		print("Skillbar :: Noticed that the player is trying to perform a skill.")
+	_input_controller.making_character_use_skill(user, skill)

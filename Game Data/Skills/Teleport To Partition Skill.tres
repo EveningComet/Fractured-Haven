@@ -1,19 +1,34 @@
-[gd_resource type="Resource" script_class="SkillData" load_steps=6 format=3 uid="uid://c008ji6wltrhw"]
+[gd_resource type="Resource" script_class="SkillData" load_steps=11 format=3 uid="uid://c008ji6wltrhw"]
 
 [ext_resource type="Script" uid="uid://b7py1wkn0b4gg" path="res://Scripts/Character/Skill/Effects/SkillEffect.gd" id="1_a8f2o"]
+[ext_resource type="Script" uid="uid://u13fodt6pf5p" path="res://Scripts/Character/Skill/Targeting AOE/SpecifySkillArea.gd" id="1_gu3fn"]
 [ext_resource type="Script" uid="uid://ciuuac3t3scx5" path="res://Scripts/Character/Skill/SkillData.gd" id="2_7qd1i"]
 [ext_resource type="Script" uid="uid://cv2eqqoqx68a0" path="res://Scripts/Character/Skill/Effects/TeleportToPartition.gd" id="2_ncfsk"]
+[ext_resource type="PackedScene" uid="uid://bfe438hx54gl1" path="res://Scenes/Effects/Teleportation Particles.tscn" id="3_6migp"]
 [ext_resource type="Texture2D" uid="uid://4aqpm67myqtb" path="res://Imported Assets/Icon/icon.svg" id="3_ncfsk"]
+[ext_resource type="Script" uid="uid://ghc0xhg5fg4d" path="res://Scripts/Character/Skill/Targeting Range/ConstantRange.gd" id="5_6migp"]
+
+[sub_resource type="Resource" id="Resource_ekt07"]
+script = ExtResource("1_gu3fn")
+range_in_partitions = 0
+metadata/_custom_type_script = "uid://u13fodt6pf5p"
 
 [sub_resource type="Resource" id="Resource_7jotq"]
 script = ExtResource("2_ncfsk")
+particles_prefab = ExtResource("3_6migp")
 metadata/_custom_type_script = "uid://cv2eqqoqx68a0"
+
+[sub_resource type="Resource" id="Resource_y7mcp"]
+script = ExtResource("5_6migp")
+range_in_partitions = 3
+metadata/_custom_type_script = "uid://ghc0xhg5fg4d"
 
 [resource]
 script = ExtResource("2_7qd1i")
 localization_name = "Teleport"
 localization_description = "Teleport to a nearby area."
 icon = ExtResource("3_ncfsk")
-range_in_partitions = 3
+range = SubResource("Resource_y7mcp")
+aoe = SubResource("Resource_ekt07")
 effects = Array[ExtResource("1_a8f2o")]([SubResource("Resource_7jotq")])
 metadata/_custom_type_script = "uid://ciuuac3t3scx5"

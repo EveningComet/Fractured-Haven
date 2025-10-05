@@ -12,3 +12,6 @@ class_name SkillEffect extends Resource
 
 func execute(targeting_data: TargetingData) -> void:
 	pass
+
+func _get_power(stats: CharacterStats):
+	return floor( Formulas.get_calculated_value(stat_used, stats) * power_scale )

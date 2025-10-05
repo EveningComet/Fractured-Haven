@@ -16,7 +16,14 @@ func _ready() -> void:
 func setup_connections() -> void:
 	for c: Connection in connections:
 		c.partition = get_node(c.to_path)
-	
+
+## Get the zones connected to this [Partition].
+func get_neighbors() -> Array[Partition]:
+	var neighbors: Array[Partition] = []
+	for c in connections:
+		neighbors.append(c.partition)
+	return neighbors
+
 func _on_body_entered(body) -> void:
 	if body is Actor:
 		if OS.is_debug_build() == true:

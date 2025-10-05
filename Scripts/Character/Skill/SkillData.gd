@@ -10,14 +10,15 @@ class_name SkillData extends Resource
 @export var sp_cost: int = 5
 # TODO: What if the skill should cost health?
 
-@export var targeting_logic: TargetingLogic = null
+## Defines the "reach" of a skill.
+@export var range: TargetingRange = null
 
-## How far away, in [Partition]s, does this skill "reach?"
-@export var range_in_partitions: int = 0
+## Defines what around the target may be additionally targeted.
+@export var aoe:   TargetingAOE   = null
 
-## Range in meters. This is mainly for targeting characters within the same
-## [Partition].
-@export var range: float = 5.0
+## How far away, in meters, the character has to be perform this skill. Mainly
+## for skills that target a specific character.`
+@export var action_range: float = 5.0
 
 ## Objects that describe what this does.
 @export var effects: Array[SkillEffect] = []

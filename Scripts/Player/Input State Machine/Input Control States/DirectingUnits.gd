@@ -18,6 +18,7 @@ func check_for_unhandled_input(event: InputEvent) -> void:
 			var result = Utils.raycast_mouse(m_pos, _camera_controller.camera)
 			if result:
 				for u: Actor in _selection_controller.curr_pawns:
+					# TODO: remove the teleporting.
 					u.global_position = result.position + Vector3.UP
 
 ## Return to the default state when there's nobody selected.

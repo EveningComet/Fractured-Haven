@@ -4,6 +4,11 @@ class_name Formulas extends Node
 const MAX_ATTACK_RATE: float = 10.00
 const MIN_ATTACK_RATE: float = 0.20
 
+static func get_calculated_value(stat_used: StatHelper.StatTypes, stats: CharacterStats) -> float:
+	match stat_used:
+		_:
+			return stats.stats[stat_used].get_calculated_value()
+
 static func get_max_hp_value(stats: CharacterStats) -> int:
 	return floor(stats.stats[StatHelper.StatTypes.MaxHP].get_calculated_value())
 
