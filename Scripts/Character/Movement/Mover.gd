@@ -76,7 +76,7 @@ func orient_to_direction(desired_dir: Vector3, delta: float) -> void:
 	var q_from         = _cb.transform.basis.get_rotation_quaternion()
 	var left_axis      = Vector3.UP.cross(desired_dir)
 	var rotation_basis = Basis(left_axis, Vector3.UP, desired_dir).get_rotation_quaternion()
-	_cb.basis           = Basis(q_from.slerp(rotation_basis, rot_speed * delta))
+	_cb.basis          = Basis(q_from.slerp(rotation_basis, rot_speed * delta))
 	
 	# Prevent weird stuff from happening
 	_cb.transform.basis = _cb.transform.basis.orthonormalized()

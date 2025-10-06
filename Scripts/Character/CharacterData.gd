@@ -9,6 +9,8 @@ class_name CharacterData extends Resource
 ## The character's current stats.
 @export var stats: CharacterStats = CharacterStats.new()
 
+@export var equipment: EquipmentInventory = EquipmentInventory.new(self)
+
 ## The character's current skills.
 @export var skills: Array[SkillData] = []
 

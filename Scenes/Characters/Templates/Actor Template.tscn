@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://csjsqepnvhs0v"]
+[gd_scene load_steps=34 format=3 uid="uid://csjsqepnvhs0v"]
 
 [ext_resource type="Script" uid="uid://bsmpeomvkmf3s" path="res://Scripts/Character/Actor.gd" id="1_f8xlf"]
 [ext_resource type="Script" uid="uid://8sde302rbesp" path="res://Scripts/Character/Combatant.gd" id="2_v5tki"]
@@ -8,7 +8,9 @@
 [ext_resource type="Script" uid="uid://bjxna3hubfe3e" path="res://Scripts/Character/CharacterData.gd" id="4_qhyyr"]
 [ext_resource type="Script" uid="uid://ciuuac3t3scx5" path="res://Scripts/Character/Skill/SkillData.gd" id="5_w2eqh"]
 [ext_resource type="Script" uid="uid://8jc6ikkn1obd" path="res://Scripts/Character/CharLevel.gd" id="5_wmx78"]
+[ext_resource type="Script" uid="uid://06rht61xppcr" path="res://Scripts/Inventory/EquipmentInventory.gd" id="6_nxrt6"]
 [ext_resource type="Resource" uid="uid://c008ji6wltrhw" path="res://Game Data/Skills/Teleport To Partition Skill.tres" id="6_w2eqh"]
+[ext_resource type="Script" uid="uid://cwtn0caf2mh4p" path="res://Scripts/Inventory/ItemSlotData.gd" id="7_8g2d5"]
 [ext_resource type="Script" uid="uid://b2v63vqu1bac0" path="res://Scripts/Character/Trait/Trait.gd" id="8_7oekl"]
 [ext_resource type="Resource" uid="uid://cix0ryioer8n1" path="res://Game Data/Skills/Make 'Em Bleed.tres" id="9_60to4"]
 [ext_resource type="Script" uid="uid://cada6c8iy7u5b" path="res://Scripts/Character/Movement/Mover.gd" id="10_7oekl"]
@@ -21,6 +23,11 @@
 [sub_resource type="Resource" id="Resource_uql5u"]
 script = ExtResource("5_wmx78")
 metadata/_custom_type_script = "uid://8jc6ikkn1obd"
+
+[sub_resource type="Resource" id="Resource_ntr4n"]
+script = ExtResource("6_nxrt6")
+stored_items = Array[ExtResource("7_8g2d5")]([null, null, null, null])
+metadata/_custom_type_script = "uid://06rht61xppcr"
 
 [sub_resource type="Resource" id="Resource_o5a55"]
 script = ExtResource("4_54hwr")
@@ -95,8 +102,10 @@ metadata/_custom_type_script = "uid://c0jl23t6vw8iv"
 
 [sub_resource type="Resource" id="Resource_uf240"]
 script = ExtResource("4_qhyyr")
+char_name = "Cool Dude"
 char_level = SubResource("Resource_uql5u")
 stats = SubResource("Resource_tjtog")
+equipment = SubResource("Resource_ntr4n")
 skills = Array[ExtResource("5_w2eqh")]([ExtResource("6_w2eqh"), ExtResource("9_60to4")])
 metadata/_custom_type_script = "uid://bjxna3hubfe3e"
 

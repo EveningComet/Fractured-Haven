@@ -47,8 +47,7 @@ func take_damage(dd: DamageData) -> void:
 	# Subtract the damage based on the damage type
 	match damage_type:
 		StatHelper.DamageTypes.Base:
-			#damage_amount -= Formulas.get_defense(self)
-			pass
+			damage_amount -= Formulas.get_calculated_value(StatHelper.StatTypes.Toughness, self)
 		
 		# All other damage types get scaled
 		_:
