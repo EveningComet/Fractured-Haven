@@ -53,6 +53,9 @@ func _move(delta: float) -> void:
 	var curr_pos: Vector3 = _cb.global_position
 	var target_pos: Vector3 = nav_agent.get_next_path_position()
 	_input_dir = (target_pos - curr_pos).normalized()
+	if nav_agent.is_navigation_finished() == true:
+		_input_dir.x = 0.0
+		_input_dir.z = 0.0
 	
 	_apply_acceleration(delta)
 	_apply_friction(delta)
@@ -60,9 +63,7 @@ func _move(delta: float) -> void:
 	_target_velocity.y -= _gravity * delta
 	if _cb.is_on_floor() == true or _cb.is_on_ceiling() == true:
 		_target_velocity.y = 0.0
-	
-	if nav_agent.is_navigation_finished() == true:
-		return
+		
 	orient_to_direction(-_target_velocity, delta)
 	_cb.set_velocity(_target_velocity)
 	_cb.move_and_slide()
