@@ -2,10 +2,10 @@
 class_name CharacterStats extends Resource
 
 ## Fired when a character should be considered KO'd/dead/etc.
-signal hp_depleted
+signal hp_depleted(_stats: CharacterStats)
 
 ## Fired whenever a stat's value changes.
-signal stat_changed(stats: CharacterStats)
+signal stat_changed(_stats: CharacterStats)
 
 @export var stats: Dictionary[StatHelper.StatTypes, Stat] = {}
 
@@ -76,4 +76,4 @@ func remove_sp(amount_to_remove: int) -> void:
 	curr_sp -= amount_to_remove
 
 func die() -> void:
-	hp_depleted.emit()
+	hp_depleted.emit(self)
