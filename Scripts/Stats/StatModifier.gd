@@ -12,15 +12,3 @@ class_name StatModifier extends Resource
 
 ## How much priority does this modifier have?
 @export var sort_order: int = 0
-
-## Get the value of this modifier
-func get_value() -> float:
-	return value
-
-## What type of modifier is this?
-func get_modifier_type():
-	return stat_modifier_type
-
-## Get the sorting order.
-func get_sort_order() -> int:
-	return sort_order

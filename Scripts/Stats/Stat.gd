@@ -47,7 +47,7 @@ func get_calculated_value() -> float:
 	var final_value = base_value
 	for mod: StatModifier in modifiers:
 		if mod.stat_modifier_type == StatModifierTypes.StatModifierTypes.Flat:
-			final_value += mod.get_value()
+			final_value += mod.value
 		elif mod.stat_modifier_type == StatModifierTypes.StatModifierTypes.Percent:
-			final_value *= ( 1 + mod.get_value() )
+			final_value *= ( 1 + mod.value )
 	return final_value

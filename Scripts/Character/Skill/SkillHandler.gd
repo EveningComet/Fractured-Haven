@@ -1,4 +1,4 @@
-## Holds and executes skills for a character.
+## Handles the execution of skills for a character.
 class_name SkillHandler extends Node
 
 @onready var combatant: Combatant = Utils.get_node_of_type(get_parent(), Combatant)

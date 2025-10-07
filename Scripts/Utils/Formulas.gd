@@ -4,6 +4,10 @@ class_name Formulas extends Node
 const MAX_ATTACK_RATE: float = 10.00
 const MIN_ATTACK_RATE: float = 0.20
 
+static func calculate_chance_to_hit(attacker: CharacterStats, defender: CharacterStats) -> float:
+	var final: float = 90.0
+	return final
+
 static func get_calculated_value(stat_used: StatHelper.StatTypes, stats: CharacterStats) -> float:
 	match stat_used:
 		_:

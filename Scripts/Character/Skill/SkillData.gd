@@ -9,6 +9,12 @@ class_name SkillData extends Resource
 @export_category("Definitions")
 @export_range(0.0, 100.0) var success_rate: float = 90.0
 
+## How long, in seconds, it takes before this skill can be performed?
+@export var base_activation_time: float = 1.0
+
+## How long, in seconds, before this may be performed again?
+@export var base_cooldown: float = 1.0
+
 @export var sp_cost: int = 5
 # TODO: What if the skill should cost health?
 

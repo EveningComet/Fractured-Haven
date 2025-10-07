@@ -21,6 +21,7 @@ var _gravity:           float = 9.8
 
 ## Reference to the parent character body node. Needed to perform the movement.
 @onready var _cb: CharacterBody3D = get_parent()
+var _stats: CharacterStats        = null
 
 ## The vector that is used to move a character after a direction is given.
 var _target_velocity: Vector3 = Vector3.ZERO
@@ -35,6 +36,10 @@ func _ready() -> void:
 	_gravity = (2 * max_jump_height) / (time_to_jump_apex * time_to_jump_apex)
 	_max_jump_velocity = sqrt(2 * _gravity * max_jump_height)
 	_min_jump_velocity = sqrt(2 * _gravity * min_jump_height)
+	
+	_stats = Utils.get_node_of_type(get_parent(), Combatant).character_data.stats
+	_stats.stat_changed.connect(_on_stat_changed)
+	_on_stat_changed(_stats)
 
 func _physics_process(delta: float) -> void:
 	_move(delta)
@@ -92,3 +97,7 @@ func _apply_friction(delta: float) -> void:
 	if _input_dir == Vector3.ZERO:
 		_target_velocity.x = _target_velocity.move_toward(Vector3.ZERO, friction * delta).x
 		_target_velocity.z = _target_velocity.move_toward(Vector3.ZERO, friction * delta).z
+
+## Checks for any changes in the character's speed.
+func _on_stat_changed(stats: CharacterStats) -> void:
+	_move_speed = Formulas.get_calculated_value(StatHelper.StatTypes.MoveSpeed, stats)
