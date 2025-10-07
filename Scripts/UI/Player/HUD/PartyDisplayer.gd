@@ -30,4 +30,4 @@ func _on_party_changed(party: Array[Actor]) -> void:
 
 ## When the player presses one of the party member buttons, select that character.
 func _on_pm_button_pressed(pm: Actor) -> void:
-	_selection_controller
+	_selection_controller.select_unit_through_button(pm)

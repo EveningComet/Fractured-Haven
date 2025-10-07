@@ -5,7 +5,6 @@ var _unit:  Actor         = null ## The character that is performing the skill.
 var _skill: SkillData     = null ## The skill being performed.
 var _td:    TargetingData = null
 
-# TODO: Account for the user losing all their hp.
 # TODO: Account for the user ending up in another partition.
 
 func enter(msgs: Dictionary = {}) -> void:
@@ -13,6 +12,7 @@ func enter(msgs: Dictionary = {}) -> void:
 		{"user": var user, "skill": var skill}:
 			_unit  = user
 			_skill = skill
+			_unit.combatant.character_data.stats.hp_depleted.connect(_on_hp_depleted)
 			_td = TargetingData.new()
 			_td.user = _unit
 			
@@ -22,11 +22,11 @@ func enter(msgs: Dictionary = {}) -> void:
 			_td.targets.append(_unit)
 			
 func exit() -> void:
+	if _unit != null:
+		_unit.combatant.character_data.stats.hp_depleted.disconnect(_on_hp_depleted)
 	_unit  = null
 	_skill = null
 	_td    = null
-	if OS.is_debug_build() == true:
-		print("FindingSkillTarget :: Exited.")
 
 func check_for_unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
@@ -61,3 +61,7 @@ func _find_what_state_to_return_to() -> void:
 		my_state_machine.change_to_state("DirectingUnits")
 	else:
 		my_state_machine.change_to_state("WaitingForUnitSelection")
+
+## Bail when the character is defeated.
+func _on_hp_depleted(stats: CharacterStats) -> void:
+	_find_what_state_to_return_to()

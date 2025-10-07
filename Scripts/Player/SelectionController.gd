@@ -19,7 +19,8 @@ var _min_drag_dist: float = 16.0
 func _unhandled_input(event: InputEvent) -> void:
 	var m_pos: Vector2 = get_viewport().get_mouse_position()
 	if event.is_action_pressed("left_click") and _dragging == false:
-		clear_selection()
+		if event.is_action_pressed("allow_multi_select") == false:
+			clear_selection()
 		_drag_start = m_pos
 		_dragging = true
 		selection_box.draw_selection(_drag_start, m_pos, _dragging)
@@ -29,24 +30,23 @@ func _unhandled_input(event: InputEvent) -> void:
 		selection_box.draw_selection(_drag_start, m_pos, _dragging)
 	
 	if event.is_action_released("left_click") and _dragging == true:
-		select_units_from_projection(m_pos)
+		_select_units_from_projection(m_pos)
 		_dragging = false
 		selection_box.draw_selection(_drag_start, m_pos, _dragging)
 
 func clear_selection() -> void:
 	for p: Actor in curr_pawns:
-		pass
-		#p.combatant.stats.hp_depleted.disconnect(_on_hp_depleted)
+		p.combatant.character_data.stats.hp_depleted.disconnect(_on_hp_depleted)
 	curr_pawns.clear()
 	_stats_to_pawn.clear()
 	pawns_selected.emit(curr_pawns)
 
 ## Attempt to select units within the created box.
-func select_units_from_projection(m_pos: Vector2) -> void:
+func _select_units_from_projection(m_pos: Vector2) -> void:
 	if m_pos.distance_squared_to(_drag_start) < _min_drag_dist:
 		var u: Actor = _get_unit_under_mouse(m_pos)
 		if u != null:
-			curr_pawns.append(u)
+			select_unit(u)
 	else:
 		var x_min = min(_drag_start.x, m_pos.x)
 		var y_min = min(_drag_start.y, m_pos.y)
@@ -58,8 +58,21 @@ func select_units_from_projection(m_pos: Vector2) -> void:
 		var cam = get_viewport().get_camera_3d()
 		for u: Actor in PlayerPartyController.active_party:
 			if rect.has_point(cam.unproject_position(u.global_position)):
-				_stats_to_pawn[u.combatant.character_data.stats] = u
-				curr_pawns.append(u)
+				select_unit(u)
+	pawns_selected.emit(curr_pawns)
+
+## Select the passed character.
+func select_unit(unit: Actor) -> void:
+	var stats: CharacterStats = unit.combatant.character_data.stats
+	
+	# Add the character if they're not already inside
+	if _stats_to_pawn.has(stats) == false:
+		_stats_to_pawn[stats] = unit
+		stats.hp_depleted.connect(_on_hp_depleted)
+		curr_pawns.append(unit)
+
+func select_unit_through_button(unit: Actor) -> void:
+	select_unit(unit)
 	pawns_selected.emit(curr_pawns)
 
 func _get_unit_under_mouse(m_pos: Vector2):
