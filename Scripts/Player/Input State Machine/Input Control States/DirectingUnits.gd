@@ -18,6 +18,7 @@ func check_for_unhandled_input(event: InputEvent) -> void:
 			var result = Utils.raycast_mouse(m_pos, _camera_controller.camera)
 			if result:
 				for u: Actor in _selection_controller.curr_pawns:
+					# TODO: Formation Movement &/or preventing the characters from trying to get to the same exact location.
 					u.mover.set_destination(result.position)
 
 ## Return to the default state when there's nobody selected.

@@ -30,7 +30,8 @@ func exit() -> void:
 
 func check_for_unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
-		my_state_machine.change_to_state("DirectingUnits")
+		_find_what_state_to_return_to()
+		return
 	_handle_target_validation(event)
 	_handle_skill_execution(event)
 
