@@ -7,8 +7,5 @@ class_name TargetingRange extends Resource
 # TODO: Variable/function for getting the entire map?
 # TODO: Horizontal & vertical range?
 
-func get_targets_in_range(start: Partition) -> Array[Actor]:
+func get_targetables_in_range(start: Partition = null, user: Actor = null) -> Array[Node]:
 	return []
-
-func get_partitions_in_range(start: Partition) -> Array[Partition]:
-	return [start]

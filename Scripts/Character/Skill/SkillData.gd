@@ -24,6 +24,9 @@ class_name SkillData extends Resource
 ## Defines what around the target may be additionally targeted.
 @export var aoe:   TargetingAOE   = null
 
+## Filters what gets targeted by a skill.
+@export var validator: TargetingValidator = null
+
 ## How far away, in meters, the character has to be perform this skill. Mainly
 ## for skills that target a specific character.`
 @export var action_range: float = 5.0

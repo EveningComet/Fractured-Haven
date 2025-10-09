@@ -50,6 +50,9 @@ func _handle_target_validation(event: InputEvent) -> void:
 			if result.collider is Partition:
 				_td.partitions.clear()
 				_td.partitions.append(result.collider)
+			elif result.collider is Actor:
+				if OS.is_debug_build() == true:
+					print("FindingSkillTarget :: Found a targetable unit.")
 
 ## Checks if the player has done the input to execute the skill.
 func _handle_skill_execution(event: InputEvent) -> void:
@@ -66,3 +69,7 @@ func _find_what_state_to_return_to() -> void:
 ## Bail when the character is defeated.
 func _on_hp_depleted(stats: CharacterStats) -> void:
 	_find_what_state_to_return_to()
+
+## Refresh the targets if the character changed where they were, somehow.
+func _on_partition_changed(character: Actor) -> void:
+	pass
