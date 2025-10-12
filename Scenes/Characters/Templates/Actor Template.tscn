@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://csjsqepnvhs0v"]
+[gd_scene load_steps=35 format=3 uid="uid://csjsqepnvhs0v"]
 
 [ext_resource type="Script" uid="uid://bsmpeomvkmf3s" path="res://Scripts/Character/Actor.gd" id="1_f8xlf"]
 [ext_resource type="Script" uid="uid://8sde302rbesp" path="res://Scripts/Character/Combatant.gd" id="2_v5tki"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://b2v63vqu1bac0" path="res://Scripts/Character/Trait/Trait.gd" id="8_7oekl"]
 [ext_resource type="Resource" uid="uid://cix0ryioer8n1" path="res://Game Data/Skills/Skills/Make 'Em Bleed.tres" id="9_60to4"]
 [ext_resource type="Script" uid="uid://cada6c8iy7u5b" path="res://Scripts/Character/Movement/Mover.gd" id="10_7oekl"]
+[ext_resource type="Resource" uid="uid://di6wk1n15bqr0" path="res://Game Data/Skills/Skills/Strike.tres" id="10_8g2d5"]
 [ext_resource type="Script" uid="uid://38ya1yc1jqft" path="res://Scripts/Character/Movement/Locomotion States/CLGround.gd" id="11_o5a55"]
 [ext_resource type="Script" uid="uid://dj3c5i13ppjbo" path="res://Scripts/Character/Movement/CreatureLocomotionController.gd" id="11_uql5u"]
 [ext_resource type="Script" uid="uid://c8g84r6lr3p11" path="res://Scripts/Character/SkinHandler.gd" id="13_tjtog"]
@@ -106,7 +107,7 @@ char_name = "Cool Dude"
 char_level = SubResource("Resource_uql5u")
 stats = SubResource("Resource_tjtog")
 equipment = SubResource("Resource_ntr4n")
-skills = Array[ExtResource("5_w2eqh")]([ExtResource("6_w2eqh"), ExtResource("9_60to4")])
+skills = Array[ExtResource("5_w2eqh")]([ExtResource("10_8g2d5"), ExtResource("9_60to4"), ExtResource("6_w2eqh")])
 metadata/_custom_type_script = "uid://bjxna3hubfe3e"
 
 [node name="Actor Template" type="CharacterBody3D"]

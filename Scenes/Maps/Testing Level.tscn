@@ -121,7 +121,7 @@ environment = SubResource("Environment_lk5v0")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5000001, 0)
 
 [node name="Test Enemy" parent="." instance=ExtResource("8_1yaum")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 0.5, -36)
+transform = Transform3D(0.25881907, 0, 0.9659258, 0, 1, 0, -0.9659258, 0, 0.25881907, 11, 0.5, 0)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_p7cp4")

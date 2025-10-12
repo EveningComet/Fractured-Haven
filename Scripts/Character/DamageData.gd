@@ -15,7 +15,7 @@ var base_power_scale: float = 0.0
 var status_damage_scaler: float = 0.0
 
 ## Heals the attacker based on a percentage of the damage dealt.
-var damage_heal_percentage: float = 0.0
+var lifesteal_percentage: float = 0.0
 
 func get_debuff_scaled_damage() -> int:
 	var new_amount: int = floor(
@@ -26,10 +26,10 @@ func get_debuff_scaled_damage() -> int:
 ## Get the lifesteal which is based on the stored percentage, the damage type,
 ## and the target's health.
 func get_lifesteal_amount(final_damage_amount: int, target: CharacterStats) -> int:
-	var damage: float = float(final_damage_amount)
-	var lifesteal_amount: int = floor( damage * damage_heal_percentage )
+	var damage: float         = float(final_damage_amount)
+	var lifesteal_amount: int = floor( damage * lifesteal_percentage )
 	
 	# Make sure the lifesteal is not outside of the range of the target's health
 	# and return it
-	lifesteal_amount = clamp(lifesteal_amount, 1, max(1, target.get_curr_hp()))
+	lifesteal_amount = clamp(lifesteal_amount, 1, max(1, target.curr_hp))
 	return lifesteal_amount

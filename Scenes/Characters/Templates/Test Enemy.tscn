@@ -6,13 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://cthdv6ab3pmaq" path="res://Scenes/Characters/Models/Necrobot.tscn" id="3_uwg7e"]
 [ext_resource type="Script" uid="uid://bjxna3hubfe3e" path="res://Scripts/Character/CharacterData.gd" id="4_uwg7e"]
 [ext_resource type="Script" uid="uid://ciuuac3t3scx5" path="res://Scripts/Character/Skill/SkillData.gd" id="5_sc38e"]
-[ext_resource type="Resource" uid="uid://c008ji6wltrhw" path="res://Game Data/Skills/Skills/Teleport To Partition Skill.tres" id="6_6ia7f"]
 [ext_resource type="Script" uid="uid://06rht61xppcr" path="res://Scripts/Inventory/EquipmentInventory.gd" id="6_sc38e"]
 [ext_resource type="Script" uid="uid://cwtn0caf2mh4p" path="res://Scripts/Inventory/ItemSlotData.gd" id="7_6ia7f"]
 [ext_resource type="Script" uid="uid://c0jl23t6vw8iv" path="res://Scripts/Character/CharacterStats.gd" id="7_vnr3a"]
 [ext_resource type="Script" uid="uid://dbcd3ncj7kmei" path="res://Scripts/Stats/Stat.gd" id="8_hjuwb"]
 [ext_resource type="Script" uid="uid://b2v63vqu1bac0" path="res://Scripts/Character/Trait/Trait.gd" id="9_ngjnx"]
 [ext_resource type="Script" uid="uid://cada6c8iy7u5b" path="res://Scripts/Character/Movement/Mover.gd" id="10_mu78d"]
+[ext_resource type="Resource" uid="uid://di6wk1n15bqr0" path="res://Game Data/Skills/Skills/Strike.tres" id="10_sc38e"]
 [ext_resource type="Script" uid="uid://dj3c5i13ppjbo" path="res://Scripts/Character/Movement/CreatureLocomotionController.gd" id="11_cwlyn"]
 [ext_resource type="Script" uid="uid://38ya1yc1jqft" path="res://Scripts/Character/Movement/Locomotion States/CLGround.gd" id="12_vghwm"]
 [ext_resource type="Script" uid="uid://c8g84r6lr3p11" path="res://Scripts/Character/SkinHandler.gd" id="13_1n8ps"]
@@ -60,7 +60,6 @@ metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
 
 [sub_resource type="Resource" id="Resource_nxrt6"]
 script = ExtResource("8_hjuwb")
-base_value = 5.0
 metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
 
 [sub_resource type="Resource" id="Resource_8g2d5"]
@@ -101,10 +100,11 @@ metadata/_custom_type_script = "uid://c0jl23t6vw8iv"
 
 [sub_resource type="Resource" id="Resource_k14ek"]
 script = ExtResource("4_uwg7e")
+char_name = "Bad Dude"
 char_level = SubResource("Resource_f532h")
 stats = SubResource("Resource_1n8ps")
 equipment = SubResource("Resource_cwlyn")
-skills = Array[ExtResource("5_sc38e")]([ExtResource("6_6ia7f")])
+skills = Array[ExtResource("5_sc38e")]([ExtResource("10_sc38e")])
 metadata/_custom_type_script = "uid://bjxna3hubfe3e"
 
 [node name="Test Enemy" type="CharacterBody3D"]

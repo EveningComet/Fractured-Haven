@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=12 format=3 uid="uid://di6wk1n15bqr0"]
+
+[ext_resource type="Script" uid="uid://b7py1wkn0b4gg" path="res://Scripts/Character/Skill/Effects/SkillEffect.gd" id="1_c04sx"]
+[ext_resource type="Script" uid="uid://c0eaac5ubaplw" path="res://Scripts/Character/Skill/Targeting AOE/UnitSkillArea.gd" id="1_wrn12"]
+[ext_resource type="Script" uid="uid://ciuuac3t3scx5" path="res://Scripts/Character/Skill/SkillData.gd" id="2_7asqs"]
+[ext_resource type="Texture2D" uid="uid://20t78kg1rhly" path="res://Imported Assets/GUI/Freegameart Cyberpunk Skill Icons/cyberpunk icon 9.png" id="2_h1k4e"]
+[ext_resource type="Script" uid="uid://b1irwtyjit47f" path="res://Scripts/Character/Skill/Effects/DamageSkillEffect.gd" id="3_3huif"]
+[ext_resource type="Script" uid="uid://ghc0xhg5fg4d" path="res://Scripts/Character/Skill/Targeting Range/ConstantRange.gd" id="4_3huif"]
+[ext_resource type="Script" uid="uid://dq5va18fbe4b7" path="res://Scripts/Character/Skill/Targeting Validator/UnitValidator.gd" id="6_n0aot"]
+
+[sub_resource type="Resource" id="Resource_ykn62"]
+script = ExtResource("1_wrn12")
+metadata/_custom_type_script = "uid://c0eaac5ubaplw"
+
+[sub_resource type="Resource" id="Resource_n0aot"]
+script = ExtResource("3_3huif")
+power_scale = 0.5
+metadata/_custom_type_script = "uid://b1irwtyjit47f"
+
+[sub_resource type="Resource" id="Resource_hyf07"]
+script = ExtResource("4_3huif")
+type = 1
+range_in_partitions = 0
+metadata/_custom_type_script = "uid://ghc0xhg5fg4d"
+
+[sub_resource type="Resource" id="Resource_l5d3c"]
+script = ExtResource("6_n0aot")
+metadata/_custom_type_script = "uid://dq5va18fbe4b7"
+
+[resource]
+script = ExtResource("2_7asqs")
+localization_name = "Strike"
+localization_description = "A simple strike against a target. Uses physical power."
+icon = ExtResource("2_h1k4e")
+success_rate = 100.0
+base_activation_time = 0.25
+sp_cost = 0
+range = SubResource("Resource_hyf07")
+aoe = SubResource("Resource_ykn62")
+validator = SubResource("Resource_l5d3c")
+effects = Array[ExtResource("1_c04sx")]([SubResource("Resource_n0aot")])
+metadata/_custom_type_script = "uid://ciuuac3t3scx5"

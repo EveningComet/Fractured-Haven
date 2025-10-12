@@ -16,6 +16,8 @@ var curr_hp: int:
 		if temp > max_hp:
 			temp = max_hp
 		stats[StatHelper.StatTypes.CurrentHP].set_base_value(temp)
+		if OS.is_debug_build() == true:
+			print("CharacterStats :: HP for a character is now: %s/%s." % [curr_hp, max_hp])
 		stat_changed.emit( self )
 
 var max_hp: int:
@@ -58,7 +60,7 @@ func take_damage(dd: DamageData) -> void:
 	curr_hp -= max(1, damage_amount)
 	
 	# Lifesteal check
-	if dd.damage_heal_percentage > 0.0:
+	if dd.lifesteal_percentage > 0.0:
 		var lifesteal_v: int = dd.get_lifesteal_amount(damage_amount, self)
 		dd.activator.heal(lifesteal_v)
 	

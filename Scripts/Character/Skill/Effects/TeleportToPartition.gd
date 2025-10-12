@@ -6,6 +6,8 @@ class_name TeleportToPartition extends SkillEffect
 
 # TODO: Figure out a way to move more than one character.
 func execute(targeting_data: TargetingData) -> void:
+	if targeting_data.partitions.size() == 0:
+		return
 	var p = particles_prefab.instantiate()
 	var user: Actor = targeting_data.user
 	user.get_tree().get_root().add_child(p)
