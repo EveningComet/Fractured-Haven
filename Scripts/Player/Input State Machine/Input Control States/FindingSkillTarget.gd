@@ -4,6 +4,8 @@ class_name FindingSkillTarget extends PlayerInputControlState
 var _unit:  Actor         = null ## The character that is performing the skill.
 var _skill: SkillData     = null ## The skill being performed.
 var _td:    TargetingData = null
+var _result               = null ## Stores the raycast info.
+var _targetables: Array[Node]
 
 # TODO: Account for the user ending up in another partition.
 
@@ -16,17 +18,16 @@ func enter(msgs: Dictionary = {}) -> void:
 			_td = TargetingData.new()
 			_td.user = _unit
 			
-			# TODO: Testing. Find a better way. Need to account for self targeting, etc.
-			# Get the starting area
-			_td.partitions = Board.depth_search([], _td.user.partition, _skill.range.range_in_partitions)
-			_td.targets.append(_unit)
+			_update_targetables()
 			
 func exit() -> void:
 	if _unit != null:
 		_unit.combatant.character_data.stats.hp_depleted.disconnect(_on_hp_depleted)
-	_unit  = null
-	_skill = null
-	_td    = null
+	_unit   = null
+	_skill  = null
+	_td     = null
+	_result = null
+	_targetables.clear()
 
 func check_for_unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
@@ -35,24 +36,21 @@ func check_for_unhandled_input(event: InputEvent) -> void:
 	_handle_target_validation(event)
 	_handle_skill_execution(event)
 
+# TODO: Rename this method?
 func _handle_target_validation(event: InputEvent) -> void:
-	if event is InputEventMouseMotion:
-		var camera = _camera_controller.camera
-		var m_pos: Vector2 = camera.get_viewport().get_mouse_position()
-		var ray_start = camera.project_ray_origin(m_pos)
-		var ray_end   = ray_start + camera.project_ray_normal(m_pos) * 1000
-		var space_state = camera.get_world_3d().direct_space_state
-		# TODO: Separate queries for partitions and characters?
-		var query = PhysicsRayQueryParameters3D.create(ray_start, ray_end)
-		query.collide_with_areas = true
-		var result = space_state.intersect_ray(query)
-		if result:
-			if result.collider is Partition:
+	var camera = _camera_controller.camera
+	var m_pos: Vector2 = camera.get_viewport().get_mouse_position()
+	_result = _skill.validator.get_raycast_info( m_pos, camera )
+	if _result:
+		var targetable: Node = _result.collider
+		if _targetables.has(targetable) == true and _skill.validator.is_valid(targetable) == true:
+			# TODO: AOE needs to get the final target(s).
+			if targetable is Partition:
 				_td.partitions.clear()
-				_td.partitions.append(result.collider)
-			elif result.collider is Actor:
-				if OS.is_debug_build() == true:
-					print("FindingSkillTarget :: Found a targetable unit.")
+				_td.partitions.append(targetable as Partition)
+			elif targetable is Actor:
+				_td.units.clear()
+				_td.units.append(targetable as Actor)
 
 ## Checks if the player has done the input to execute the skill.
 func _handle_skill_execution(event: InputEvent) -> void:
@@ -73,3 +71,8 @@ func _on_hp_depleted(stats: CharacterStats) -> void:
 ## Refresh the targets if the character changed where they were, somehow.
 func _on_partition_changed(character: Actor) -> void:
 	pass
+
+func _update_targetables() -> void:
+	_targetables.clear()
+	var ts: Array[Node] = _skill.range.get_targetables_in_range(_unit.partition)
+	_targetables.append_array( ts )

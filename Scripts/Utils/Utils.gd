@@ -8,7 +8,7 @@ static func get_node_of_type(parent: Node, type):
 			return child
 	
 	return null
-
+	
 static func raycast_mouse(
 	m_pos: Vector2,
 	camera: Camera3D,

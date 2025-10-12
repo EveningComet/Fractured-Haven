@@ -7,6 +7,7 @@ class_name SkillData extends Resource
 @export var icon: Texture2D
 
 @export_category("Definitions")
+## What is the base chance for this skill to succeed against a target?
 @export_range(0.0, 100.0) var success_rate: float = 90.0
 
 ## How long, in seconds, it takes before this skill can be performed?

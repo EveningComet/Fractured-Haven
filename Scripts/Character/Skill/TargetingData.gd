@@ -3,9 +3,9 @@ class_name TargetingData extends Resource
 
 var user: Actor
 var partitions: Array[Partition] = []
-var targets: Array[Actor] = []
+var units: Array[Actor] = []
 
-func _init(unit: Actor = null, ps: Array[Partition] = [], ts: Array[Actor] = []) -> void:
+func _init(unit: Actor = null, ps: Array[Partition] = [], us: Array[Actor] = []) -> void:
 	user       = unit
 	partitions = ps
-	targets    = ts
+	units      = us

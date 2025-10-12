@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cthdv6ab3pmaq" path="res://Scenes/Characters/Models/Necrobot.tscn" id="3_uwg7e"]
 [ext_resource type="Script" uid="uid://bjxna3hubfe3e" path="res://Scripts/Character/CharacterData.gd" id="4_uwg7e"]
 [ext_resource type="Script" uid="uid://ciuuac3t3scx5" path="res://Scripts/Character/Skill/SkillData.gd" id="5_sc38e"]
-[ext_resource type="Resource" uid="uid://c008ji6wltrhw" path="res://Game Data/Skills/Teleport To Partition Skill.tres" id="6_6ia7f"]
+[ext_resource type="Resource" uid="uid://c008ji6wltrhw" path="res://Game Data/Skills/Skills/Teleport To Partition Skill.tres" id="6_6ia7f"]
 [ext_resource type="Script" uid="uid://06rht61xppcr" path="res://Scripts/Inventory/EquipmentInventory.gd" id="6_sc38e"]
 [ext_resource type="Script" uid="uid://cwtn0caf2mh4p" path="res://Scripts/Inventory/ItemSlotData.gd" id="7_6ia7f"]
 [ext_resource type="Script" uid="uid://c0jl23t6vw8iv" path="res://Scripts/Character/CharacterStats.gd" id="7_vnr3a"]

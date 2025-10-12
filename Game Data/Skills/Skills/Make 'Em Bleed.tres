@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=13 format=3 uid="uid://cix0ryioer8n1"]
+
+[ext_resource type="Script" uid="uid://c0eaac5ubaplw" path="res://Scripts/Character/Skill/Targeting AOE/UnitSkillArea.gd" id="1_ckk63"]
+[ext_resource type="Script" uid="uid://b7py1wkn0b4gg" path="res://Scripts/Character/Skill/Effects/SkillEffect.gd" id="2_1atdu"]
+[ext_resource type="Script" uid="uid://0cuvkxut4tyd" path="res://Scripts/Character/Skill/Effects/ApplyStatusEffect.gd" id="3_go1ow"]
+[ext_resource type="Resource" uid="uid://bclc05ckubohh" path="res://Game Data/Status Effects/Bleed.tres" id="4_57bhp"]
+[ext_resource type="Texture2D" uid="uid://qft70xy0guyv" path="res://Imported Assets/GUI/Freegameart Cyberpunk Skill Icons/cyberpunk icon 48.png" id="5_ko4oc"]
+[ext_resource type="Script" uid="uid://ghc0xhg5fg4d" path="res://Scripts/Character/Skill/Targeting Range/ConstantRange.gd" id="6_exr3x"]
+[ext_resource type="Script" uid="uid://ciuuac3t3scx5" path="res://Scripts/Character/Skill/SkillData.gd" id="7_22q1s"]
+[ext_resource type="Script" uid="uid://dq5va18fbe4b7" path="res://Scripts/Character/Skill/Targeting Validator/UnitValidator.gd" id="8_f7her"]
+
+[sub_resource type="Resource" id="Resource_87g14"]
+script = ExtResource("1_ckk63")
+metadata/_custom_type_script = "uid://c0eaac5ubaplw"
+
+[sub_resource type="Resource" id="Resource_6b6t7"]
+script = ExtResource("3_go1ow")
+status_to_apply = ExtResource("4_57bhp")
+metadata/_custom_type_script = "uid://0cuvkxut4tyd"
+
+[sub_resource type="Resource" id="Resource_huav5"]
+script = ExtResource("6_exr3x")
+type = 1
+range_in_partitions = 0
+metadata/_custom_type_script = "uid://ghc0xhg5fg4d"
+
+[sub_resource type="Resource" id="Resource_ckjy2"]
+script = ExtResource("8_f7her")
+metadata/_custom_type_script = "uid://dq5va18fbe4b7"
+
+[resource]
+script = ExtResource("7_22q1s")
+localization_name = "Make 'Em Bleed"
+localization_description = "Ow the edge. Inflicts bleed."
+icon = ExtResource("5_ko4oc")
+range = SubResource("Resource_huav5")
+aoe = SubResource("Resource_87g14")
+validator = SubResource("Resource_ckjy2")
+effects = Array[ExtResource("2_1atdu")]([SubResource("Resource_6b6t7")])
+metadata/_custom_type_script = "uid://ciuuac3t3scx5"

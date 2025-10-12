@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=13 format=3 uid="uid://c008ji6wltrhw"]
+
+[ext_resource type="Script" uid="uid://u13fodt6pf5p" path="res://Scripts/Character/Skill/Targeting AOE/SpecifySkillArea.gd" id="1_c7xh8"]
+[ext_resource type="Script" uid="uid://b7py1wkn0b4gg" path="res://Scripts/Character/Skill/Effects/SkillEffect.gd" id="2_y7h6b"]
+[ext_resource type="PackedScene" uid="uid://bfe438hx54gl1" path="res://Scenes/Effects/Teleportation Particles.tscn" id="3_s415d"]
+[ext_resource type="Script" uid="uid://cv2eqqoqx68a0" path="res://Scripts/Character/Skill/Effects/TeleportToPartition.gd" id="4_japhg"]
+[ext_resource type="Texture2D" uid="uid://4aqpm67myqtb" path="res://Imported Assets/Icon/icon.svg" id="5_2a3mf"]
+[ext_resource type="Script" uid="uid://ghc0xhg5fg4d" path="res://Scripts/Character/Skill/Targeting Range/ConstantRange.gd" id="6_w2nil"]
+[ext_resource type="Script" uid="uid://ciuuac3t3scx5" path="res://Scripts/Character/Skill/SkillData.gd" id="7_aqlvg"]
+[ext_resource type="Script" uid="uid://c83lnjhg0w7p8" path="res://Scripts/Character/Skill/Targeting Validator/PartitionValidator.gd" id="8_c7xh8"]
+
+[sub_resource type="Resource" id="Resource_ekt07"]
+script = ExtResource("1_c7xh8")
+range_in_partitions = 0
+metadata/_custom_type_script = "uid://u13fodt6pf5p"
+
+[sub_resource type="Resource" id="Resource_7jotq"]
+script = ExtResource("4_japhg")
+particles_prefab = ExtResource("3_s415d")
+metadata/_custom_type_script = "uid://cv2eqqoqx68a0"
+
+[sub_resource type="Resource" id="Resource_y7mcp"]
+script = ExtResource("6_w2nil")
+range_in_partitions = 3
+metadata/_custom_type_script = "uid://ghc0xhg5fg4d"
+
+[sub_resource type="Resource" id="Resource_c7xh8"]
+script = ExtResource("8_c7xh8")
+metadata/_custom_type_script = "uid://c83lnjhg0w7p8"
+
+[resource]
+script = ExtResource("7_aqlvg")
+localization_name = "Teleport"
+localization_description = "Teleport to a nearby area."
+icon = ExtResource("5_2a3mf")
+success_rate = 100.0
+range = SubResource("Resource_y7mcp")
+aoe = SubResource("Resource_ekt07")
+validator = SubResource("Resource_c7xh8")
+effects = Array[ExtResource("2_y7h6b")]([SubResource("Resource_7jotq")])
+metadata/_custom_type_script = "uid://ciuuac3t3scx5"

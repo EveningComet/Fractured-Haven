@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cxhdetyqj8r0p"]
+[gd_scene load_steps=32 format=3 uid="uid://cxhdetyqj8r0p"]
 
 [ext_resource type="PackedScene" uid="uid://csjsqepnvhs0v" path="res://Scenes/Characters/Templates/Actor Template.tscn" id="1_f607v"]
 [ext_resource type="Script" uid="uid://dm52vxni74eyj" path="res://Scripts/World/Partition/Partition.gd" id="1_lyqys"]
@@ -29,7 +29,7 @@ agent_radius = 0.75
 
 [sub_resource type="Resource" id="Resource_p7cp4"]
 script = ExtResource("3_h00v1")
-to_path = NodePath("../Partition2")
+to_path = NodePath("../Partition 2")
 metadata/_custom_type_script = "uid://ryu4fospsa37"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rmiod"]
@@ -41,12 +41,12 @@ uv1_triplanar = true
 
 [sub_resource type="Resource" id="Resource_h00v1"]
 script = ExtResource("3_h00v1")
-to_path = NodePath("../Partition")
+to_path = NodePath("../Partition 1")
 metadata/_custom_type_script = "uid://ryu4fospsa37"
 
 [sub_resource type="Resource" id="Resource_kx3jy"]
 script = ExtResource("3_h00v1")
-to_path = NodePath("../Partition3")
+to_path = NodePath("../Partition 3")
 metadata/_custom_type_script = "uid://ryu4fospsa37"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jmi3t"]
@@ -58,7 +58,12 @@ uv1_triplanar = true
 
 [sub_resource type="Resource" id="Resource_1yaum"]
 script = ExtResource("3_h00v1")
-to_path = NodePath("../Partition2")
+to_path = NodePath("../Partition 2")
+metadata/_custom_type_script = "uid://ryu4fospsa37"
+
+[sub_resource type="Resource" id="Resource_v6n5c"]
+script = ExtResource("3_h00v1")
+to_path = NodePath("../Partition 4")
 metadata/_custom_type_script = "uid://ryu4fospsa37"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_f607v"]
@@ -66,7 +71,12 @@ size = Vector3(10, 5, 10)
 
 [sub_resource type="Resource" id="Resource_ily6b"]
 script = ExtResource("3_h00v1")
-to_path = NodePath("../Partition3")
+to_path = NodePath("../Partition 3")
+metadata/_custom_type_script = "uid://ryu4fospsa37"
+
+[sub_resource type="Resource" id="Resource_ysdel"]
+script = ExtResource("3_h00v1")
+to_path = NodePath("../Central Area")
 metadata/_custom_type_script = "uid://ryu4fospsa37"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p7cp4"]
@@ -74,12 +84,12 @@ size = Vector3(10, 5, 5)
 
 [sub_resource type="Resource" id="Resource_d22kw"]
 script = ExtResource("3_h00v1")
-to_path = NodePath("../Partition4")
+to_path = NodePath("../Partition 4")
 metadata/_custom_type_script = "uid://ryu4fospsa37"
 
 [sub_resource type="Resource" id="Resource_emy71"]
 script = ExtResource("3_h00v1")
-to_path = NodePath("../Partition6")
+to_path = NodePath("../Partition 6")
 metadata/_custom_type_script = "uid://ryu4fospsa37"
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_p7cp4"]
@@ -119,70 +129,70 @@ navigation_mesh = SubResource("NavigationMesh_p7cp4")
 [node name="Board" type="Node3D" parent="NavigationRegion3D"]
 script = ExtResource("2_p7cp4")
 
-[node name="Partition" type="Area3D" parent="NavigationRegion3D/Board"]
+[node name="Partition 1" type="Area3D" parent="NavigationRegion3D/Board"]
 script = ExtResource("1_lyqys")
 connections = Array[ExtResource("3_h00v1")]([SubResource("Resource_p7cp4")])
 metadata/_custom_type_script = "uid://dm52vxni74eyj"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Board/Partition"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Board/Partition 1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
 shape = SubResource("BoxShape3D_rmiod")
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="NavigationRegion3D/Board/Partition"]
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="NavigationRegion3D/Board/Partition 1"]
 use_collision = true
 
-[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/Board/Partition/CSGCombiner3D"]
+[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/Board/Partition 1/CSGCombiner3D"]
 size = Vector3(10, 1, 10)
 material = SubResource("StandardMaterial3D_jmi3t")
 
-[node name="Partition2" type="Area3D" parent="NavigationRegion3D/Board"]
+[node name="Partition 2" type="Area3D" parent="NavigationRegion3D/Board"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
 script = ExtResource("1_lyqys")
 connections = Array[ExtResource("3_h00v1")]([SubResource("Resource_h00v1"), SubResource("Resource_kx3jy")])
 metadata/_custom_type_script = "uid://dm52vxni74eyj"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Board/Partition2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Board/Partition 2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
 shape = SubResource("BoxShape3D_jmi3t")
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="NavigationRegion3D/Board/Partition2"]
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="NavigationRegion3D/Board/Partition 2"]
 use_collision = true
 
-[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/Board/Partition2/CSGCombiner3D"]
+[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/Board/Partition 2/CSGCombiner3D"]
 size = Vector3(10, 1, 5)
 material = SubResource("StandardMaterial3D_f607v")
 
-[node name="Partition3" type="Area3D" parent="NavigationRegion3D/Board"]
+[node name="Partition 3" type="Area3D" parent="NavigationRegion3D/Board"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 0)
 script = ExtResource("1_lyqys")
-connections = Array[ExtResource("3_h00v1")]([SubResource("Resource_1yaum")])
+connections = Array[ExtResource("3_h00v1")]([SubResource("Resource_1yaum"), SubResource("Resource_v6n5c")])
 metadata/_custom_type_script = "uid://dm52vxni74eyj"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Board/Partition3"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Board/Partition 3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
 shape = SubResource("BoxShape3D_f607v")
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="NavigationRegion3D/Board/Partition3"]
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="NavigationRegion3D/Board/Partition 3"]
 use_collision = true
 
-[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/Board/Partition3/CSGCombiner3D"]
+[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/Board/Partition 3/CSGCombiner3D"]
 size = Vector3(10, 1, 10)
 material = SubResource("StandardMaterial3D_jmi3t")
 
-[node name="Partition4" type="Area3D" parent="NavigationRegion3D/Board"]
+[node name="Partition 4" type="Area3D" parent="NavigationRegion3D/Board"]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 20, 0, -10)
 script = ExtResource("1_lyqys")
-connections = Array[ExtResource("3_h00v1")]([SubResource("Resource_ily6b")])
+connections = Array[ExtResource("3_h00v1")]([SubResource("Resource_ily6b"), SubResource("Resource_ysdel")])
 metadata/_custom_type_script = "uid://dm52vxni74eyj"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Board/Partition4"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Board/Partition 4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
 shape = SubResource("BoxShape3D_p7cp4")
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="NavigationRegion3D/Board/Partition4"]
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="NavigationRegion3D/Board/Partition 4"]
 use_collision = true
 
-[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/Board/Partition4/CSGCombiner3D"]
+[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/Board/Partition 4/CSGCombiner3D"]
 size = Vector3(10, 1, 5)
 material = SubResource("StandardMaterial3D_f607v")
 
@@ -203,19 +213,19 @@ radius = 16.0
 sides = 6
 material = SubResource("StandardMaterial3D_1yaum")
 
-[node name="Partition6" type="Area3D" parent="NavigationRegion3D/Board"]
+[node name="Partition 6" type="Area3D" parent="NavigationRegion3D/Board"]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 20, 0, -47.6)
 script = ExtResource("1_lyqys")
 connections = Array[ExtResource("3_h00v1")]([SubResource("Resource_faf5v")])
 metadata/_custom_type_script = "uid://dm52vxni74eyj"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Board/Partition6"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Board/Partition 6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
 shape = SubResource("BoxShape3D_v6n5c")
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="NavigationRegion3D/Board/Partition6"]
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="NavigationRegion3D/Board/Partition 6"]
 use_collision = true
 
-[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/Board/Partition6/CSGCombiner3D"]
+[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/Board/Partition 6/CSGCombiner3D"]
 size = Vector3(10, 1, 5)
 material = SubResource("StandardMaterial3D_f607v")

@@ -12,7 +12,11 @@ func setup_partitions_list() -> void:
 
 ## Search for an amount of neighbors, using the starting [Partition], and the depth.
 ## This method uses depth limited search.
-static func depth_search(visited: Array[Partition], start: Partition, depth: int = 1) -> Array[Partition]:
+static func depth_search(
+	visited: Array[Partition],
+	start: Partition,
+	depth: int = 1
+) -> Array[Partition]:
 	visited.append(start)
 	if depth == 0:
 		return visited
