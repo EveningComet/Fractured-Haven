@@ -16,8 +16,6 @@ var curr_hp: int:
 		if temp > max_hp:
 			temp = max_hp
 		stats[StatHelper.StatTypes.CurrentHP].set_base_value(temp)
-		if OS.is_debug_build() == true:
-			print("CharacterStats :: HP for a character is now: %s/%s." % [curr_hp, max_hp])
 		stat_changed.emit( self )
 
 var max_hp: int:

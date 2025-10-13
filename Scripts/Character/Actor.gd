@@ -13,6 +13,9 @@ var partition: Partition = null:
 
 ## TODO: Delete this. Only for testing.
 @export var owned_by_player: bool = false
+
 func _ready() -> void:
+	Eventbus.unit_spawned.emit(self)
+	
 	if owned_by_player == true:
 		PlayerPartyController.add_to_party(self)

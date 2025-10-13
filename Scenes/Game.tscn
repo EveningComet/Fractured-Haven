@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://7kbrpbhs038f"]
+[gd_scene load_steps=12 format=3 uid="uid://7kbrpbhs038f"]
 
 [ext_resource type="PackedScene" uid="uid://cxhdetyqj8r0p" path="res://Scenes/Maps/Testing Level.tscn" id="1_iukft"]
 [ext_resource type="Script" uid="uid://docpccg8hlw8t" path="res://Scripts/Player/PlayerController.gd" id="2_gl6un"]
@@ -10,8 +10,13 @@
 [ext_resource type="Script" uid="uid://dkwyg8sbl73ui" path="res://Scripts/Player/SelectionBox.gd" id="7_fgofq"]
 [ext_resource type="PackedScene" uid="uid://df8httx5hk1fy" path="res://Scenes/Player/Camera Controller.tscn" id="8_2irst"]
 [ext_resource type="PackedScene" uid="uid://ct417dgr6r0gu" path="res://Scenes/UI/Player/HUD/Player HUD.tscn" id="9_bf53h"]
+[ext_resource type="Script" uid="uid://thjq76fyvwel" path="res://Scripts/World/DeathListener.gd" id="11_dahhg"]
 
 [node name="Game" type="Node"]
+
+[node name="DeathListener" type="Node" parent="."]
+script = ExtResource("11_dahhg")
+metadata/_custom_type_script = "uid://thjq76fyvwel"
 
 [node name="Testing Level" parent="." instance=ExtResource("1_iukft")]
 

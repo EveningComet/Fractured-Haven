@@ -30,12 +30,12 @@ metadata/_custom_type_script = "uid://06rht61xppcr"
 
 [sub_resource type="Resource" id="Resource_o5a55"]
 script = ExtResource("8_hjuwb")
-base_value = 50.0
+base_value = 3.0
 metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
 
 [sub_resource type="Resource" id="Resource_qhyyr"]
 script = ExtResource("8_hjuwb")
-base_value = 50.0
+base_value = 3.0
 metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
 
 [sub_resource type="Resource" id="Resource_w2eqh"]

@@ -6,6 +6,8 @@ signal party_changed(party: Array[Actor])
 ## including summons.
 const MAX_PMS_IN_ACTIVE_PARTY: int = 6
 
+# TODO: Replace [Actor] with the [CharacterData] type.
+
 ## The player's current party.
 var active_party: Array[Actor] = []
 
