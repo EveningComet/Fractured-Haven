@@ -30,8 +30,8 @@ func _on_characters_selected(selected: Array[Actor]) -> void:
 		return
 	
 	for unit: Actor in selected:
-		var skills: Array[SkillData] = unit.combatant.character_data.skills
-		for s: SkillData in skills:
+		var skills: Array[SkillInstance] = unit.skill_handler.skills
+		for s: SkillInstance in skills:
 			var skill_slot: Skillslot = skill_button_prefab.instantiate()
 			skill_slot.setup(unit, s)
 			_slot_container.add_child(skill_slot)
@@ -40,7 +40,7 @@ func _on_characters_selected(selected: Array[Actor]) -> void:
 
 ## When the player has pressed a skill button, pass the related user and the skill
 ## to the [PlayerInputController].
-func _on_skill_button_pressed(user: Actor, skill: SkillData) -> void:
+func _on_skill_button_pressed(user: Actor, skill: SkillInstance) -> void:
 	if OS.is_debug_build() == true:
 		print("Skillbar :: Noticed that the player is trying to perform a skill.")
 	_input_controller.making_character_use_skill(user, skill)

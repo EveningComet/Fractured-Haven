@@ -1,8 +1,8 @@
 ## Stores various calculations.
 class_name Formulas extends Node
 
-const MAX_ATTACK_RATE: float = 10.00
-const MIN_ATTACK_RATE: float = 0.20
+## The [SkillData.base_cooldown] can never be less than this value.
+const MIN_SKILL_COOLDOWN: float = 0.20
 
 static func calculate_chance_to_hit(attacker: CharacterStats, defender: CharacterStats) -> float:
 	var final: float = 90.0
