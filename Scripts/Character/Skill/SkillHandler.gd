@@ -22,8 +22,10 @@ func _tick(delta: float) -> void:
 	# Creating a copy in case the skills get altered in anyway.
 	var copy: Array[SkillInstance] = skills.duplicate()
 	for si: SkillInstance in copy:
-		si.tick(delta)
+		if si.is_cooldown_finished() == false:
+			si.tick(delta)
 
+# TODO: Prepare the skill execution if there is a cast/activation time.
 ## Make this character perform the passed skill of the [SkillInstance] object,
 ## with the passed [TargetingData].
 func execute(skill_to_execute: SkillInstance, targeting_data: TargetingData) -> void:

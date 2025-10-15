@@ -13,7 +13,7 @@ offset_bottom = 8.0
 script = ExtResource("1_ifu6u")
 display_icon = NodePath("MarginContainer/Display Icon")
 cooldown_bar = NodePath("Cooldown Bar")
-cooldown_label = NodePath("Label")
+cooldown_label = NodePath("Time Label")
 metadata/_custom_type_script = "uid://jbg787fgwpj2"
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -43,11 +43,10 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 theme_override_styles/fill = SubResource("StyleBoxFlat_aca70")
-value = 50.0
 fill_mode = 3
 show_percentage = false
 
-[node name="Label" type="Label" parent="."]
+[node name="Time Label" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -55,10 +54,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
-text = "42.0"
+text = "0.0"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="Timer" type="Timer" parent="."]
-process_callback = 0
-one_shot = true
