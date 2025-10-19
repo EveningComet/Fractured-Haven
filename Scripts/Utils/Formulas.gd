@@ -1,8 +1,13 @@
 ## Stores various calculations.
 class_name Formulas extends Node
 
-## The [SkillData.base_cooldown] can never be less than this value.
-const MIN_SKILL_COOLDOWN: float = 0.20
+## The [SkillData.base_activation_time] can never be less than this value.
+const MIN_SKILL_ACTIVATION_TIME: float = 0.0
+
+static func get_activation_time(skill_data: SkillData, stats: CharacterStats) -> float:
+	var cunning_stat_val: float = float(get_calculated_value(StatHelper.StatTypes.Cunning, stats))
+	var activation_time:  float = (skill_data.base_activation_time - cunning_stat_val) / 100.0
+	return max(MIN_SKILL_ACTIVATION_TIME, activation_time)
 
 static func calculate_chance_to_hit(attacker: CharacterStats, defender: CharacterStats) -> float:
 	var final: float = 90.0

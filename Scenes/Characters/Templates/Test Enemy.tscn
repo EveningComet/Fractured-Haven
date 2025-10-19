@@ -16,7 +16,7 @@
 [ext_resource type="Script" uid="uid://dj3c5i13ppjbo" path="res://Scripts/Character/Movement/CreatureLocomotionController.gd" id="11_cwlyn"]
 [ext_resource type="Script" uid="uid://38ya1yc1jqft" path="res://Scripts/Character/Movement/Locomotion States/CLGround.gd" id="12_vghwm"]
 [ext_resource type="Script" uid="uid://c8g84r6lr3p11" path="res://Scripts/Character/SkinHandler.gd" id="13_1n8ps"]
-[ext_resource type="Script" uid="uid://ssx74iwh1ik2" path="res://Scripts/Character/Skill/SkillHandler.gd" id="17_6ia7f"]
+[ext_resource type="Script" uid="uid://ssx74iwh1ik2" path="res://Scripts/Character/Skill/Skill Handler/SkillHandler.gd" id="17_6ia7f"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_h00v1"]
 

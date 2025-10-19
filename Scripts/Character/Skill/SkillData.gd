@@ -10,7 +10,7 @@ class_name SkillData extends Resource
 ## What is the base chance for this skill to succeed against a target?
 @export_range(0.0, 100.0) var success_rate: float = 90.0
 
-## How long, in seconds, it takes before this skill can be performed?
+## How long it takes before this skill can be performed?
 @export var base_activation_time: float = 1.0
 
 ## How long, in seconds, before this may be performed again?

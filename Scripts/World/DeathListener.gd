@@ -9,7 +9,6 @@ func _on_unit_spawned(unit: Actor) -> void:
 	unit_stats.hp_depleted.connect(
 		_on_unit_defeated.bind(unit)
 	)
-	print("Shalom.")
 
 func _on_unit_defeated(stats: CharacterStats, unit: Actor) -> void:
 	if OS.is_debug_build() == true:
