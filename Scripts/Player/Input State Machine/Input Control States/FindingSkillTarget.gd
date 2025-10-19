@@ -55,7 +55,7 @@ func _handle_target_validation(event: InputEvent) -> void:
 ## Checks if the player has done the input to execute the skill.
 func _handle_skill_execution(event: InputEvent) -> void:
 	if event.is_action_pressed("left_click"):
-		_unit.skill_handler.execute(_skill, _td)
+		_unit.skill_handler.queue(_skill, _td)
 		_find_what_state_to_return_to()
 		
 func _find_what_state_to_return_to() -> void:

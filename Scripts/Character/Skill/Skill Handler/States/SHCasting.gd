@@ -20,7 +20,6 @@ func exit() -> void:
 
 func physics_update(delta: float) -> void:
 	if _curr_time >= _activation_time:
-		_queued_skill.execute(_queued_td)
-		_my_state_machine.change_to_state(SHIdle)
+		_my_state_machine.change_to_state(SHExecuting)
 		return
 	_curr_time += delta

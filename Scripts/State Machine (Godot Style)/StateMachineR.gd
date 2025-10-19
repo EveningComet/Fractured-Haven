@@ -18,5 +18,5 @@ func change_to_state(state_to_enter, msgs: Dictionary = {}) -> void:
 	_curr_state = _states[state_to_enter]
 	_curr_state.enter(msgs)
 
-func get_initial_state():
+func _get_initial_state():
 	return null

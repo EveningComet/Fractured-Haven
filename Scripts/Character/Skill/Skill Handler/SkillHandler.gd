@@ -18,9 +18,10 @@ func _physics_process(delta: float) -> void:
 func setup() -> void:
 	super()
 	_states.clear()
-	_states[SHIdle]    = SHIdle.new(self)
-	_states[SHCasting] = SHCasting.new(self)
-	change_to_state(get_initial_state())
+	_states[SHIdle]      = SHIdle.new(self)
+	_states[SHCasting]   = SHCasting.new(self)
+	_states[SHExecuting] = SHExecuting.new(self)
+	change_to_state(_get_initial_state())
 	skills.clear()
 	for sd: SkillData in combatant.character_data.skills:
 		var si: SkillInstance = SkillInstance.new(sd)
@@ -37,13 +38,15 @@ func _tick(delta: float) -> void:
 			si.tick(delta)
 
 ## Make this character enter the casting/activating state.
-func execute(skill_to_execute: SkillInstance, targeting_data: TargetingData) -> void:
+func queue(skill_to_execute: SkillInstance, targeting_data: TargetingData) -> void:
+	if _curr_state is SHExecuting:
+		return
 	queued_skill   = skill_to_execute
 	queued_td      = targeting_data
 	change_to_state(SHCasting)
 
 func interrupt() -> void:
-	change_to_state(get_initial_state())
+	change_to_state(_get_initial_state())
 
-func get_initial_state():
+func _get_initial_state():
 	return SHIdle
