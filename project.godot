@@ -31,7 +31,7 @@ window/stretch/mode="viewport"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/scene_manager/plugin.cfg", "res://addons/sound_manager/plugin.cfg")
+enabled=PackedStringArray("res://addons/scene_manager/plugin.cfg", "res://addons/sound_manager/plugin.cfg", "res://addons/utility_ai/plugin.cfg")
 
 [input]
 

@@ -2,7 +2,7 @@
 class_name StateMachineR extends Node
 
 var _states: Dictionary[Variant, Variant] = {}
-var _curr_state: StateR = null
+var curr_state: StateR = null
 
 func _ready() -> void:
 	setup()
@@ -13,10 +13,10 @@ func setup() -> void:
 func change_to_state(state_to_enter, msgs: Dictionary = {}) -> void:
 	if _states.has(state_to_enter) == false:
 		return
-	if _curr_state != null:
-		_curr_state.exit()
-	_curr_state = _states[state_to_enter]
-	_curr_state.enter(msgs)
+	if curr_state != null:
+		curr_state.exit()
+	curr_state = _states[state_to_enter]
+	curr_state.enter(msgs)
 
 func _get_initial_state():
 	return null

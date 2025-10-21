@@ -29,7 +29,7 @@ func setup() -> void:
 
 func _tick(delta: float) -> void:
 	# Update the current state
-	_curr_state.physics_update(delta)
+	curr_state.physics_update(delta)
 	
 	# Creating a copy in case the skills get altered in anyway.
 	var copy: Array[SkillInstance] = skills.duplicate()
@@ -39,7 +39,7 @@ func _tick(delta: float) -> void:
 
 ## Make this character enter the casting/activating state.
 func queue(skill_to_execute: SkillInstance, targeting_data: TargetingData) -> void:
-	if _curr_state is SHExecuting:
+	if curr_state is SHExecuting:
 		return
 	queued_skill   = skill_to_execute
 	queued_td      = targeting_data
