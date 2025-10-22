@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://csjsqepnvhs0v"]
+[gd_scene load_steps=37 format=3 uid="uid://csjsqepnvhs0v"]
 
 [ext_resource type="Script" uid="uid://bsmpeomvkmf3s" path="res://Scripts/Character/Actor.gd" id="1_f8xlf"]
 [ext_resource type="Script" uid="uid://8sde302rbesp" path="res://Scripts/Character/Combatant.gd" id="2_v5tki"]
@@ -19,6 +19,7 @@
 [ext_resource type="Script" uid="uid://dj3c5i13ppjbo" path="res://Scripts/Character/Movement/CreatureLocomotionController.gd" id="11_uql5u"]
 [ext_resource type="Script" uid="uid://c8g84r6lr3p11" path="res://Scripts/Character/SkinHandler.gd" id="13_tjtog"]
 [ext_resource type="Script" uid="uid://ssx74iwh1ik2" path="res://Scripts/Character/Skill/Skill Handler/SkillHandler.gd" id="19_mnpw0"]
+[ext_resource type="Script" uid="uid://bx153jvqrgols" path="res://Scripts/Character/FactionOwner.gd" id="20_n2xmr"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_h00v1"]
 
@@ -152,3 +153,7 @@ metadata/_custom_type_script = "uid://38ya1yc1jqft"
 [node name="SkillHandler" type="Node" parent="."]
 script = ExtResource("19_mnpw0")
 metadata/_custom_type_script = "uid://ssx74iwh1ik2"
+
+[node name="FactionOwner" type="Node" parent="."]
+script = ExtResource("20_n2xmr")
+metadata/_custom_type_script = "uid://bx153jvqrgols"

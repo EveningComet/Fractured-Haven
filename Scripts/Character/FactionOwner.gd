@@ -7,3 +7,6 @@ enum Faction {
 }
 
 @export var faction: Faction = Faction.Player
+
+func is_on_same_team(other: FactionOwner) -> bool:
+	return faction == other.faction

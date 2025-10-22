@@ -16,9 +16,11 @@ var partition: Partition = null:
 ## Component managing the instanced skills for this character.
 @onready var skill_handler: SkillHandler = $SkillHandler
 
+@onready var faction_owner: FactionOwner = $FactionOwner
+
 @onready var mover: Mover = $Mover
 
-## TODO: Delete this. Only for testing.
+## TODO: Delete this when no longer needed. Only for testing.
 @export var owned_by_player: bool = false
 
 func _ready() -> void:

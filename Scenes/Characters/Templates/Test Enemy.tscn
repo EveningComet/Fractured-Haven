@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://c6ie0wxho0avl"]
+[gd_scene load_steps=36 format=3 uid="uid://c6ie0wxho0avl"]
 
 [ext_resource type="Script" uid="uid://bsmpeomvkmf3s" path="res://Scripts/Character/Actor.gd" id="1_f532h"]
 [ext_resource type="Script" uid="uid://8sde302rbesp" path="res://Scripts/Character/Combatant.gd" id="2_1n8ps"]
@@ -18,6 +18,7 @@
 [ext_resource type="Script" uid="uid://c8g84r6lr3p11" path="res://Scripts/Character/SkinHandler.gd" id="13_1n8ps"]
 [ext_resource type="Script" uid="uid://ssx74iwh1ik2" path="res://Scripts/Character/Skill/Skill Handler/SkillHandler.gd" id="17_6ia7f"]
 [ext_resource type="Script" uid="uid://c5vmm8ykqjve0" path="res://Scripts/Character/AI/SimpleAI.gd" id="18_vnr3a"]
+[ext_resource type="Script" uid="uid://bx153jvqrgols" path="res://Scripts/Character/FactionOwner.gd" id="19_hjuwb"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_h00v1"]
 
@@ -52,7 +53,7 @@ metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
 
 [sub_resource type="Resource" id="Resource_60to4"]
 script = ExtResource("8_hjuwb")
-base_value = 10.0
+base_value = 15.0
 metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
 
 [sub_resource type="Resource" id="Resource_74tio"]
@@ -153,3 +154,8 @@ metadata/_custom_type_script = "uid://ssx74iwh1ik2"
 [node name="SimpleAI" type="Node" parent="."]
 script = ExtResource("18_vnr3a")
 metadata/_custom_type_script = "uid://c5vmm8ykqjve0"
+
+[node name="FactionOwner" type="Node" parent="."]
+script = ExtResource("19_hjuwb")
+faction = 1
+metadata/_custom_type_script = "uid://bx153jvqrgols"
