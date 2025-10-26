@@ -4,4 +4,4 @@ class_name ApplyStatusEffect extends SkillEffect
 
 func execute(targeting_data: TargetingData) -> void:
 	for u: Actor in targeting_data.units:
-		pass
+		u.combatant.character_data.status_effect_holder.add_status(status_to_apply)

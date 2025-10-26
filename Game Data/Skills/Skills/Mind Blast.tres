@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=5 format=3 uid="uid://d204wdujajysr"]
+
+[ext_resource type="Script" uid="uid://b7py1wkn0b4gg" path="res://Scripts/Character/Skill/Effects/SkillEffect.gd" id="1_t2qtf"]
+[ext_resource type="Script" uid="uid://ciuuac3t3scx5" path="res://Scripts/Character/Skill/SkillData.gd" id="2_ccpip"]
+[ext_resource type="Script" uid="uid://ghc0xhg5fg4d" path="res://Scripts/Character/Skill/Targeting Range/ConstantRange.gd" id="2_oid3w"]
+
+[sub_resource type="Resource" id="Resource_03u1e"]
+script = ExtResource("2_oid3w")
+type = 1
+range_in_partitions = 0
+metadata/_custom_type_script = "uid://ghc0xhg5fg4d"
+
+[resource]
+script = ExtResource("2_ccpip")
+localization_name = "Mind Blast"
+localization_description = "Hits all enemies in a partition with psychic damage."
+sp_cost = 10
+range = SubResource("Resource_03u1e")
+metadata/_custom_type_script = "uid://ciuuac3t3scx5"

@@ -40,6 +40,10 @@ func remove_modifier(stat_type: StatHelper.StatTypes, mod_to_remove: StatModifie
 	stats[stat_type].remove_modifier( mod_to_remove )
 	stat_changed.emit( self )
 
+func raise_base_value(stat_type: StatHelper.StatTypes, amount: float) -> void:
+	stats[stat_type].raise_base_value_by(amount)
+	stat_changed.emit( self )
+
 func take_damage(dd: DamageData) -> void:
 	var damage_amount: int = dd.damage_amount
 	var damage_type := dd.damage_type

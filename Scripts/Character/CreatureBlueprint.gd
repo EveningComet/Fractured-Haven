@@ -5,7 +5,8 @@ class_name CreatureBlueprint extends Resource
 @export           var localization_name:        String = "New Creature"
 @export_multiline var localization_description: String = "Deepest lore."
 
-# TODO: Model(s) associated with this.
+@export_category("Visuals/Models/Etc.")
+@export var model: PackedScene ## TODO: What if some creatures had variants/skins/costumes?
 
 @export_category("Stats")
 ## The default stats for this character.

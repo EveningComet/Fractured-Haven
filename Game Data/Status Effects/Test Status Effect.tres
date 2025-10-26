@@ -2,16 +2,10 @@
 
 [ext_resource type="Script" uid="uid://dgk6l8djvrkuv" path="res://Scripts/Character/Status Effect/Definitions/StatusEffectDefinition.gd" id="1_t57ms"]
 [ext_resource type="Texture2D" uid="uid://dl0mit3tgikom" path="res://Imported Assets/GUI/Freegameart Cyberpunk Skill Icons/cyberpunk icon 10.png" id="2_08qmn"]
-[ext_resource type="Script" uid="uid://bbykiiij7f8dj" path="res://Scripts/Character/Status Effect/StatusEffect.gd" id="2_vowlp"]
+[ext_resource type="Script" uid="uid://cai4aytsnjimb" path="res://Scripts/Character/Status Effect/StatusEffect.gd" id="2_vowlp"]
 
 [resource]
 script = ExtResource("2_vowlp")
-localization_name = "New Status Effect"
 localization_description = "Boosts physical power."
 display_icon = ExtResource("2_08qmn")
 base_duration = 0.0
-is_negative = false
-apply_effects = Array[ExtResource("1_t57ms")]([])
-tick_effects = Array[ExtResource("1_t57ms")]([])
-expire_effects = Array[ExtResource("1_t57ms")]([])
-metadata/_custom_type_script = "uid://bbykiiij7f8dj"

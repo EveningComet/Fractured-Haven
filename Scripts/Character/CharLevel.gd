@@ -4,6 +4,9 @@ class_name CharLevel extends Resource
 ## Fired whenever this character gains experience points.
 signal experience_gained(growth_data: Array)
 
+## Fired when the character has reached enough xp.
+signal leveled_up
+
 # XP Data
 @export var curr_level:      int = 1
 @export var curr_xp:         int = 0
@@ -38,5 +41,4 @@ func level_up() -> void:
 	# Boost the level and the required experience for the next level
 	curr_level += 1
 	xp_required = get_experience_required( curr_level )
-	
-	# TODO: Boost the attributes based on the creature's growth data
+	leveled_up.emit()

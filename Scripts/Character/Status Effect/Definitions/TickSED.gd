@@ -3,8 +3,8 @@ class_name TickSED extends StatusEffectDefinition
 
 @export var is_dot: bool = false
 
-func trigger(target: Combatant) -> void:
-	var amount: int = mod.get_value()
+func trigger(target: CharacterData) -> void:
+	var amount: int = mod.value
 	match mod.stat_changing:
 		StatHelper.StatTypes.CurrentHP:
 			if is_dot == true:

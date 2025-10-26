@@ -15,19 +15,19 @@ class_name StatusEffectDefinition extends Resource
 @export var status_damage_scaler: float = 0.0
 
 ## Have the effect do what it should.
-func trigger(target: Combatant) -> void:
+func trigger(target: CharacterData) -> void:
 	pass
 
 ## Have this effect do what it's supposed to.
-func _apply(target: Combatant) -> void:
+func _apply(target: CharacterData) -> void:
 	target.stats.add_modifier(mod.stat_changing, mod)
 
 ## Have this effect stop doing anything it was doing.
-func remove(target: Combatant) -> void:
+func remove(target: CharacterData) -> void:
 	target.stats.remove_modifier(mod.stat_changing, mod)
 
 ## Convert the effect to damage datas.
-func _to_damage_data(activator: Combatant = null) -> DamageData:
+func _to_damage_data(activator: CharacterData = null) -> DamageData:
 	var dd: DamageData      = DamageData.new()
 	if activator != null:
 		dd.activator = activator.stats

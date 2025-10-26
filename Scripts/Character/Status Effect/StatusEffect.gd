@@ -25,15 +25,15 @@ class_name StatusEffect extends Resource
 func is_infinite() -> bool:
 	return base_duration == 0.0
 
-func trigger_on_apply(target: Combatant) -> void:
+func trigger_on_apply(target: CharacterData) -> void:
 	for e in apply_effects:
 		e.trigger(target)
 
-func trigger_on_tick(target: Combatant) -> void:
+func trigger_on_tick(target: CharacterData) -> void:
 	for e in tick_effects:
 		e.trigger(target)
 
-func trigger_on_expire(target: Combatant) -> void:
+func trigger_on_expire(target: CharacterData) -> void:
 	for e in apply_effects:
 		e.remove(target)
 	for e in expire_effects:

@@ -16,6 +16,7 @@ metadata/_custom_type_script = "uid://c0eaac5ubaplw"
 [sub_resource type="Resource" id="Resource_6b6t7"]
 script = ExtResource("3_go1ow")
 status_to_apply = ExtResource("4_57bhp")
+stat_used = 5
 metadata/_custom_type_script = "uid://0cuvkxut4tyd"
 
 [sub_resource type="Resource" id="Resource_huav5"]
@@ -33,7 +34,8 @@ script = ExtResource("7_22q1s")
 localization_name = "Make 'Em Bleed"
 localization_description = "Ow the edge. Inflicts bleed."
 icon = ExtResource("5_ko4oc")
-base_cooldown = 100.0
+base_activation_time = 50.0
+base_cooldown = 10.0
 range = SubResource("Resource_huav5")
 aoe = SubResource("Resource_87g14")
 validator = SubResource("Resource_ckjy2")

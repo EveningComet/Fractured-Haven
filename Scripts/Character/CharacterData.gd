@@ -14,4 +14,21 @@ class_name CharacterData extends Resource
 ## The character's current skills.
 @export var skills: Array[SkillData] = []
 
-@export var traits: Array[Trait] = []
+@export var traits: Array[Trait]     = []
+
+@export var status_effect_holder: StatusEffectHolder = StatusEffectHolder.new(self)
+
+## Called to initialize a character.
+func init() -> void:
+	if char_level != null:
+		char_level.leveled_up.connect(_on_leveled_up)
+
+func _on_leveled_up() -> void:
+	# TODO: Implement a more proper way of raising stats on a level up.
+	_test_level_up_stats_boost()
+	if OS.is_debug_build() == true:
+		print("CharacterData :: Noticed that the character has leveled up.")
+	
+func _test_level_up_stats_boost() -> void:
+	stats.raise_base_value(StatHelper.StatTypes.MaxHP, 5.0)
+	stats.raise_base_value(StatHelper.StatTypes.MaxSP, 5.0)

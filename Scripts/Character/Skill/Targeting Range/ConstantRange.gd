@@ -3,7 +3,9 @@ class_name ConstantRange extends TargetingRange
 
 enum Types {
 	OnlyPartitions,
-	OnlyUnits
+	OnlyUnits,
+	OnlyAllies,
+	OnlyEnemies
 }
 
 @export var type: Types = Types.OnlyPartitions
@@ -17,6 +19,17 @@ func get_targetables_in_range(start: Partition = null, user: Actor = null) -> Ar
 				ret.append(p)
 		Types.OnlyUnits:
 			for p: Partition in partitions:
-				for u: Actor in p.monitored:
-					ret.append(u)
+				ret.append_array(_get_units_from_partition(p))
+		
+		# TODO: Account for something such as a confusion/possessed status effect?
+		Types.OnlyAllies:
+			for p: Partition in partitions:
+				for u: Actor in _get_units_from_partition(p):
+					if user.faction_owner.is_on_same_team(u.faction_owner) == true:
+						ret.append(u)
+		Types.OnlyEnemies:
+			for p: Partition in partitions:
+				for u: Actor in _get_units_from_partition(p):
+					if user.faction_owner.is_on_same_team(u.faction_owner) == false:
+						ret.append(u)
 	return ret
