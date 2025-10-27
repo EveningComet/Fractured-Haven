@@ -16,10 +16,13 @@ func execute(targeting_data: TargetingData) -> void:
 	var user_stats: CharacterStats = targeting_data.user.combatant.character_data.stats
 	for u: Actor in targeting_data.units:
 		var target_stats: CharacterStats = u.combatant.character_data.stats
-		var dd: DamageData = DamageData.new()
+		var dd: DamageData      = DamageData.new()
 		dd.damage_amount        = _get_power(user_stats)
 		dd.status_damage_scaler = bonus_damage_scale_on_debuffs_present
 		dd.base_power_scale     = power_scale
 		dd.damage_type          = damage_type
 		dd.lifesteal_percentage = lifesteal_percentage
-		target_stats.take_damage(dd)
+		
+		# Apply the damage if the chance to hit is successful
+		if _is_successful(user_stats, target_stats) == true:
+			target_stats.take_damage(dd)

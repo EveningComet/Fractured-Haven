@@ -16,6 +16,8 @@ func enter(msgs: Dictionary ={}) -> void:
 func exit() -> void:
 	_curr_time      = 0.0
 	_execution_time = 0.0
+	if OS.is_debug_build() == true:
+		print("SHExecuting :: Exited.")
 
 func physics_update(delta: float) -> void:
 	_curr_time += delta
