@@ -1,4 +1,6 @@
+## Responsible for managing things related to the player's characters.
 extends Node
+# TODO: Rename to PlayerRosterController.
 
 signal party_changed(party: Array[Actor])
 
@@ -6,9 +8,12 @@ signal party_changed(party: Array[Actor])
 ## including summons.
 const MAX_PMS_IN_ACTIVE_PARTY: int = 6
 
-# TODO: Replace [Actor] with the [CharacterData] type.
+# TODO: Replace [Actor] with the [CharacterData] type?
 ## The player's current party.
 var active_party: Array[Actor] = []
+
+## Object storing all of the player's characters.
+var roster: Array[CharacterData] = []
 
 ## Go through the [active_party] and return characters that have hp > 0.
 func get_valid_party_members():
@@ -21,6 +26,9 @@ func get_valid_party_members():
 func add_to_party(new_pm: Actor) -> void:
 	active_party.append( new_pm )
 	party_changed.emit(active_party)
+
+func remove_from_party(pm_to_remove) -> void:
+	pass
 
 func is_party_fightable() -> bool:
 	for pm: Actor in active_party:

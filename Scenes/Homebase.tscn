@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://djdc1ysyk0xvq"]
+
+[ext_resource type="Texture2D" uid="uid://5ycrfhivd6eh" path="res://Imported Assets/KenneyNL Prototyping Textures/Green/texture_09.png" id="1_usv47"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_usv47"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_gs83c"]
+sky_material = SubResource("ProceduralSkyMaterial_usv47")
+
+[sub_resource type="Environment" id="Environment_xhrbv"]
+background_mode = 2
+sky = SubResource("Sky_gs83c")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gs83c"]
+albedo_texture = ExtResource("1_usv47")
+uv1_triplanar = true
+
+[node name="Homebase" type="Node"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_xhrbv")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+directional_shadow_max_distance = 1.0
+
+[node name="SpringArm3D" type="SpringArm3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 5)
+
+[node name="Camera3D" type="Camera3D" parent="SpringArm3D"]
+current = true
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="Ground" type="CSGBox3D" parent="CSGCombiner3D"]
+size = Vector3(50, 1, 50)
+material = SubResource("StandardMaterial3D_gs83c")
