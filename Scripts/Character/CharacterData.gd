@@ -3,6 +3,9 @@ class_name CharacterData extends Resource
 
 @export var char_name: String = "Name"
 
+## Mainly used for level ups.
+@export var base_blueprint: CreatureBlueprint
+
 ## Stores data related to the character's level.
 @export var char_level: CharLevel = CharLevel.new()
 
@@ -22,6 +25,12 @@ class_name CharacterData extends Resource
 func init() -> void:
 	if char_level != null:
 		char_level.leveled_up.connect(_on_leveled_up)
+
+func initialize_new_character(blueprint: CreatureBlueprint) -> void:
+	base_blueprint = blueprint
+	if char_level != null:
+		char_level.leveled_up.connect(_on_leveled_up)
+	stats = base_blueprint.base_stats.duplicate_deep()
 
 func _on_leveled_up() -> void:
 	# TODO: Implement a more proper way of raising stats on a level up.

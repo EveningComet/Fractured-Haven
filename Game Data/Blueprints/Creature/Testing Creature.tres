@@ -1,0 +1,90 @@
+[gd_resource type="Resource" script_class="CreatureBlueprint" load_steps=21 format=3 uid="uid://lh5d0xhgsi52"]
+
+[ext_resource type="Script" uid="uid://c0jl23t6vw8iv" path="res://Scripts/Character/CharacterStats.gd" id="1_ar71o"]
+[ext_resource type="Script" uid="uid://c2twaqy62eh5w" path="res://Scripts/Character/CreatureBlueprint.gd" id="1_tlwjb"]
+[ext_resource type="Script" uid="uid://dbcd3ncj7kmei" path="res://Scripts/Stats/Stat.gd" id="2_0rys4"]
+[ext_resource type="Script" uid="uid://ciuuac3t3scx5" path="res://Scripts/Character/Skill/SkillData.gd" id="2_4svxw"]
+[ext_resource type="PackedScene" uid="uid://cthdv6ab3pmaq" path="res://Scenes/Characters/Models/Necrobot.tscn" id="3_0rys4"]
+[ext_resource type="Script" uid="uid://b2v63vqu1bac0" path="res://Scripts/Character/Trait/Trait.gd" id="3_ar71o"]
+[ext_resource type="Resource" uid="uid://di6wk1n15bqr0" path="res://Game Data/Skills/Skills/Strike.tres" id="6_8cdua"]
+[ext_resource type="Resource" uid="uid://cix0ryioer8n1" path="res://Game Data/Skills/Skills/Make 'Em Bleed.tres" id="7_5l0ri"]
+
+[sub_resource type="Resource" id="Resource_o5a55"]
+script = ExtResource("2_0rys4")
+base_value = 50.0
+metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
+
+[sub_resource type="Resource" id="Resource_qhyyr"]
+script = ExtResource("2_0rys4")
+base_value = 50.0
+metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
+
+[sub_resource type="Resource" id="Resource_w2eqh"]
+script = ExtResource("2_0rys4")
+base_value = 25.0
+metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
+
+[sub_resource type="Resource" id="Resource_7oekl"]
+script = ExtResource("2_0rys4")
+base_value = 25.0
+metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
+
+[sub_resource type="Resource" id="Resource_60to4"]
+script = ExtResource("2_0rys4")
+base_value = 10.0
+metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
+
+[sub_resource type="Resource" id="Resource_74tio"]
+script = ExtResource("2_0rys4")
+base_value = 5.0
+metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
+
+[sub_resource type="Resource" id="Resource_nxrt6"]
+script = ExtResource("2_0rys4")
+base_value = 5.0
+metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
+
+[sub_resource type="Resource" id="Resource_8g2d5"]
+script = ExtResource("2_0rys4")
+base_value = 10.0
+metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
+
+[sub_resource type="Resource" id="Resource_mnpw0"]
+script = ExtResource("2_0rys4")
+base_value = 10.0
+metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
+
+[sub_resource type="Resource" id="Resource_n2xmr"]
+script = ExtResource("2_0rys4")
+metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
+
+[sub_resource type="Resource" id="Resource_ewwog"]
+script = ExtResource("2_0rys4")
+base_value = 7.5
+metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
+
+[sub_resource type="Resource" id="Resource_pgsgp"]
+script = ExtResource("1_ar71o")
+stats = Dictionary[int, ExtResource("2_0rys4")]({
+0: SubResource("Resource_o5a55"),
+1: SubResource("Resource_qhyyr"),
+2: SubResource("Resource_w2eqh"),
+3: SubResource("Resource_7oekl"),
+4: SubResource("Resource_60to4"),
+5: SubResource("Resource_74tio"),
+6: SubResource("Resource_nxrt6"),
+7: SubResource("Resource_8g2d5"),
+8: SubResource("Resource_mnpw0"),
+9: SubResource("Resource_n2xmr"),
+10: SubResource("Resource_ewwog")
+})
+metadata/_custom_type_script = "uid://c0jl23t6vw8iv"
+
+[resource]
+script = ExtResource("1_tlwjb")
+localization_name = "Testing Creature"
+localization_description = "This is a creature we're using for testing."
+model = ExtResource("3_0rys4")
+base_stats = SubResource("Resource_pgsgp")
+skills = Array[ExtResource("2_4svxw")]([ExtResource("6_8cdua"), ExtResource("7_5l0ri")])
+metadata/_custom_type_script = "uid://c2twaqy62eh5w"

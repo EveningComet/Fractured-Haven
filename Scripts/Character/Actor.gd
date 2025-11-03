@@ -23,6 +23,8 @@ var partition: Partition = null:
 ## TODO: Delete this when no longer needed. Only for testing.
 @export var owned_by_player: bool = false
 
+@onready var skin_handler: SkinHandler = $SkinHandler
+
 func _ready() -> void:
 	Eventbus.unit_spawned.emit(self)
 	

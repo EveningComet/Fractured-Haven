@@ -12,6 +12,9 @@ class_name CreatureBlueprint extends Resource
 ## The default stats for this character.
 @export var base_stats: CharacterStats = CharacterStats.new()
 
+## A key, value pair that dictates how this character's stats get boosted on level up.
+@export var stat_growths: Dictionary[StatHelper.StatTypes, float] = {}
+
 ## Stores the [Trait]s that this character can spawn with.
 @export var traits: Array[Trait] = []
 
