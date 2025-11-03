@@ -33,7 +33,6 @@ script = ExtResource("7_aqlvg")
 localization_name = "Teleport"
 localization_description = "Teleport to a nearby area."
 icon = ExtResource("5_2a3mf")
-success_rate = 100.0
 base_activation_time = 50.0
 base_cooldown = 30.0
 range = SubResource("Resource_y7mcp")

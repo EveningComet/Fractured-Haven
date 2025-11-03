@@ -2,12 +2,12 @@
 class_name MainMenuController extends Node
 
 @export var start_game_button: Button
-@export var quit_button:            Button
+@export var quit_button:       Button
 
 @export var button_holder: Container
 
-## Reference to the scene storing the testing game.
-@export_file("*.tscn") var _start_test_game: String
+## Reference to the scene storing the homebase.
+@export_file("*.tscn") var _homebase_scene: String
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,7 +18,7 @@ func _ready():
 	button_holder.get_child(0).grab_focus()
 
 func _on_start_game_pressed() -> void:
-	SceneManager.change_scene(_start_test_game)
+	SceneManager.change_scene(_homebase_scene)
 
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()

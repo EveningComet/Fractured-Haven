@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://djdc1ysyk0xvq"]
+[gd_scene load_steps=7 format=3 uid="uid://djdc1ysyk0xvq"]
 
 [ext_resource type="Texture2D" uid="uid://5ycrfhivd6eh" path="res://Imported Assets/KenneyNL Prototyping Textures/Green/texture_09.png" id="1_usv47"]
+[ext_resource type="Script" uid="uid://bokxi26l7lotn" path="res://Scripts/UI/Homebase/HomebaseMainMenu.gd" id="2_gs83c"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_usv47"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -41,3 +42,44 @@ use_collision = true
 [node name="Ground" type="CSGBox3D" parent="CSGCombiner3D"]
 size = Vector3(50, 1, 50)
 material = SubResource("StandardMaterial3D_gs83c")
+
+[node name="Homebase Main Menu" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="Homebase Main Menu"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Homebase Main Menu/Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -20.5
+offset_right = 200.0
+offset_bottom = 20.5
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Homebase Main Menu/Control/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Homebase Main Menu/Control/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Mission Button" type="Button" parent="Homebase Main Menu/Control/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Start Testing Mission"
+
+[node name="HomebaseMainMenu" type="Node" parent="." node_paths=PackedStringArray("_mission_button")]
+script = ExtResource("2_gs83c")
+_battle_scene = "uid://7kbrpbhs038f"
+_mission_button = NodePath("../Homebase Main Menu/Control/PanelContainer/MarginContainer/VBoxContainer/Mission Button")
+metadata/_custom_type_script = "uid://bokxi26l7lotn"
