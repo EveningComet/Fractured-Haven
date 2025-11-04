@@ -13,7 +13,10 @@ func _on_unit_spawned(unit: Actor) -> void:
 func _on_unit_defeated(stats: CharacterStats, unit: Actor) -> void:
 	if OS.is_debug_build() == true:
 		print("DeathListener :: %s is kill." % [unit.combatant.character_data.char_name])
+	
 	if PlayerPartyController.active_party.has(unit) == false:
-		PlayerPartyController.give_experience_points(100) # TODO: Give the proper experience.
+		# Scale the XP on enemy level?
+		var xp_to_give: int = unit.combatant.character_data.base_blueprint.exp_on_death
+		PlayerPartyController.give_experience_points(xp_to_give)
 		# TODO: Don't just delete the character. Ragdolls would be moist and funny.
 		unit.queue_free()
