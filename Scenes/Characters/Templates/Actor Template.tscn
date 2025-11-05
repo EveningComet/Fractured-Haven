@@ -1,127 +1,27 @@
-[gd_scene load_steps=37 format=3 uid="uid://csjsqepnvhs0v"]
+[gd_scene load_steps=11 format=3 uid="uid://csjsqepnvhs0v"]
 
 [ext_resource type="Script" uid="uid://bsmpeomvkmf3s" path="res://Scripts/Character/Actor.gd" id="1_f8xlf"]
 [ext_resource type="Script" uid="uid://8sde302rbesp" path="res://Scripts/Character/Combatant.gd" id="2_v5tki"]
-[ext_resource type="Script" uid="uid://c0jl23t6vw8iv" path="res://Scripts/Character/CharacterStats.gd" id="3_autx6"]
-[ext_resource type="PackedScene" uid="uid://cthdv6ab3pmaq" path="res://Scenes/Characters/Models/Necrobot.tscn" id="3_uf240"]
-[ext_resource type="Script" uid="uid://dbcd3ncj7kmei" path="res://Scripts/Stats/Stat.gd" id="4_54hwr"]
-[ext_resource type="Script" uid="uid://bjxna3hubfe3e" path="res://Scripts/Character/CharacterData.gd" id="4_qhyyr"]
-[ext_resource type="Script" uid="uid://ciuuac3t3scx5" path="res://Scripts/Character/Skill/SkillData.gd" id="5_w2eqh"]
-[ext_resource type="Script" uid="uid://8jc6ikkn1obd" path="res://Scripts/Character/CharLevel.gd" id="5_wmx78"]
-[ext_resource type="Script" uid="uid://06rht61xppcr" path="res://Scripts/Inventory/EquipmentInventory.gd" id="6_nxrt6"]
-[ext_resource type="Resource" uid="uid://c008ji6wltrhw" path="res://Game Data/Skills/Skills/Teleport To Partition Skill.tres" id="6_w2eqh"]
-[ext_resource type="Script" uid="uid://cwtn0caf2mh4p" path="res://Scripts/Inventory/ItemSlotData.gd" id="7_8g2d5"]
-[ext_resource type="Resource" uid="uid://cix0ryioer8n1" path="res://Game Data/Skills/Skills/Make 'Em Bleed.tres" id="9_60to4"]
+[ext_resource type="Resource" uid="uid://cgjfcuokul5hd" path="res://Game Data/Testing Party/Testing Character 1.tres" id="5_7oekl"]
 [ext_resource type="Script" uid="uid://cada6c8iy7u5b" path="res://Scripts/Character/Movement/Mover.gd" id="10_7oekl"]
-[ext_resource type="Resource" uid="uid://di6wk1n15bqr0" path="res://Game Data/Skills/Skills/Strike.tres" id="10_8g2d5"]
 [ext_resource type="Script" uid="uid://38ya1yc1jqft" path="res://Scripts/Character/Movement/Locomotion States/CLGround.gd" id="11_o5a55"]
 [ext_resource type="Script" uid="uid://dj3c5i13ppjbo" path="res://Scripts/Character/Movement/CreatureLocomotionController.gd" id="11_uql5u"]
 [ext_resource type="Script" uid="uid://c8g84r6lr3p11" path="res://Scripts/Character/SkinHandler.gd" id="13_tjtog"]
-[ext_resource type="Script" uid="uid://b2v63vqu1bac0" path="res://Scripts/Character/Trait/Trait.gd" id="15_n2xmr"]
 [ext_resource type="Script" uid="uid://ssx74iwh1ik2" path="res://Scripts/Character/Skill/Skill Handler/SkillHandler.gd" id="19_mnpw0"]
 [ext_resource type="Script" uid="uid://bx153jvqrgols" path="res://Scripts/Character/FactionOwner.gd" id="20_n2xmr"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_h00v1"]
 
-[sub_resource type="Resource" id="Resource_uql5u"]
-script = ExtResource("5_wmx78")
-metadata/_custom_type_script = "uid://8jc6ikkn1obd"
-
-[sub_resource type="Resource" id="Resource_ntr4n"]
-script = ExtResource("6_nxrt6")
-stored_items = Array[ExtResource("7_8g2d5")]([null, null, null, null])
-metadata/_custom_type_script = "uid://06rht61xppcr"
-
-[sub_resource type="Resource" id="Resource_o5a55"]
-script = ExtResource("4_54hwr")
-base_value = 50.0
-metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
-
-[sub_resource type="Resource" id="Resource_qhyyr"]
-script = ExtResource("4_54hwr")
-base_value = 50.0
-metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
-
-[sub_resource type="Resource" id="Resource_w2eqh"]
-script = ExtResource("4_54hwr")
-base_value = 25.0
-metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
-
-[sub_resource type="Resource" id="Resource_7oekl"]
-script = ExtResource("4_54hwr")
-base_value = 25.0
-metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
-
-[sub_resource type="Resource" id="Resource_60to4"]
-script = ExtResource("4_54hwr")
-base_value = 10.0
-metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
-
-[sub_resource type="Resource" id="Resource_74tio"]
-script = ExtResource("4_54hwr")
-base_value = 5.0
-metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
-
-[sub_resource type="Resource" id="Resource_nxrt6"]
-script = ExtResource("4_54hwr")
-base_value = 5.0
-metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
-
-[sub_resource type="Resource" id="Resource_8g2d5"]
-script = ExtResource("4_54hwr")
-base_value = 10.0
-metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
-
-[sub_resource type="Resource" id="Resource_mnpw0"]
-script = ExtResource("4_54hwr")
-base_value = 10.0
-metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
-
-[sub_resource type="Resource" id="Resource_n2xmr"]
-script = ExtResource("4_54hwr")
-metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
-
-[sub_resource type="Resource" id="Resource_ewwog"]
-script = ExtResource("4_54hwr")
-base_value = 7.5
-metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
-
-[sub_resource type="Resource" id="Resource_tjtog"]
-script = ExtResource("3_autx6")
-stats = Dictionary[int, ExtResource("4_54hwr")]({
-0: SubResource("Resource_o5a55"),
-1: SubResource("Resource_qhyyr"),
-2: SubResource("Resource_w2eqh"),
-3: SubResource("Resource_7oekl"),
-4: SubResource("Resource_60to4"),
-5: SubResource("Resource_74tio"),
-6: SubResource("Resource_nxrt6"),
-7: SubResource("Resource_8g2d5"),
-8: SubResource("Resource_mnpw0"),
-9: SubResource("Resource_n2xmr"),
-10: SubResource("Resource_ewwog")
-})
-metadata/_custom_type_script = "uid://c0jl23t6vw8iv"
-
-[sub_resource type="Resource" id="Resource_uf240"]
-script = ExtResource("4_qhyyr")
-char_name = "Cool Dude"
-char_level = SubResource("Resource_uql5u")
-stats = SubResource("Resource_tjtog")
-equipment = SubResource("Resource_ntr4n")
-skills = Array[ExtResource("5_w2eqh")]([ExtResource("10_8g2d5"), ExtResource("9_60to4"), ExtResource("6_w2eqh")])
-metadata/_custom_type_script = "uid://bjxna3hubfe3e"
-
-[node name="Actor Template" type="CharacterBody3D"]
+[node name="Actor Template" type="CharacterBody3D" node_paths=PackedStringArray("combatant", "faction_owner", "skin_handler")]
 script = ExtResource("1_f8xlf")
-owned_by_player = true
+combatant = NodePath("Combatant")
+faction_owner = NodePath("FactionOwner")
+skin_handler = NodePath("SkinHandler")
 metadata/_custom_type_script = "uid://bsmpeomvkmf3s"
 
 [node name="SkinHandler" type="Node3D" parent="."]
 script = ExtResource("13_tjtog")
 metadata/_custom_type_script = "uid://c8g84r6lr3p11"
-
-[node name="Necrobot" parent="SkinHandler" instance=ExtResource("3_uf240")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -129,7 +29,7 @@ shape = SubResource("CapsuleShape3D_h00v1")
 
 [node name="Combatant" type="Node" parent="."]
 script = ExtResource("2_v5tki")
-character_data = SubResource("Resource_uf240")
+character_data = ExtResource("5_7oekl")
 metadata/_custom_type_script = "uid://8sde302rbesp"
 
 [node name="Mover" type="Node" parent="." node_paths=PackedStringArray("nav_agent")]

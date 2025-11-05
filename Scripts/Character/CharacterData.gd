@@ -33,11 +33,13 @@ func initialize_new_character(blueprint: CreatureBlueprint) -> void:
 	stats = base_blueprint.base_stats.duplicate_deep()
 
 func _on_leveled_up() -> void:
-	# TODO: Implement a more proper way of raising stats on a level up.
-	_test_level_up_stats_boost()
+	_raise_stats_based_on_creature_blueprint()
 	if OS.is_debug_build() == true:
 		print("CharacterData :: Noticed that the character has leveled up.")
-	
-func _test_level_up_stats_boost() -> void:
-	stats.raise_base_value(StatHelper.StatTypes.MaxHP, 5.0)
-	stats.raise_base_value(StatHelper.StatTypes.MaxSP, 5.0)
+
+func _raise_stats_based_on_creature_blueprint() -> void:
+	# Boost the stats based on the blueprint's growth rates
+	var stat_growths: Dictionary = base_blueprint.stat_growths
+	for stat_type: StatHelper.StatTypes in stat_growths.keys():
+		var stat_increase_value: float = stat_growths[stat_type]
+		stats.raise_base_value(stat_type, stat_increase_value)

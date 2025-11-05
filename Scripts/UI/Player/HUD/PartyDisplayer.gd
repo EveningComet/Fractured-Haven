@@ -11,7 +11,7 @@ var _selection_controller: SelectionController
 func _ready() -> void:
 	_clear_contents()
 	PlayerPartyController.party_changed.connect(_on_party_changed)
-	_on_party_changed(PlayerPartyController.active_party)
+	_on_party_changed(PlayerPartyController.party_as_actors)
 
 func setup(sc: SelectionController) -> void:
 	_selection_controller = sc

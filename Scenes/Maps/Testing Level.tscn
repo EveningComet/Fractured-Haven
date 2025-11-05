@@ -117,17 +117,16 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_lk5v0")
 
-[node name="Actor" parent="." instance=ExtResource("1_f607v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5000001, 0)
-
 [node name="Test Enemy" parent="." instance=ExtResource("8_1yaum")]
 transform = Transform3D(0.25881907, 0, 0.9659258, 0, 1, 0, -0.9659258, 0, 0.25881907, 11, 0.5, 0)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_p7cp4")
 
-[node name="Board" type="Node3D" parent="NavigationRegion3D"]
+[node name="Board" type="Node3D" parent="NavigationRegion3D" node_paths=PackedStringArray("unit_holder_node")]
 script = ExtResource("2_p7cp4")
+unit_holder_node = NodePath("../..")
+actor_template = ExtResource("1_f607v")
 
 [node name="Partition 1" type="Area3D" parent="NavigationRegion3D/Board"]
 script = ExtResource("1_lyqys")

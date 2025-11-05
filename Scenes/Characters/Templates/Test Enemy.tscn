@@ -85,7 +85,7 @@ script = ExtResource("8_hjuwb")
 base_value = 7.5
 metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
 
-[sub_resource type="Resource" id="Resource_1n8ps"]
+[sub_resource type="Resource" id="Resource_ngjnx"]
 script = ExtResource("7_vnr3a")
 stats = Dictionary[int, ExtResource("8_hjuwb")]({
 0: SubResource("Resource_o5a55"),
@@ -107,13 +107,16 @@ script = ExtResource("4_uwg7e")
 char_name = "Bad Dude"
 base_blueprint = ExtResource("5_ngjnx")
 char_level = SubResource("Resource_f532h")
-stats = SubResource("Resource_1n8ps")
+stats = SubResource("Resource_ngjnx")
 equipment = SubResource("Resource_cwlyn")
 skills = Array[ExtResource("5_sc38e")]([ExtResource("10_sc38e")])
 metadata/_custom_type_script = "uid://bjxna3hubfe3e"
 
-[node name="Test Enemy" type="CharacterBody3D"]
+[node name="Test Enemy" type="CharacterBody3D" node_paths=PackedStringArray("combatant", "faction_owner", "skin_handler")]
 script = ExtResource("1_f532h")
+combatant = NodePath("Combatant")
+faction_owner = NodePath("FactionOwner")
+skin_handler = NodePath("SkinHandler")
 metadata/_custom_type_script = "uid://bsmpeomvkmf3s"
 
 [node name="SkinHandler" type="Node3D" parent="."]

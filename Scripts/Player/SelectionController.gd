@@ -56,7 +56,7 @@ func _select_units_from_projection(m_pos: Vector2) -> void:
 			max(_drag_start.y, m_pos.y) - y_min
 		)
 		var cam = get_viewport().get_camera_3d()
-		for u: Actor in PlayerPartyController.active_party:
+		for u: Actor in PlayerPartyController.party_as_actors:
 			if rect.has_point(cam.unproject_position(u.global_position)):
 				select_unit(u)
 	pawns_selected.emit(curr_pawns)

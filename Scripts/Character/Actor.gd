@@ -11,22 +11,24 @@ var partition: Partition = null:
 		partition = value
 		partition_changed.emit(self)
 
-@onready var combatant: Combatant = $Combatant
+@export var combatant: Combatant
 
 ## Component managing the instanced skills for this character.
 @onready var skill_handler: SkillHandler = $SkillHandler
 
-@onready var faction_owner: FactionOwner = $FactionOwner
+@export var faction_owner: FactionOwner
 
 @onready var mover: Mover = $Mover
 
-## TODO: Delete this when no longer needed. Only for testing.
-@export var owned_by_player: bool = false
-
-@onready var skin_handler: SkinHandler = $SkinHandler
+@export var skin_handler: SkinHandler
 
 func _ready() -> void:
 	Eventbus.unit_spawned.emit(self)
+
+func set_character_data(new_cd: CharacterData) -> void:
+	combatant.character_data = new_cd
+	var model: CharacterSkin = new_cd.base_blueprint.model.instantiate()
+	skin_handler.set_model(model)
+	# TODO: Scale the proper stuff for the model.
 	
-	if owned_by_player == true:
-		PlayerPartyController.add_to_party(self)
+	Eventbus.unit_spawned.emit(self)

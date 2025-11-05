@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://7kbrpbhs038f"]
 
 [ext_resource type="PackedScene" uid="uid://cxhdetyqj8r0p" path="res://Scenes/Maps/Testing Level.tscn" id="1_iukft"]
-[ext_resource type="Script" uid="uid://docpccg8hlw8t" path="res://Scripts/Player/PlayerController.gd" id="2_gl6un"]
+[ext_resource type="Script" uid="uid://docpccg8hlw8t" path="res://Scripts/Player/PlayerBattleController.gd" id="2_gl6un"]
 [ext_resource type="Script" uid="uid://cv7sn3bxvpx2p" path="res://Scripts/Player/Input State Machine/PlayerInputController.gd" id="3_j5yw3"]
 [ext_resource type="Script" uid="uid://c0e6lo5fi7jfk" path="res://Scripts/Player/Input State Machine/Input Control States/WaitingForUnitSelection.gd" id="4_kldst"]
 [ext_resource type="Script" uid="uid://clysu2ej4f7t2" path="res://Scripts/Player/Input State Machine/Input Control States/DirectingUnits.gd" id="5_b2bpf"]
@@ -20,30 +20,30 @@ metadata/_custom_type_script = "uid://thjq76fyvwel"
 
 [node name="Testing Level" parent="." instance=ExtResource("1_iukft")]
 
-[node name="PlayerController" type="Node" parent="."]
+[node name="PlayerBattleController" type="Node" parent="."]
 script = ExtResource("2_gl6un")
 metadata/_custom_type_script = "uid://docpccg8hlw8t"
 
-[node name="PlayerInputController" type="Node" parent="PlayerController" node_paths=PackedStringArray("selection_controller", "camera_controller")]
+[node name="PlayerInputController" type="Node" parent="PlayerBattleController" node_paths=PackedStringArray("selection_controller", "camera_controller")]
 script = ExtResource("3_j5yw3")
 selection_controller = NodePath("../SelectionController")
 camera_controller = NodePath("../../Camera Controller")
 initial_state = NodePath("WaitingForUnitSelection")
 metadata/_custom_type_script = "uid://cv7sn3bxvpx2p"
 
-[node name="WaitingForUnitSelection" type="Node" parent="PlayerController/PlayerInputController"]
+[node name="WaitingForUnitSelection" type="Node" parent="PlayerBattleController/PlayerInputController"]
 script = ExtResource("4_kldst")
 metadata/_custom_type_script = "uid://c0e6lo5fi7jfk"
 
-[node name="DirectingUnits" type="Node" parent="PlayerController/PlayerInputController"]
+[node name="DirectingUnits" type="Node" parent="PlayerBattleController/PlayerInputController"]
 script = ExtResource("5_b2bpf")
 metadata/_custom_type_script = "uid://clysu2ej4f7t2"
 
-[node name="FindingSkillTarget" type="Node" parent="PlayerController/PlayerInputController"]
+[node name="FindingSkillTarget" type="Node" parent="PlayerBattleController/PlayerInputController"]
 script = ExtResource("6_71axn")
 metadata/_custom_type_script = "uid://drsqbr3gqaopc"
 
-[node name="SelectionController" type="Node" parent="PlayerController" node_paths=PackedStringArray("selection_box")]
+[node name="SelectionController" type="Node" parent="PlayerBattleController" node_paths=PackedStringArray("selection_box")]
 script = ExtResource("6_7lihs")
 selection_box = NodePath("../../Selection Box Canvas/SelectionBox")
 metadata/_custom_type_script = "uid://carff2xcksj1e"
@@ -65,5 +65,5 @@ script = ExtResource("7_fgofq")
 metadata/_custom_type_script = "uid://dkwyg8sbl73ui"
 
 [node name="Player HUD" parent="." node_paths=PackedStringArray("_input_controller", "_selection_controller") instance=ExtResource("9_bf53h")]
-_input_controller = NodePath("../PlayerController/PlayerInputController")
-_selection_controller = NodePath("../PlayerController/SelectionController")
+_input_controller = NodePath("../PlayerBattleController/PlayerInputController")
+_selection_controller = NodePath("../PlayerBattleController/SelectionController")
