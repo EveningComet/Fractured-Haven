@@ -2,14 +2,17 @@
 ## and loop through the skills.
 class_name SimpleAI extends Node
 
-@onready var _skill_handler: SkillHandler = Utils.get_node_of_type(get_parent(), SkillHandler)
-
-@onready var _actor: Actor = get_parent() as Actor
+var _skill_handler: SkillHandler
+var _actor: Actor
 
 @export_category("AI")
 ## How long before this AI will do anything.
 @export var decision_rate: float = 0.5
 var _curr_wait_time: float = 0.0
+
+func initialize() -> void:
+	_skill_handler = Utils.get_node_of_type(get_parent(), SkillHandler)
+	_actor         = get_parent() as Actor
 
 func _physics_process(delta: float) -> void:
 	_tick(delta)

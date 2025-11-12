@@ -22,12 +22,13 @@ func spawn_units() -> void:
 	PlayerPartyController.party_as_actors.clear()
 	for pm: CharacterData in PlayerPartyController.active_party:
 		var actor: Actor = _actor_template.instantiate()
+		actor.faction_owner.faction = FactionOwner.Faction.Player
 		actor.set_character_data(pm)
 		curr_map.add_child.call_deferred(actor)
 		actor.global_position = Vector3(1, 1, 0.0)
 		PlayerPartyController.party_as_actors.append(actor)
 	
-	# Now spawn the enemies and everyone else
+	# Now spawn the enemies and everything else
 	for ms: MissionSpawnable in curr_mission.spawnables:
 		var character_data: CharacterData = ms.character_data
 		if character_data != null:
@@ -36,4 +37,7 @@ func spawn_units() -> void:
 			actor.set_character_data(character_data)
 			curr_map.add_child(actor)
 			actor.global_position = ms.location_to_spawn
+			var simple_AI: SimpleAI = SimpleAI.new()
+			actor.add_child(simple_AI)
+			simple_AI.initialize()
 			actor.global_rotation = ms.spawn_rotation

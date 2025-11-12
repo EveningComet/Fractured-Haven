@@ -32,55 +32,55 @@ script = ExtResource("6_sc38e")
 stored_items = Array[ExtResource("7_6ia7f")]([null, null, null, null])
 metadata/_custom_type_script = "uid://06rht61xppcr"
 
-[sub_resource type="Resource" id="Resource_o5a55"]
+[sub_resource type="Resource" id="Resource_n3s5l"]
 script = ExtResource("8_hjuwb")
 base_value = 3.0
 metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
 
-[sub_resource type="Resource" id="Resource_qhyyr"]
+[sub_resource type="Resource" id="Resource_wtb4d"]
 script = ExtResource("8_hjuwb")
 base_value = 3.0
 metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
 
-[sub_resource type="Resource" id="Resource_w2eqh"]
+[sub_resource type="Resource" id="Resource_i57nn"]
 script = ExtResource("8_hjuwb")
 base_value = 25.0
 metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
 
-[sub_resource type="Resource" id="Resource_7oekl"]
+[sub_resource type="Resource" id="Resource_c0q5o"]
 script = ExtResource("8_hjuwb")
 base_value = 25.0
 metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
 
-[sub_resource type="Resource" id="Resource_60to4"]
+[sub_resource type="Resource" id="Resource_5evqh"]
 script = ExtResource("8_hjuwb")
 base_value = 15.0
 metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
 
-[sub_resource type="Resource" id="Resource_74tio"]
+[sub_resource type="Resource" id="Resource_u53to"]
 script = ExtResource("8_hjuwb")
 base_value = 5.0
 metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
 
-[sub_resource type="Resource" id="Resource_nxrt6"]
+[sub_resource type="Resource" id="Resource_ma8yn"]
 script = ExtResource("8_hjuwb")
 metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
 
-[sub_resource type="Resource" id="Resource_8g2d5"]
-script = ExtResource("8_hjuwb")
-base_value = 10.0
-metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
-
-[sub_resource type="Resource" id="Resource_mnpw0"]
+[sub_resource type="Resource" id="Resource_0m3vv"]
 script = ExtResource("8_hjuwb")
 base_value = 10.0
 metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
 
-[sub_resource type="Resource" id="Resource_n2xmr"]
+[sub_resource type="Resource" id="Resource_p852h"]
+script = ExtResource("8_hjuwb")
+base_value = 10.0
+metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
+
+[sub_resource type="Resource" id="Resource_xailu"]
 script = ExtResource("8_hjuwb")
 metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
 
-[sub_resource type="Resource" id="Resource_ewwog"]
+[sub_resource type="Resource" id="Resource_yefj1"]
 script = ExtResource("8_hjuwb")
 base_value = 7.5
 metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
@@ -88,17 +88,17 @@ metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
 [sub_resource type="Resource" id="Resource_ngjnx"]
 script = ExtResource("7_vnr3a")
 stats = Dictionary[int, ExtResource("8_hjuwb")]({
-0: SubResource("Resource_o5a55"),
-1: SubResource("Resource_qhyyr"),
-2: SubResource("Resource_w2eqh"),
-3: SubResource("Resource_7oekl"),
-4: SubResource("Resource_60to4"),
-5: SubResource("Resource_74tio"),
-6: SubResource("Resource_nxrt6"),
-7: SubResource("Resource_8g2d5"),
-8: SubResource("Resource_mnpw0"),
-9: SubResource("Resource_n2xmr"),
-10: SubResource("Resource_ewwog")
+0: SubResource("Resource_n3s5l"),
+1: SubResource("Resource_wtb4d"),
+2: SubResource("Resource_i57nn"),
+3: SubResource("Resource_c0q5o"),
+4: SubResource("Resource_5evqh"),
+5: SubResource("Resource_u53to"),
+6: SubResource("Resource_ma8yn"),
+7: SubResource("Resource_0m3vv"),
+8: SubResource("Resource_p852h"),
+9: SubResource("Resource_xailu"),
+10: SubResource("Resource_yefj1")
 })
 metadata/_custom_type_script = "uid://c0jl23t6vw8iv"
 

@@ -47,6 +47,10 @@ func give_experience_points(xp_to_give: int) -> void:
 		pm.char_level.gain_experience(xp_to_give)
 	# TODO: What about giving experience points to characters not actively in the party?
 
+func fully_restore_party() -> void:
+	for pm: CharacterData in active_party:
+		pm.stats.full_restore()
+
 func _load_testing_party() -> void:
 	var data_path: String = "res://Game Data/Testing Party"
 	var dir = DirAccess.open( data_path )

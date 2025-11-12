@@ -29,4 +29,5 @@ func _on_unit_defeated(stats: CharacterStats, unit: Actor) -> void:
 	check_mission_status()
 
 func check_mission_status() -> void:
+	PlayerPartyController.fully_restore_party()
 	SceneManager.change_scene("res://Scenes/Homebase.tscn")
