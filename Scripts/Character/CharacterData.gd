@@ -19,7 +19,7 @@ class_name CharacterData extends Resource
 
 @export var traits: Array[Trait]     = []
 
-@export var status_effect_holder: StatusEffectHolder = StatusEffectHolder.new(self)
+var status_effect_holder: StatusEffectHolder = StatusEffectHolder.new(self)
 
 ## Called to initialize a character.
 func init() -> void:

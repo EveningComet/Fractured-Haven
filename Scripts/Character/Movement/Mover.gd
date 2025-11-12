@@ -40,7 +40,6 @@ func _ready() -> void:
 	_stats = Utils.get_node_of_type(get_parent(), Combatant).character_data.stats
 	_stats.stat_changed.connect(_on_stat_changed)
 	_on_stat_changed(_stats)
-	set_destination(_cb.global_position)
 
 func _physics_process(delta: float) -> void:
 	_move(delta)

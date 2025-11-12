@@ -1,13 +1,11 @@
-[gd_scene load_steps=32 format=3 uid="uid://cxhdetyqj8r0p"]
+[gd_scene load_steps=30 format=3 uid="uid://cxhdetyqj8r0p"]
 
-[ext_resource type="PackedScene" uid="uid://csjsqepnvhs0v" path="res://Scenes/Characters/Templates/Actor Template.tscn" id="1_f607v"]
 [ext_resource type="Script" uid="uid://dm52vxni74eyj" path="res://Scripts/World/Partition/Partition.gd" id="1_lyqys"]
 [ext_resource type="Script" uid="uid://cbfor4a0t7nl1" path="res://Scripts/World/Partition/Board.gd" id="2_p7cp4"]
 [ext_resource type="Texture2D" uid="uid://cxymice35l0bo" path="res://Imported Assets/KenneyNL Prototyping Textures/Dark/texture_01.png" id="2_rmiod"]
 [ext_resource type="Script" uid="uid://ryu4fospsa37" path="res://Scripts/World/Partition/Connection.gd" id="3_h00v1"]
 [ext_resource type="Texture2D" uid="uid://cnt2uiewxhing" path="res://Imported Assets/KenneyNL Prototyping Textures/Light/texture_01.png" id="3_jmi3t"]
 [ext_resource type="Texture2D" uid="uid://cfb850iahlkjv" path="res://Imported Assets/KenneyNL Prototyping Textures/Orange/texture_05.png" id="7_kx3jy"]
-[ext_resource type="PackedScene" uid="uid://c6ie0wxho0avl" path="res://Scenes/Characters/Templates/Test Enemy.tscn" id="8_1yaum"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xvkea"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -117,16 +115,11 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_lk5v0")
 
-[node name="Test Enemy" parent="." instance=ExtResource("8_1yaum")]
-transform = Transform3D(0.25881907, 0, 0.9659258, 0, 1, 0, -0.9659258, 0, 0.25881907, 11, 0.5, 0)
-
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_p7cp4")
 
-[node name="Board" type="Node3D" parent="NavigationRegion3D" node_paths=PackedStringArray("unit_holder_node")]
+[node name="Board" type="Node3D" parent="NavigationRegion3D"]
 script = ExtResource("2_p7cp4")
-unit_holder_node = NodePath("../..")
-actor_template = ExtResource("1_f607v")
 
 [node name="Partition 1" type="Area3D" parent="NavigationRegion3D/Board"]
 script = ExtResource("1_lyqys")

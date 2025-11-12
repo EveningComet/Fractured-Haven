@@ -1,6 +1,5 @@
 [gd_scene load_steps=12 format=3 uid="uid://7kbrpbhs038f"]
 
-[ext_resource type="PackedScene" uid="uid://cxhdetyqj8r0p" path="res://Scenes/Maps/Testing Level.tscn" id="1_iukft"]
 [ext_resource type="Script" uid="uid://docpccg8hlw8t" path="res://Scripts/Player/PlayerBattleController.gd" id="2_gl6un"]
 [ext_resource type="Script" uid="uid://cv7sn3bxvpx2p" path="res://Scripts/Player/Input State Machine/PlayerInputController.gd" id="3_j5yw3"]
 [ext_resource type="Script" uid="uid://c0e6lo5fi7jfk" path="res://Scripts/Player/Input State Machine/Input Control States/WaitingForUnitSelection.gd" id="4_kldst"]
@@ -10,15 +9,19 @@
 [ext_resource type="Script" uid="uid://dkwyg8sbl73ui" path="res://Scripts/Player/SelectionBox.gd" id="7_fgofq"]
 [ext_resource type="PackedScene" uid="uid://df8httx5hk1fy" path="res://Scenes/Player/Camera Controller.tscn" id="8_2irst"]
 [ext_resource type="PackedScene" uid="uid://ct417dgr6r0gu" path="res://Scenes/UI/Player/HUD/Player HUD.tscn" id="9_bf53h"]
+[ext_resource type="Script" uid="uid://b5b58x42e7qvt" path="res://Scripts/World/BattleMapController.gd" id="11_3so38"]
 [ext_resource type="Script" uid="uid://thjq76fyvwel" path="res://Scripts/World/DeathListener.gd" id="11_dahhg"]
 
 [node name="Game" type="Node"]
 
-[node name="DeathListener" type="Node" parent="."]
+[node name="DeathListener" type="Node" parent="." node_paths=PackedStringArray("_battle_map_controller")]
 script = ExtResource("11_dahhg")
+_battle_map_controller = NodePath("../BattleMapController")
 metadata/_custom_type_script = "uid://thjq76fyvwel"
 
-[node name="Testing Level" parent="." instance=ExtResource("1_iukft")]
+[node name="BattleMapController" type="Node" parent="."]
+script = ExtResource("11_3so38")
+metadata/_custom_type_script = "uid://b5b58x42e7qvt"
 
 [node name="PlayerBattleController" type="Node" parent="."]
 script = ExtResource("2_gl6un")
