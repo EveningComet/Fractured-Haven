@@ -18,6 +18,7 @@ var party_as_actors: Array[Actor] = []
 
 func _ready() -> void:
 	_load_testing_party()
+	_load_testing_roster()
 
 ## Go through the [active_party] and return characters that have hp > 0.
 func get_valid_party_members():
@@ -63,6 +64,21 @@ func _load_testing_party() -> void:
 					data_path + "/" + file_name
 				)
 				active_party.append( cd )
+				roster.append( cd )
+			file_name = dir.get_next()
+		dir.list_dir_end()
+
+func _load_testing_roster() -> void:
+	var data_path: String = "res://Game Data/Testing Roster"
+	var dir = DirAccess.open( data_path )
+	if dir:
+		dir.list_dir_begin()
+		var file_name = dir.get_next()
+		while file_name != "":
+			if file_name.ends_with(".tres") == true:
+				var cd: CharacterData = load(
+					data_path + "/" + file_name
+				)
 				roster.append( cd )
 			file_name = dir.get_next()
 		dir.list_dir_end()
