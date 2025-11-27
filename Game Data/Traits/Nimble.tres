@@ -10,6 +10,7 @@ script = ExtResource("3_l2pt1")
 stat_changing = 10
 stat_modifier_type = 1
 value = 0.3
+sort_order = 9
 metadata/_custom_type_script = "uid://dhawf7kcnt6om"
 
 [sub_resource type="Resource" id="Resource_et6w1"]
@@ -21,7 +22,8 @@ metadata/_custom_type_script = "uid://x2vr8525dbpf"
 script = ExtResource("3_l2pt1")
 stat_changing = 7
 stat_modifier_type = 1
-value = 0.25
+value = 0.3
+sort_order = 9
 metadata/_custom_type_script = "uid://dhawf7kcnt6om"
 
 [sub_resource type="Resource" id="Resource_q4lp7"]

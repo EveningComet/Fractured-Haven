@@ -11,6 +11,10 @@ class_name Trait extends Resource
 
 func apply(character: CharacterData) -> void:
 	character.traits.append(self)
+	for e: TraitEffect in effects:
+		e.apply(character)
 
 func remove(character: CharacterData) -> void:
 	character.traits.erase(self)
+	for e: TraitEffect in effects:
+		e.remove(character)

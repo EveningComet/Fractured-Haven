@@ -19,6 +19,7 @@ enum StatTypes {
 	
 	# Other stats
 	CriticalHitChance,
+	HealingReceivedScaler,
 	
 	HeatMods,
 	ColdMods,

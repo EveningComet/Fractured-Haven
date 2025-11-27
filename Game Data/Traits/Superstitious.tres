@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Trait" load_steps=7 format=3 uid="uid://cf2ynueoxlpsy"]
+
+[ext_resource type="Script" uid="uid://prtjgcd3hdir" path="res://Scripts/Character/Trait/Effects/TraitEffect.gd" id="1_tubtm"]
+[ext_resource type="Script" uid="uid://b2v63vqu1bac0" path="res://Scripts/Character/Trait/Trait.gd" id="2_5ckl3"]
+[ext_resource type="Script" uid="uid://x2vr8525dbpf" path="res://Scripts/Character/Trait/Effects/StatModifyingTrait.gd" id="2_72vc0"]
+[ext_resource type="Script" uid="uid://dhawf7kcnt6om" path="res://Scripts/Stats/StatModifier.gd" id="3_mgmjk"]
+
+[sub_resource type="Resource" id="Resource_ggqp2"]
+script = ExtResource("3_mgmjk")
+stat_changing = 12
+stat_modifier_type = 1
+value = 0.3
+metadata/_custom_type_script = "uid://dhawf7kcnt6om"
+
+[sub_resource type="Resource" id="Resource_ye1v5"]
+script = ExtResource("2_72vc0")
+stat_modifier = SubResource("Resource_ggqp2")
+metadata/_custom_type_script = "uid://x2vr8525dbpf"
+
+[resource]
+script = ExtResource("2_5ckl3")
+localization_name = "Superstitious"
+localization_description = "This person puts too much thought in mystical things. They receive more healing, and buffs are better. However, debuffs are also stronger, and negative status effects are more likely to succeed."
+effects = Array[ExtResource("1_tubtm")]([SubResource("Resource_ye1v5")])
+metadata/_custom_type_script = "uid://b2v63vqu1bac0"

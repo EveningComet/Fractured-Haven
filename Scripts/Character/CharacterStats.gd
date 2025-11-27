@@ -70,6 +70,7 @@ func take_damage(dd: DamageData) -> void:
 		die()
 
 func heal(amount: int) -> void:
+	# TODO: Scale the healing based on the healingreceived stat.
 	curr_hp += amount
 
 func full_restore() -> void:

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Trait" load_steps=2 format=3 uid="uid://cet2e32h754gj"]
+
+[ext_resource type="Script" uid="uid://b2v63vqu1bac0" path="res://Scripts/Character/Trait/Trait.gd" id="2_ilnfk"]
+
+[resource]
+script = ExtResource("2_ilnfk")
+localization_name = "Overconfident"
+localization_description = "The character is pretty sure of themselves."
+effects = null
+metadata/_custom_type_script = "uid://b2v63vqu1bac0"
