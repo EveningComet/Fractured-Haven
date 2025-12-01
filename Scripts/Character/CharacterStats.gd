@@ -70,8 +70,11 @@ func take_damage(dd: DamageData) -> void:
 		die()
 
 func heal(amount: int) -> void:
-	# TODO: Scale the healing based on the healingreceived stat.
-	curr_hp += amount
+	var healing_received_scaler: float = Formulas.get_calculated_value(
+		StatHelper.StatTypes.HealingReceivedScaler, self
+	)
+	var final_value: int = floor(float(amount) * healing_received_scaler)
+	curr_hp += final_value
 
 func full_restore() -> void:
 	curr_hp = max_hp

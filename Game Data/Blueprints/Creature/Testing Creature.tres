@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CreatureBlueprint" load_steps=21 format=3 uid="uid://lh5d0xhgsi52"]
+[gd_resource type="Resource" script_class="CreatureBlueprint" load_steps=22 format=3 uid="uid://lh5d0xhgsi52"]
 
 [ext_resource type="Script" uid="uid://c0jl23t6vw8iv" path="res://Scripts/Character/CharacterStats.gd" id="1_ar71o"]
 [ext_resource type="Script" uid="uid://c2twaqy62eh5w" path="res://Scripts/Character/CreatureBlueprint.gd" id="1_tlwjb"]
@@ -63,6 +63,10 @@ script = ExtResource("2_0rys4")
 base_value = 7.5
 metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
 
+[sub_resource type="Resource" id="Resource_8cdua"]
+script = ExtResource("2_0rys4")
+metadata/_custom_type_script = "uid://dbcd3ncj7kmei"
+
 [sub_resource type="Resource" id="Resource_pgsgp"]
 script = ExtResource("1_ar71o")
 stats = Dictionary[int, ExtResource("2_0rys4")]({
@@ -76,7 +80,8 @@ stats = Dictionary[int, ExtResource("2_0rys4")]({
 7: SubResource("Resource_8g2d5"),
 8: SubResource("Resource_mnpw0"),
 9: SubResource("Resource_n2xmr"),
-10: SubResource("Resource_ewwog")
+10: SubResource("Resource_ewwog"),
+12: SubResource("Resource_8cdua")
 })
 metadata/_custom_type_script = "uid://c0jl23t6vw8iv"
 

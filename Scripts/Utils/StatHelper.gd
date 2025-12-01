@@ -21,6 +21,9 @@ enum StatTypes {
 	CriticalHitChance,
 	HealingReceivedScaler,
 	
+	## Effects how much stronger buffs and debuffs are. Should be 1.00 by default.
+	BuffDebuffPotency,
+	
 	HeatMods,
 	ColdMods,
 	ElectricityMods,
