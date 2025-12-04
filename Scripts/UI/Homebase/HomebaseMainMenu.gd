@@ -1,12 +1,14 @@
 ## Controls stuff related to the Homebase scene's main menu.
 class_name HomebaseMainMenu extends Node
 
-@export_category("Battle Related UI")
 ## The scene that stores the map where battles take place.
 @export_file("*.tscn") var _battle_scene: String
 
+@export_category("Buttons")
 ## The button player's select to go to the mission's menu.
-@export var _mission_button: Button
+@export var _mission_button:     Button
+@export var _party_setup_button: Button
+@export var _activities_button:  Button
 
 func _ready() -> void:
 	_mission_button.pressed.connect(_on_start_mission_pressed)

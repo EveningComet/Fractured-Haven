@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://djdc1ysyk0xvq"]
+[gd_scene load_steps=8 format=3 uid="uid://djdc1ysyk0xvq"]
 
 [ext_resource type="Texture2D" uid="uid://5ycrfhivd6eh" path="res://Imported Assets/KenneyNL Prototyping Textures/Green/texture_09.png" id="1_usv47"]
 [ext_resource type="Script" uid="uid://bokxi26l7lotn" path="res://Scripts/UI/Homebase/HomebaseMainMenu.gd" id="2_gs83c"]
+[ext_resource type="PackedScene" uid="uid://cvx60grg5kwnv" path="res://Scenes/UI/Player/Homebase/Party Setup Menu.tscn" id="3_xhrbv"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_usv47"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -43,6 +44,9 @@ use_collision = true
 size = Vector3(50, 1, 50)
 material = SubResource("StandardMaterial3D_gs83c")
 
+[node name="Party Setup Menu" parent="." instance=ExtResource("3_xhrbv")]
+visible = false
+
 [node name="Homebase Main Menu" type="CanvasLayer" parent="."]
 
 [node name="Control" type="Control" parent="Homebase Main Menu"]
@@ -55,14 +59,14 @@ grow_vertical = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="Homebase Main Menu/Control"]
 layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 20.0
-offset_top = -20.5
-offset_right = 200.0
-offset_bottom = 20.5
-grow_vertical = 2
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -343.0
+offset_top = 20.0
+offset_right = 343.0
+offset_bottom = 80.0
+grow_horizontal = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="Homebase Main Menu/Control/PanelContainer"]
 layout_mode = 2
@@ -71,17 +75,33 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Homebase Main Menu/Control/PanelContainer/MarginContainer"]
+[node name="Main Buttons Container" type="HBoxContainer" parent="Homebase Main Menu/Control/PanelContainer/MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
 
-[node name="Mission Button" type="Button" parent="Homebase Main Menu/Control/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Mission Button" type="Button" parent="Homebase Main Menu/Control/PanelContainer/MarginContainer/Main Buttons Container"]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "Start Testing Mission"
 
-[node name="HomebaseMainMenu" type="Node" parent="." node_paths=PackedStringArray("_mission_button")]
+[node name="Party Setup" type="Button" parent="Homebase Main Menu/Control/PanelContainer/MarginContainer/Main Buttons Container"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Party Setup"
+
+[node name="Set Activities" type="Button" parent="Homebase Main Menu/Control/PanelContainer/MarginContainer/Main Buttons Container"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Set Activities"
+
+[node name="HomebaseMainMenu" type="Node" parent="." node_paths=PackedStringArray("_mission_button", "_party_setup_button", "_activities_button")]
 script = ExtResource("2_gs83c")
 _battle_scene = "uid://7kbrpbhs038f"
-_mission_button = NodePath("../Homebase Main Menu/Control/PanelContainer/MarginContainer/VBoxContainer/Mission Button")
+_mission_button = NodePath("../Homebase Main Menu/Control/PanelContainer/MarginContainer/Main Buttons Container/Mission Button")
+_party_setup_button = NodePath("../Homebase Main Menu/Control/PanelContainer/MarginContainer/Main Buttons Container/Party Setup")
+_activities_button = NodePath("../Homebase Main Menu/Control/PanelContainer/MarginContainer/Main Buttons Container/Set Activities")
 metadata/_custom_type_script = "uid://bokxi26l7lotn"
