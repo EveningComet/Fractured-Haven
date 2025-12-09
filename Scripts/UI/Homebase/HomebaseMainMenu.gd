@@ -9,13 +9,26 @@ class_name HomebaseMainMenu extends Node
 @export var _mission_button:     Button
 @export var _party_setup_button: Button
 @export var _activities_button:  Button
+# TODO: Recruit/Spawn button.
+
+@export_category("Homebase Components")
+@export var _party_setup_menu: CanvasLayer
 
 func _ready() -> void:
 	_mission_button.pressed.connect(_on_start_mission_pressed)
+	_party_setup_button.pressed.connect(_on_party_setup_button_pressed)
+	_activities_button.pressed.connect(_on_activities_button_pressed)
 	_test_stats_growth()
 
 func _on_start_mission_pressed() -> void:
+	_party_setup_menu.hide()
 	SceneManager.change_scene(_battle_scene)
+
+func _on_party_setup_button_pressed() -> void:
+	_party_setup_menu.show()
+
+func _on_activities_button_pressed() -> void:
+	_party_setup_menu.hide()
 
 ## A method used for simulating the mechanic used for boosting stats outside of
 ## level ups.

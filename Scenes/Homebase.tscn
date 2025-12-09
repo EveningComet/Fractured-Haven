@@ -98,10 +98,11 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "Set Activities"
 
-[node name="HomebaseMainMenu" type="Node" parent="." node_paths=PackedStringArray("_mission_button", "_party_setup_button", "_activities_button")]
+[node name="HomebaseMainMenu" type="Node" parent="." node_paths=PackedStringArray("_mission_button", "_party_setup_button", "_activities_button", "_party_setup_menu")]
 script = ExtResource("2_gs83c")
 _battle_scene = "uid://7kbrpbhs038f"
 _mission_button = NodePath("../Homebase Main Menu/Control/PanelContainer/MarginContainer/Main Buttons Container/Mission Button")
 _party_setup_button = NodePath("../Homebase Main Menu/Control/PanelContainer/MarginContainer/Main Buttons Container/Party Setup")
 _activities_button = NodePath("../Homebase Main Menu/Control/PanelContainer/MarginContainer/Main Buttons Container/Set Activities")
+_party_setup_menu = NodePath("../Party Setup Menu")
 metadata/_custom_type_script = "uid://bokxi26l7lotn"
