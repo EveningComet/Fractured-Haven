@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://djdc1ysyk0xvq"]
+[gd_scene load_steps=9 format=3 uid="uid://djdc1ysyk0xvq"]
 
 [ext_resource type="Texture2D" uid="uid://5ycrfhivd6eh" path="res://Imported Assets/KenneyNL Prototyping Textures/Green/texture_09.png" id="1_usv47"]
 [ext_resource type="Script" uid="uid://bokxi26l7lotn" path="res://Scripts/UI/Homebase/HomebaseMainMenu.gd" id="2_gs83c"]
 [ext_resource type="PackedScene" uid="uid://cvx60grg5kwnv" path="res://Scenes/UI/Player/Homebase/Party Setup Menu.tscn" id="3_xhrbv"]
+[ext_resource type="PackedScene" uid="uid://dfoqmwih81f55" path="res://Scenes/UI/Player/Homebase/Activities Menu.tscn" id="4_sj4i1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_usv47"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -44,6 +45,9 @@ use_collision = true
 size = Vector3(50, 1, 50)
 material = SubResource("StandardMaterial3D_gs83c")
 
+[node name="Activities Menu" parent="." instance=ExtResource("4_sj4i1")]
+visible = false
+
 [node name="Party Setup Menu" parent="." instance=ExtResource("3_xhrbv")]
 visible = false
 
@@ -56,6 +60,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="Homebase Main Menu/Control"]
 layout_mode = 1
@@ -98,11 +103,12 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "Set Activities"
 
-[node name="HomebaseMainMenu" type="Node" parent="." node_paths=PackedStringArray("_mission_button", "_party_setup_button", "_activities_button", "_party_setup_menu")]
+[node name="HomebaseMainMenu" type="Node" parent="." node_paths=PackedStringArray("_mission_button", "_party_setup_button", "_activities_button", "_party_setup_menu", "_activities_menu")]
 script = ExtResource("2_gs83c")
 _battle_scene = "uid://7kbrpbhs038f"
 _mission_button = NodePath("../Homebase Main Menu/Control/PanelContainer/MarginContainer/Main Buttons Container/Mission Button")
 _party_setup_button = NodePath("../Homebase Main Menu/Control/PanelContainer/MarginContainer/Main Buttons Container/Party Setup")
 _activities_button = NodePath("../Homebase Main Menu/Control/PanelContainer/MarginContainer/Main Buttons Container/Set Activities")
 _party_setup_menu = NodePath("../Party Setup Menu")
+_activities_menu = NodePath("../Activities Menu")
 metadata/_custom_type_script = "uid://bokxi26l7lotn"

@@ -13,6 +13,7 @@ class_name HomebaseMainMenu extends Node
 
 @export_category("Homebase Components")
 @export var _party_setup_menu: CanvasLayer
+@export var _activities_menu:  CanvasLayer
 
 func _ready() -> void:
 	_mission_button.pressed.connect(_on_start_mission_pressed)
@@ -26,9 +27,11 @@ func _on_start_mission_pressed() -> void:
 
 func _on_party_setup_button_pressed() -> void:
 	_party_setup_menu.show()
+	_activities_menu.hide()
 
 func _on_activities_button_pressed() -> void:
 	_party_setup_menu.hide()
+	_activities_menu.show()
 
 ## A method used for simulating the mechanic used for boosting stats outside of
 ## level ups.

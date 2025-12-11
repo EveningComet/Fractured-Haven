@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bde8iftleasx2"]
+
+[ext_resource type="Script" uid="uid://b7dmi2bddon0g" path="res://Scripts/UI/Homebase/Party Setup Menu/RosterReference.gd" id="1_klb00"]
+
+[node name="Roster Reference" type="Button"]
+custom_minimum_size = Vector2(100, 75)
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("1_klb00")
+metadata/_custom_type_script = "uid://b7dmi2bddon0g"

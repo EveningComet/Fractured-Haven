@@ -64,7 +64,6 @@ func _load_testing_party() -> void:
 					data_path + "/" + file_name
 				)
 				active_party.append( cd )
-				roster.append( cd )
 			file_name = dir.get_next()
 		dir.list_dir_end()
 

@@ -1,9 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cvx60grg5kwnv"]
+[gd_scene format=3 uid="uid://dfoqmwih81f55"]
 
-[ext_resource type="Script" uid="uid://w1cp5dj06mds" path="res://Scripts/UI/Homebase/Party Setup Menu/PartySetupMenuController.gd" id="1_ojhbx"]
-[ext_resource type="PackedScene" uid="uid://bde8iftleasx2" path="res://Scenes/UI/Player/Homebase/Roster Reference.tscn" id="2_bebtl"]
-
-[node name="Party Setup Menu" type="CanvasLayer"]
+[node name="Activities Menu" type="CanvasLayer"]
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -74,24 +71,20 @@ size_flags_horizontal = 0
 size_flags_vertical = 3
 columns = 6
 
-[node name="Active Party Panel Container" type="PanelContainer" parent="Control/PanelContainer/MarginContainer/HBoxContainer"]
+[node name="Activities Panel Container" type="PanelContainer" parent="Control/PanelContainer/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="Control/PanelContainer/MarginContainer/HBoxContainer/Active Party Panel Container"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/PanelContainer/MarginContainer/HBoxContainer/Activities Panel Container"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/PanelContainer/MarginContainer/HBoxContainer/Activities Panel Container/ScrollContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="Active Party Container" type="GridContainer" parent="Control/PanelContainer/MarginContainer/HBoxContainer/Active Party Panel Container/MarginContainer"]
+[node name="Activities Container" type="GridContainer" parent="Control/PanelContainer/MarginContainer/HBoxContainer/Activities Panel Container/ScrollContainer/MarginContainer"]
 layout_mode = 2
-
-[node name="PartySetupMenuController" type="Node" parent="." node_paths=PackedStringArray("_roster_container", "_active_party_container")]
-script = ExtResource("1_ojhbx")
-_roster_container = NodePath("../Control/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/ScrollContainer/MarginContainer/Roster Container")
-_active_party_container = NodePath("../Control/PanelContainer/MarginContainer/HBoxContainer/Active Party Panel Container/MarginContainer/Active Party Container")
-roster_reference_prefab = ExtResource("2_bebtl")
-metadata/_custom_type_script = "uid://w1cp5dj06mds"
