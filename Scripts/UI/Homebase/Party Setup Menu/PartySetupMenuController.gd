@@ -6,6 +6,8 @@ class_name PartySetupMenuController extends Node
 ## The node storing the player's active party.
 @export var _active_party_container: Container
 
+@export var _roster_interaction_interface: RosterInteractionInterface
+
 ## The object that will display the player's characters.
 @export var roster_reference_prefab: PackedScene
 
@@ -28,6 +30,7 @@ func _spawn_roster() -> void:
 	for cd: CharacterData in roster:
 		var roster_ref: RosterReference = roster_reference_prefab.instantiate()
 		roster_ref.character_ref = cd
+		_roster_interaction_interface.connect_to_roster_ref(roster_ref)
 		_roster_container.add_child(roster_ref)
 
 func _spawn_party() -> void:
@@ -35,6 +38,7 @@ func _spawn_party() -> void:
 	for cd: CharacterData in active_party:
 		var roster_ref: RosterReference = roster_reference_prefab.instantiate()
 		roster_ref.character_ref = cd
+		_roster_interaction_interface.connect_to_roster_ref(roster_ref)
 		_active_party_container.add_child(roster_ref)
 
 func _clear_displayed_roster() -> void:

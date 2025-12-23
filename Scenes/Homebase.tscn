@@ -103,6 +103,12 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "Set Activities"
 
+[node name="Recruit" type="Button" parent="Homebase Main Menu/Control/PanelContainer/MarginContainer/Main Buttons Container"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Summon"
+
 [node name="HomebaseMainMenu" type="Node" parent="." node_paths=PackedStringArray("_mission_button", "_party_setup_button", "_activities_button", "_party_setup_menu", "_activities_menu")]
 script = ExtResource("2_gs83c")
 _battle_scene = "uid://7kbrpbhs038f"
