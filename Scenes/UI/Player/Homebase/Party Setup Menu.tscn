@@ -52,7 +52,11 @@ custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 text = "Sort"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Control/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Roster Panel" type="PanelContainer" parent="Control/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/Roster Panel"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -60,16 +64,16 @@ size_flags_vertical = 3
 follow_focus = true
 horizontal_scroll_mode = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="Control/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/ScrollContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Control/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/Roster Panel/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
 
-[node name="Roster Container" type="GridContainer" parent="Control/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/ScrollContainer/MarginContainer"]
+[node name="Roster Container" type="GridContainer" parent="Control/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/Roster Panel/ScrollContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 3
@@ -82,25 +86,30 @@ size_flags_horizontal = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/PanelContainer/MarginContainer/HBoxContainer/Active Party Panel Container"]
 layout_mode = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
 
 [node name="Active Party Container" type="GridContainer" parent="Control/PanelContainer/MarginContainer/HBoxContainer/Active Party Panel Container/MarginContainer"]
 layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 6
 
 [node name="PartySetupMenuController" type="Node" parent="." node_paths=PackedStringArray("_roster_container", "_active_party_container", "_roster_interaction_interface")]
 script = ExtResource("1_ojhbx")
-_roster_container = NodePath("../Control/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/ScrollContainer/MarginContainer/Roster Container")
+_roster_container = NodePath("../Control/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/Roster Panel/ScrollContainer/MarginContainer/Roster Container")
 _active_party_container = NodePath("../Control/PanelContainer/MarginContainer/HBoxContainer/Active Party Panel Container/MarginContainer/Active Party Container")
 _roster_interaction_interface = NodePath("../RosterInteractionInterface")
 roster_reference_prefab = ExtResource("2_bebtl")
 metadata/_custom_type_script = "uid://w1cp5dj06mds"
 
-[node name="RosterInteractionInterface" type="Node" parent="." node_paths=PackedStringArray("grabbed_character_ui")]
+[node name="RosterInteractionInterface" type="Node2D" parent="." node_paths=PackedStringArray("_grabbed_character_ui", "_active_party_container", "_roster_container")]
 script = ExtResource("3_1wp6k")
-grabbed_character_ui = NodePath("../Grabbed Roster UI")
+_grabbed_character_ui = NodePath("../Grabbed Roster UI")
+_active_party_container = NodePath("../Control/PanelContainer/MarginContainer/HBoxContainer/Active Party Panel Container")
+_roster_container = NodePath("../Control/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/Roster Panel")
 metadata/_custom_type_script = "uid://cksygqy2cl7aa"
 
 [node name="Grabbed Roster UI" parent="." instance=ExtResource("2_bebtl")]

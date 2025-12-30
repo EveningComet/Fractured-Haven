@@ -14,6 +14,10 @@ class_name PartySetupMenuController extends Node
 @onready var parent: CanvasLayer = get_parent()
 
 func _ready() -> void:
+	# Sub to the change events
+	PlayerPartyController.roster_changed.connect(_on_roster_changed)
+	PlayerPartyController.party_changed.connect(_on_party_changed)
+	
 	parent.visibility_changed.connect(_on_visibility_changed)
 	_on_visibility_changed()
 
@@ -28,18 +32,26 @@ func _on_visibility_changed() -> void:
 func _spawn_roster() -> void:
 	var roster: Array[CharacterData] = PlayerPartyController.roster
 	for cd: CharacterData in roster:
-		var roster_ref: RosterReference = roster_reference_prefab.instantiate()
-		roster_ref.character_ref = cd
-		_roster_interaction_interface.connect_to_roster_ref(roster_ref)
-		_roster_container.add_child(roster_ref)
+		_spawn_roster_ref(cd, _roster_container)
 
 func _spawn_party() -> void:
 	var active_party: Array[CharacterData] = PlayerPartyController.active_party
 	for cd: CharacterData in active_party:
-		var roster_ref: RosterReference = roster_reference_prefab.instantiate()
-		roster_ref.character_ref = cd
-		_roster_interaction_interface.connect_to_roster_ref(roster_ref)
-		_active_party_container.add_child(roster_ref)
+		_spawn_roster_ref(cd, _active_party_container)
+
+func _spawn_roster_ref(cd: CharacterData, container: Container) -> void:
+	var roster_ref: RosterReference = roster_reference_prefab.instantiate()
+	roster_ref.character_ref = cd
+	_roster_interaction_interface.connect_to_roster_ref(roster_ref)
+	container.add_child(roster_ref)
+
+func _on_roster_changed(new_roster: Array[CharacterData]) -> void:
+	_clear_displayed_roster()
+	_spawn_roster()
+
+func _on_party_changed(new_party: Array[CharacterData]) -> void:
+	_clear_displayed_party()
+	_spawn_party()
 
 func _clear_displayed_roster() -> void:
 	for c in _roster_container.get_children():

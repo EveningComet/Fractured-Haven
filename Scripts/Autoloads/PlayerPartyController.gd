@@ -2,7 +2,9 @@
 extends Node
 # TODO: Rename to PlayerRosterController.
 
-signal party_changed(party: Array[Actor])
+signal party_changed(party: Array[CharacterData])
+
+signal roster_changed(rstr: Array[CharacterData])
 
 ## The maximum number of party members the player can have in their party, not
 ## including summons.
@@ -27,13 +29,28 @@ func get_valid_party_members():
 		if pm.stats.curr_hp > 0:
 			valid_pms.append(pm)
 	return valid_pms
-	
+
+func find_and_remove(cd: CharacterData) -> void:
+	if active_party.has(cd) == true:
+		remove_from_party(cd)
+	elif roster.has(cd) == true:
+		remove_from_roster(cd)
+
 func add_to_party(new_pm: CharacterData) -> void:
 	active_party.append( new_pm )
 	party_changed.emit(active_party)
 
 func remove_from_party(pm_to_remove: CharacterData) -> void:
-	pass
+	active_party.erase(pm_to_remove)
+	party_changed.emit(active_party)
+
+func add_to_roster(new_member: CharacterData) -> void:
+	roster.append(new_member)
+	roster_changed.emit(roster)
+
+func remove_from_roster(member_to_remove: CharacterData) -> void:
+	roster.erase(member_to_remove)
+	roster_changed.emit(roster)
 
 func is_party_fightable() -> bool:
 	for pm: CharacterData in active_party:

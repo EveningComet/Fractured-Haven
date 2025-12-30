@@ -259,7 +259,7 @@ metadata/_custom_type_script = "uid://bjxna3hubfe3e"
 [sub_resource type="Resource" id="Resource_xgk3j"]
 script = ExtResource("4_5pmtf")
 character_data = SubResource("Resource_g0bfn")
-location_to_spawn = Vector3(11, 0.5, 0)
+location_to_spawn = Vector3(13, 0.5, 0)
 metadata/_custom_type_script = "uid://c3nw1e4h7lu5u"
 
 [resource]
