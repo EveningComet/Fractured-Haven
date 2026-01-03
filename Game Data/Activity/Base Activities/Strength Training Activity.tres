@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Activity" load_steps=5 format=3 uid="uid://hq5obeumka3f"]
+
+[ext_resource type="Script" uid="uid://dhawf7kcnt6om" path="res://Scripts/Stats/StatModifier.gd" id="1_101cm"]
+[ext_resource type="Script" uid="uid://bjxna3hubfe3e" path="res://Scripts/Character/CharacterData.gd" id="2_i24f0"]
+[ext_resource type="Script" uid="uid://dx03h5frqv5lh" path="res://Scripts/Homebase/Activity.gd" id="3_y0uej"]
+
+[sub_resource type="Resource" id="Resource_101cm"]
+script = ExtResource("1_101cm")
+stat_changing = 4
+value = 10.0
+metadata/_custom_type_script = "uid://dhawf7kcnt6om"
+
+[resource]
+script = ExtResource("3_y0uej")
+localization_name = "Strength Training"
+changed_stats = Array[ExtResource("1_101cm")]([SubResource("Resource_101cm")])
+metadata/_custom_type_script = "uid://dx03h5frqv5lh"
