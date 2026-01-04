@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Activity" load_steps=5 format=3 uid="uid://cb3grrfcnfx6t"]
+
+[ext_resource type="Script" uid="uid://dhawf7kcnt6om" path="res://Scripts/Stats/StatModifier.gd" id="1_g10yc"]
+[ext_resource type="Script" uid="uid://bjxna3hubfe3e" path="res://Scripts/Character/CharacterData.gd" id="2_8homq"]
+[ext_resource type="Script" uid="uid://dx03h5frqv5lh" path="res://Scripts/Homebase/Activity.gd" id="3_pyqf8"]
+
+[sub_resource type="Resource" id="Resource_g10yc"]
+script = ExtResource("1_g10yc")
+stat_changing = 8
+value = 10.0
+metadata/_custom_type_script = "uid://dhawf7kcnt6om"
+
+[resource]
+script = ExtResource("3_pyqf8")
+localization_name = "Debate"
+changed_stats = Array[ExtResource("1_g10yc")]([SubResource("Resource_g10yc")])
+metadata/_custom_type_script = "uid://dx03h5frqv5lh"

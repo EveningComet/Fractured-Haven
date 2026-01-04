@@ -7,6 +7,12 @@ var activities: Array[Activity] = []
 func _ready() -> void:
 	_load_base_activities()
 
+## Simply go through the attached [Activity] objects and perform the stat
+## changes.
+func perform_activity_changes() -> void:
+	for a: Activity in activities:
+		a.perform_changes()
+
 func _load_base_activities() -> void:
 	var data_path: String = "res://Game Data/Activity/Base Activities/"
 	var dir = DirAccess.open( data_path )

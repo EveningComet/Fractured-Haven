@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://dfoqmwih81f55"]
+[gd_scene load_steps=3 format=3 uid="uid://dfoqmwih81f55"]
+
+[ext_resource type="PackedScene" uid="uid://5ccds6t8wttd" path="res://Scenes/UI/Player/Homebase/Activity UI.tscn" id="1_xacyw"]
+[ext_resource type="Script" uid="uid://b3244usq3rihg" path="res://Scripts/UI/Homebase/Activities Menu/ActivitiesMenuController.gd" id="2_xm4yt"]
 
 [node name="Activities Menu" type="CanvasLayer"]
 
@@ -81,10 +84,51 @@ layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/PanelContainer/MarginContainer/HBoxContainer/Activities Panel Container/ScrollContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
 
 [node name="Activities Container" type="GridContainer" parent="Control/PanelContainer/MarginContainer/HBoxContainer/Activities Panel Container/ScrollContainer/MarginContainer"]
 layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 2
+
+[node name="Activity UI" parent="Control/PanelContainer/MarginContainer/HBoxContainer/Activities Panel Container/ScrollContainer/MarginContainer/Activities Container" instance=ExtResource("1_xacyw")]
+layout_mode = 2
+
+[node name="Activity UI2" parent="Control/PanelContainer/MarginContainer/HBoxContainer/Activities Panel Container/ScrollContainer/MarginContainer/Activities Container" instance=ExtResource("1_xacyw")]
+layout_mode = 2
+
+[node name="Activity UI3" parent="Control/PanelContainer/MarginContainer/HBoxContainer/Activities Panel Container/ScrollContainer/MarginContainer/Activities Container" instance=ExtResource("1_xacyw")]
+layout_mode = 2
+
+[node name="Activity UI4" parent="Control/PanelContainer/MarginContainer/HBoxContainer/Activities Panel Container/ScrollContainer/MarginContainer/Activities Container" instance=ExtResource("1_xacyw")]
+layout_mode = 2
+
+[node name="Activity UI5" parent="Control/PanelContainer/MarginContainer/HBoxContainer/Activities Panel Container/ScrollContainer/MarginContainer/Activities Container" instance=ExtResource("1_xacyw")]
+layout_mode = 2
+
+[node name="Activity UI6" parent="Control/PanelContainer/MarginContainer/HBoxContainer/Activities Panel Container/ScrollContainer/MarginContainer/Activities Container" instance=ExtResource("1_xacyw")]
+layout_mode = 2
+
+[node name="Activity UI7" parent="Control/PanelContainer/MarginContainer/HBoxContainer/Activities Panel Container/ScrollContainer/MarginContainer/Activities Container" instance=ExtResource("1_xacyw")]
+layout_mode = 2
+
+[node name="Activity UI8" parent="Control/PanelContainer/MarginContainer/HBoxContainer/Activities Panel Container/ScrollContainer/MarginContainer/Activities Container" instance=ExtResource("1_xacyw")]
+layout_mode = 2
+
+[node name="Activity UI9" parent="Control/PanelContainer/MarginContainer/HBoxContainer/Activities Panel Container/ScrollContainer/MarginContainer/Activities Container" instance=ExtResource("1_xacyw")]
+layout_mode = 2
+
+[node name="Activity UI10" parent="Control/PanelContainer/MarginContainer/HBoxContainer/Activities Panel Container/ScrollContainer/MarginContainer/Activities Container" instance=ExtResource("1_xacyw")]
+layout_mode = 2
+
+[node name="ActivitiesMenuController" type="Node" parent="." node_paths=PackedStringArray("_activities_container")]
+script = ExtResource("2_xm4yt")
+_activities_container = NodePath("../Control/PanelContainer/MarginContainer/HBoxContainer/Activities Panel Container/ScrollContainer/MarginContainer/Activities Container")
+_activity_ui_scene = ExtResource("1_xacyw")
+metadata/_custom_type_script = "uid://b3244usq3rihg"

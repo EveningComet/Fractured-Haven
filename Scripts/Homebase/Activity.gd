@@ -7,7 +7,16 @@ class_name Activity extends Resource
 
 @export var changed_stats: Array[StatModifier] = []
 
-func perform_stat_changes() -> void:
+func add_character(cd: CharacterData) -> void:
+	participants.append(cd)
+
+func remove_character(cd: CharacterData) -> CharacterData:
+	if participants.has(cd) == true:
+		participants.erase(cd)
+		return cd
+	return null
+
+func perform_changes() -> void:
 	for p: CharacterData in participants:
 		for mod: StatModifier in changed_stats:
 			# TODO: Raising by percentage?

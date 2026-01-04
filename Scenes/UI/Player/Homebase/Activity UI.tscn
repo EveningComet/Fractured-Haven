@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://5ccds6t8wttd"]
+
+[ext_resource type="Script" uid="uid://been4jurwuccv" path="res://Scripts/UI/Homebase/Activities Menu/ActivityUI.gd" id="1_nri0m"]
+[ext_resource type="Texture2D" uid="uid://4aqpm67myqtb" path="res://Imported Assets/Icon/icon.svg" id="2_ogs2m"]
+
+[node name="Activity UI" type="PanelContainer" node_paths=PackedStringArray("display_icon", "name_label")]
+custom_minimum_size = Vector2(200, 200)
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+script = ExtResource("1_nri0m")
+display_icon = NodePath("HBoxContainer/MarginContainer/Display Icon")
+name_label = NodePath("HBoxContainer/MarginContainer2/VBoxContainer/Name Label")
+metadata/_custom_type_script = "uid://been4jurwuccv"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Display Icon" type="TextureRect" parent="HBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("2_ogs2m")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Name Label" type="Label" parent="HBoxContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Activity Name"
