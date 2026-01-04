@@ -1,36 +1,44 @@
-[gd_scene load_steps=3 format=3 uid="uid://5ccds6t8wttd"]
+[gd_scene load_steps=4 format=3 uid="uid://5ccds6t8wttd"]
 
 [ext_resource type="Script" uid="uid://been4jurwuccv" path="res://Scripts/UI/Homebase/Activities Menu/ActivityUI.gd" id="1_nri0m"]
 [ext_resource type="Texture2D" uid="uid://4aqpm67myqtb" path="res://Imported Assets/Icon/icon.svg" id="2_ogs2m"]
+[ext_resource type="PackedScene" uid="uid://bde8iftleasx2" path="res://Scenes/UI/Player/Homebase/Roster Reference.tscn" id="2_yc0en"]
 
-[node name="Activity UI" type="PanelContainer" node_paths=PackedStringArray("display_icon", "name_label")]
-custom_minimum_size = Vector2(200, 200)
+[node name="Activity UI" type="PanelContainer" node_paths=PackedStringArray("display_icon", "name_label", "_stats_changed_label", "_participants_sub_menu", "_participants_container")]
+custom_minimum_size = Vector2(200, 100)
 offset_right = 40.0
 offset_bottom = 40.0
 size_flags_horizontal = 3
 script = ExtResource("1_nri0m")
-display_icon = NodePath("HBoxContainer/MarginContainer/Display Icon")
-name_label = NodePath("HBoxContainer/MarginContainer2/VBoxContainer/Name Label")
+_roster_ref_prefab = ExtResource("2_yc0en")
+display_icon = NodePath("VBoxContainer/HBoxContainer/MarginContainer/Display Icon")
+name_label = NodePath("VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer/Name Label")
+_stats_changed_label = NodePath("VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer/Stats Changed Label")
+_participants_sub_menu = NodePath("VBoxContainer/Participants Panel")
+_participants_container = NodePath("VBoxContainer/Participants Panel/MarginContainer/Participants Container")
 metadata/_custom_type_script = "uid://been4jurwuccv"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="Display Icon" type="TextureRect" parent="HBoxContainer/MarginContainer"]
+[node name="Display Icon" type="TextureRect" parent="VBoxContainer/HBoxContainer/MarginContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 texture = ExtResource("2_ogs2m")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 10
@@ -38,11 +46,65 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Name Label" type="Label" parent="HBoxContainer/MarginContainer2/VBoxContainer"]
+[node name="Name Label" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 theme_override_font_sizes/font_size = 22
 text = "Activity Name"
+
+[node name="Stats Changed Label" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Stat(s) Changed"
+autowrap_mode = 3
+
+[node name="Participants Panel" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Participants Panel"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Participants Container" type="GridContainer" parent="VBoxContainer/Participants Panel/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+columns = 5
+
+[node name="Roster Reference" parent="VBoxContainer/Participants Panel/MarginContainer/Participants Container" instance=ExtResource("2_yc0en")]
+layout_mode = 2
+
+[node name="Roster Reference2" parent="VBoxContainer/Participants Panel/MarginContainer/Participants Container" instance=ExtResource("2_yc0en")]
+layout_mode = 2
+
+[node name="Roster Reference3" parent="VBoxContainer/Participants Panel/MarginContainer/Participants Container" instance=ExtResource("2_yc0en")]
+layout_mode = 2
+
+[node name="Roster Reference4" parent="VBoxContainer/Participants Panel/MarginContainer/Participants Container" instance=ExtResource("2_yc0en")]
+layout_mode = 2
+
+[node name="Roster Reference5" parent="VBoxContainer/Participants Panel/MarginContainer/Participants Container" instance=ExtResource("2_yc0en")]
+layout_mode = 2
+
+[node name="Roster Reference6" parent="VBoxContainer/Participants Panel/MarginContainer/Participants Container" instance=ExtResource("2_yc0en")]
+layout_mode = 2
+
+[node name="Roster Reference7" parent="VBoxContainer/Participants Panel/MarginContainer/Participants Container" instance=ExtResource("2_yc0en")]
+layout_mode = 2
+
+[node name="Roster Reference8" parent="VBoxContainer/Participants Panel/MarginContainer/Participants Container" instance=ExtResource("2_yc0en")]
+layout_mode = 2
+
+[node name="Roster Reference9" parent="VBoxContainer/Participants Panel/MarginContainer/Participants Container" instance=ExtResource("2_yc0en")]
+layout_mode = 2
+
+[node name="Roster Reference10" parent="VBoxContainer/Participants Panel/MarginContainer/Participants Container" instance=ExtResource("2_yc0en")]
+layout_mode = 2

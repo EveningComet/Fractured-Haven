@@ -5,6 +5,8 @@ class_name ActivitiesMenuController extends Node
 ## Prefab of the activity UI component.
 @export var _activity_ui_scene: PackedScene
 
+@export var _roster_interaction_interface: RosterInteractionInterface
+
 func _ready() -> void:
 	_setup_activity_ui()
 

@@ -3,4 +3,5 @@ class_name RosterReference extends Button
 
 @export var display_icon: TextureRect
 
+## The attached character.
 var character_ref: CharacterData = null

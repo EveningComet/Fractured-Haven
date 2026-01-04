@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://dfoqmwih81f55"]
+[gd_scene load_steps=6 format=3 uid="uid://dfoqmwih81f55"]
 
+[ext_resource type="PackedScene" uid="uid://ktj6gnrgnlrf" path="res://Scenes/UI/Player/Homebase/Roster Displayer.tscn" id="1_s5aub"]
 [ext_resource type="PackedScene" uid="uid://5ccds6t8wttd" path="res://Scenes/UI/Player/Homebase/Activity UI.tscn" id="1_xacyw"]
 [ext_resource type="Script" uid="uid://b3244usq3rihg" path="res://Scripts/UI/Homebase/Activities Menu/ActivitiesMenuController.gd" id="2_xm4yt"]
+[ext_resource type="Script" uid="uid://cksygqy2cl7aa" path="res://Scripts/UI/Homebase/Party Setup Menu/RosterInteractionInterface.gd" id="4_oja1r"]
+[ext_resource type="PackedScene" uid="uid://bde8iftleasx2" path="res://Scenes/UI/Player/Homebase/Roster Reference.tscn" id="5_hhkqq"]
 
 [node name="Activities Menu" type="CanvasLayer"]
 
@@ -51,28 +54,8 @@ custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 text = "Sort"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Control/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(200, 0)
+[node name="Roster Displayer" parent="Control/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("1_s5aub")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-follow_focus = true
-horizontal_scroll_mode = 0
-
-[node name="MarginContainer" type="MarginContainer" parent="Control/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/ScrollContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
-
-[node name="Roster Container" type="GridContainer" parent="Control/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/ScrollContainer/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 3
-columns = 6
 
 [node name="Activities Panel Container" type="PanelContainer" parent="Control/PanelContainer/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 0)
@@ -127,8 +110,19 @@ layout_mode = 2
 [node name="Activity UI10" parent="Control/PanelContainer/MarginContainer/HBoxContainer/Activities Panel Container/ScrollContainer/MarginContainer/Activities Container" instance=ExtResource("1_xacyw")]
 layout_mode = 2
 
-[node name="ActivitiesMenuController" type="Node" parent="." node_paths=PackedStringArray("_activities_container")]
+[node name="ActivitiesMenuController" type="Node" parent="." node_paths=PackedStringArray("_activities_container", "_roster_interaction_interface")]
 script = ExtResource("2_xm4yt")
 _activities_container = NodePath("../Control/PanelContainer/MarginContainer/HBoxContainer/Activities Panel Container/ScrollContainer/MarginContainer/Activities Container")
 _activity_ui_scene = ExtResource("1_xacyw")
+_roster_interaction_interface = NodePath("../RosterInteractionInterface")
 metadata/_custom_type_script = "uid://b3244usq3rihg"
+
+[node name="RosterInteractionInterface" type="Node2D" parent="." node_paths=PackedStringArray("_grabbed_character_ui", "_roster_displayer")]
+script = ExtResource("4_oja1r")
+_grabbed_character_ui = NodePath("../Grabbed Roster UI")
+_roster_displayer = NodePath("../Control/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/Roster Displayer")
+metadata/_custom_type_script = "uid://cksygqy2cl7aa"
+
+[node name="Grabbed Roster UI" parent="." instance=ExtResource("5_hhkqq")]
+visible = false
+mouse_filter = 2
