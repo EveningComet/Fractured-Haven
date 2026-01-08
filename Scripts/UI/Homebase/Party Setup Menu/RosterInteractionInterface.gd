@@ -3,26 +3,20 @@ class_name RosterInteractionInterface extends Node2D
 
 @export var _grabbed_character_ui: RosterReference
 
-@export var _roster_displayer: RosterDisplayer
-@export var _active_party_displayer: RosterDisplayer
-
 ## Stores the character we're doing something with.
-var _grabbed_character: CharacterData
+var _grabbed_character: CharacterData = null
 
 func _ready() -> void:
 	get_parent().visibility_changed.connect(_on_visibility_changed )
-	
-	# Sub to the relevant events
-	if _roster_displayer != null:
-		_roster_displayer.roster_ref_selected.connect(_on_roster_ref_selected)
-		_roster_displayer.gui_input.connect(_on_displayer_interacted.bind(_roster_displayer))
-	if _active_party_displayer != null:
-		_active_party_displayer.roster_ref_selected.connect(_on_roster_ref_selected)
-		_active_party_displayer.gui_input.connect(_on_displayer_interacted.bind(_active_party_displayer))
+	_update_grabbed_slot()
 
 func _input(event: InputEvent) -> void:
 	if _grabbed_character_ui.visible == true:
 		_grabbed_character_ui.global_position = get_global_mouse_position() + Vector2(5, 5)
+
+## Connect to the input event for the passed activity UI component.
+func connect_to_activity_ui(a_ui: ActivityUI) -> void:
+	a_ui.gui_input.connect( _on_activity_ui_interacted.bind(a_ui) )
 
 func connect_to_roster_ref(rr: RosterReference) -> void:
 	rr.pressed.connect( _on_roster_ref_selected.bind(rr) )
@@ -47,10 +41,19 @@ func _on_roster_ref_selected(rr: RosterReference) -> void:
 	_update_grabbed_slot()
 
 ## Used to easily add and remove the characters from the roster or the party.
-func _on_displayer_interacted(event: InputEvent, rd: RosterDisplayer) -> void:
+func on_displayer_interacted(event: InputEvent, rd: RosterDisplayer) -> void:
 	if _grabbed_character != null:
+		# TODO: Don't hard code the input.
 		if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 			rd.add_to_roster(_grabbed_character)
+			_grabbed_character = null
+			_update_grabbed_slot()
+
+func _on_activity_ui_interacted(event: InputEvent, a_ui: ActivityUI) -> void:
+	if _grabbed_character != null:
+		# TODO: Don't hard code the input.
+		if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+			a_ui.add_character(_grabbed_character)
 			_grabbed_character = null
 			_update_grabbed_slot()
 

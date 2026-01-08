@@ -8,6 +8,14 @@
 
 [node name="Activities Menu" type="CanvasLayer"]
 
+[node name="ActivitiesMenuController" type="Node" parent="." node_paths=PackedStringArray("_activities_container", "_roster_displayer", "_roster_interaction_interface")]
+script = ExtResource("2_xm4yt")
+_activities_container = NodePath("../Control/PanelContainer/MarginContainer/HBoxContainer/Activities Panel Container/ScrollContainer/MarginContainer/Activities Container")
+_roster_displayer = NodePath("../Control/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/Roster Displayer")
+_activity_ui_scene = ExtResource("1_xacyw")
+_roster_interaction_interface = NodePath("../RosterInteractionInterface")
+metadata/_custom_type_script = "uid://b3244usq3rihg"
+
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
@@ -80,47 +88,9 @@ theme_override_constants/h_separation = 10
 theme_override_constants/v_separation = 10
 columns = 2
 
-[node name="Activity UI" parent="Control/PanelContainer/MarginContainer/HBoxContainer/Activities Panel Container/ScrollContainer/MarginContainer/Activities Container" instance=ExtResource("1_xacyw")]
-layout_mode = 2
-
-[node name="Activity UI2" parent="Control/PanelContainer/MarginContainer/HBoxContainer/Activities Panel Container/ScrollContainer/MarginContainer/Activities Container" instance=ExtResource("1_xacyw")]
-layout_mode = 2
-
-[node name="Activity UI3" parent="Control/PanelContainer/MarginContainer/HBoxContainer/Activities Panel Container/ScrollContainer/MarginContainer/Activities Container" instance=ExtResource("1_xacyw")]
-layout_mode = 2
-
-[node name="Activity UI4" parent="Control/PanelContainer/MarginContainer/HBoxContainer/Activities Panel Container/ScrollContainer/MarginContainer/Activities Container" instance=ExtResource("1_xacyw")]
-layout_mode = 2
-
-[node name="Activity UI5" parent="Control/PanelContainer/MarginContainer/HBoxContainer/Activities Panel Container/ScrollContainer/MarginContainer/Activities Container" instance=ExtResource("1_xacyw")]
-layout_mode = 2
-
-[node name="Activity UI6" parent="Control/PanelContainer/MarginContainer/HBoxContainer/Activities Panel Container/ScrollContainer/MarginContainer/Activities Container" instance=ExtResource("1_xacyw")]
-layout_mode = 2
-
-[node name="Activity UI7" parent="Control/PanelContainer/MarginContainer/HBoxContainer/Activities Panel Container/ScrollContainer/MarginContainer/Activities Container" instance=ExtResource("1_xacyw")]
-layout_mode = 2
-
-[node name="Activity UI8" parent="Control/PanelContainer/MarginContainer/HBoxContainer/Activities Panel Container/ScrollContainer/MarginContainer/Activities Container" instance=ExtResource("1_xacyw")]
-layout_mode = 2
-
-[node name="Activity UI9" parent="Control/PanelContainer/MarginContainer/HBoxContainer/Activities Panel Container/ScrollContainer/MarginContainer/Activities Container" instance=ExtResource("1_xacyw")]
-layout_mode = 2
-
-[node name="Activity UI10" parent="Control/PanelContainer/MarginContainer/HBoxContainer/Activities Panel Container/ScrollContainer/MarginContainer/Activities Container" instance=ExtResource("1_xacyw")]
-layout_mode = 2
-
-[node name="ActivitiesMenuController" type="Node" parent="." node_paths=PackedStringArray("_activities_container", "_roster_interaction_interface")]
-script = ExtResource("2_xm4yt")
-_activities_container = NodePath("../Control/PanelContainer/MarginContainer/HBoxContainer/Activities Panel Container/ScrollContainer/MarginContainer/Activities Container")
-_activity_ui_scene = ExtResource("1_xacyw")
-_roster_interaction_interface = NodePath("../RosterInteractionInterface")
-metadata/_custom_type_script = "uid://b3244usq3rihg"
-
-[node name="RosterInteractionInterface" type="Node2D" parent="." node_paths=PackedStringArray("_grabbed_character_ui", "_roster_displayer")]
+[node name="RosterInteractionInterface" type="Node2D" parent="." node_paths=PackedStringArray("_grabbed_character_ui")]
 script = ExtResource("4_oja1r")
 _grabbed_character_ui = NodePath("../Grabbed Roster UI")
-_roster_displayer = NodePath("../Control/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/Roster Displayer")
 metadata/_custom_type_script = "uid://cksygqy2cl7aa"
 
 [node name="Grabbed Roster UI" parent="." instance=ExtResource("5_hhkqq")]

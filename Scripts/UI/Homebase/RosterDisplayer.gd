@@ -5,6 +5,8 @@ class_name RosterDisplayer extends PanelContainer
 ## Fired when the player interacts with 
 signal roster_ref_selected(rr: RosterReference)
 
+signal roster_ref_spawned(rr: RosterReference)
+
 ## Container that holds the displayed characters.
 @export var _roster_container: Container
 @export var _roster_reference_prefab: PackedScene
@@ -13,6 +15,7 @@ signal roster_ref_selected(rr: RosterReference)
 @export var _is_for_active_party: bool = false
 
 func _ready() -> void:
+	await get_parent().ready
 	if _is_for_active_party == false:
 		PlayerPartyController.roster_changed.connect( _on_roster_changed )
 		_on_roster_changed(PlayerPartyController.roster)
@@ -37,6 +40,9 @@ func _on_roster_changed(new_roster: Array[CharacterData]) -> void:
 		rr.character_ref = cd
 		_roster_container.add_child(rr)
 		rr.pressed.connect(_on_roster_ref_selected.bind(rr))
+		
+		# Tell anything that cares about the spawned item
+		roster_ref_spawned.emit(rr)
 
 func _on_roster_ref_selected(rr: RosterReference) -> void:
 	roster_ref_selected.emit(rr)

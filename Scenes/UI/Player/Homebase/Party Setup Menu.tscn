@@ -7,6 +7,13 @@
 
 [node name="Party Setup Menu" type="CanvasLayer"]
 
+[node name="PartySetupMenuController" type="Node" parent="." node_paths=PackedStringArray("_roster_displayer", "_active_party_displayer", "_roster_interaction_interface")]
+script = ExtResource("1_ojhbx")
+_roster_displayer = NodePath("../Control/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/Roster Displayer")
+_active_party_displayer = NodePath("../Control/PanelContainer/MarginContainer/HBoxContainer/Active Party Displayer")
+_roster_interaction_interface = NodePath("../RosterInteractionInterface")
+metadata/_custom_type_script = "uid://w1cp5dj06mds"
+
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
@@ -60,16 +67,9 @@ layout_mode = 2
 layout_mode = 2
 _is_for_active_party = true
 
-[node name="PartySetupMenuController" type="Node" parent="." node_paths=PackedStringArray("_roster_interaction_interface")]
-script = ExtResource("1_ojhbx")
-_roster_interaction_interface = NodePath("../RosterInteractionInterface")
-metadata/_custom_type_script = "uid://w1cp5dj06mds"
-
-[node name="RosterInteractionInterface" type="Node2D" parent="." node_paths=PackedStringArray("_grabbed_character_ui", "_roster_displayer", "_active_party_displayer")]
+[node name="RosterInteractionInterface" type="Node2D" parent="." node_paths=PackedStringArray("_grabbed_character_ui")]
 script = ExtResource("3_1wp6k")
 _grabbed_character_ui = NodePath("../Grabbed Roster UI")
-_roster_displayer = NodePath("../Control/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/Roster Displayer")
-_active_party_displayer = NodePath("../Control/PanelContainer/MarginContainer/HBoxContainer/Active Party Displayer")
 metadata/_custom_type_script = "uid://cksygqy2cl7aa"
 
 [node name="Grabbed Roster UI" parent="." instance=ExtResource("2_bebtl")]

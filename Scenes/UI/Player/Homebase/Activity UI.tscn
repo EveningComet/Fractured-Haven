@@ -76,7 +76,9 @@ theme_override_constants/margin_bottom = 5
 
 [node name="Participants Container" type="GridContainer" parent="VBoxContainer/Participants Panel/MarginContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 0
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
 columns = 5
 
 [node name="Roster Reference" parent="VBoxContainer/Participants Panel/MarginContainer/Participants Container" instance=ExtResource("2_yc0en")]
