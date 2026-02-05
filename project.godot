@@ -8,18 +8,22 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="Fractured Haven"
 config/description="An RPG. It takes some inspiration from Dungeon Of The Endless and combines that with creature collecting and party building."
 run/main_scene="uid://bdxynk8wrarjk"
-config/features=PackedStringArray("4.5", "Forward Plus")
+config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="uid://cc34pnqtusqw"
 
 [autoload]
 
-SceneManager="*res://addons/scene_manager/SceneManager.tscn"
-SoundManager="*res://addons/sound_manager/sound_manager.gd"
+SceneManager="*uid://j20v4cg7v8m1"
+SoundManager="*uid://cwmvydoen2mc3"
 PlayerPartyController="*res://Scripts/Autoloads/PlayerPartyController.gd"
 Eventbus="*res://Scripts/Autoloads/Eventbus.gd"
 ActivityController="*res://Scripts/Autoloads/ActivityController.gd"

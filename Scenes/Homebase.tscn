@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://djdc1ysyk0xvq"]
+[gd_scene format=3 uid="uid://djdc1ysyk0xvq"]
 
 [ext_resource type="Texture2D" uid="uid://5ycrfhivd6eh" path="res://Imported Assets/KenneyNL Prototyping Textures/Green/texture_09.png" id="1_usv47"]
 [ext_resource type="Script" uid="uid://bokxi26l7lotn" path="res://Scripts/UI/Homebase/HomebaseMainMenu.gd" id="2_gs83c"]
@@ -23,38 +23,38 @@ glow_enabled = true
 albedo_texture = ExtResource("1_usv47")
 uv1_triplanar = true
 
-[node name="Homebase" type="Node"]
+[node name="Homebase" type="Node" unique_id=1083493965]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=423849661]
 environment = SubResource("Environment_xhrbv")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=556258585]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
 directional_shadow_max_distance = 1.0
 
-[node name="SpringArm3D" type="SpringArm3D" parent="."]
+[node name="SpringArm3D" type="SpringArm3D" parent="." unique_id=1465243496]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 5)
 
-[node name="Camera3D" type="Camera3D" parent="SpringArm3D"]
+[node name="Camera3D" type="Camera3D" parent="SpringArm3D" unique_id=2061216789]
 current = true
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=526332786]
 use_collision = true
 
-[node name="Ground" type="CSGBox3D" parent="CSGCombiner3D"]
+[node name="Ground" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1129430736]
 size = Vector3(50, 1, 50)
 material = SubResource("StandardMaterial3D_gs83c")
 
-[node name="Activities Menu" parent="." instance=ExtResource("4_sj4i1")]
+[node name="Activities Menu" parent="." unique_id=1793756041 instance=ExtResource("4_sj4i1")]
 visible = false
 
-[node name="Party Setup Menu" parent="." instance=ExtResource("3_xhrbv")]
+[node name="Party Setup Menu" parent="." unique_id=1692261448 instance=ExtResource("3_xhrbv")]
 visible = false
 
-[node name="Homebase Main Menu" type="CanvasLayer" parent="."]
+[node name="Homebase Main Menu" type="CanvasLayer" parent="." unique_id=207505951]
 
-[node name="Control" type="Control" parent="Homebase Main Menu"]
+[node name="Control" type="Control" parent="Homebase Main Menu" unique_id=1025175551]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -63,7 +63,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="Homebase Main Menu/Control"]
+[node name="PanelContainer" type="PanelContainer" parent="Homebase Main Menu/Control" unique_id=805697242]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -74,43 +74,43 @@ offset_right = 343.0
 offset_bottom = 80.0
 grow_horizontal = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Homebase Main Menu/Control/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Homebase Main Menu/Control/PanelContainer" unique_id=1955454912]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="Main Buttons Container" type="HBoxContainer" parent="Homebase Main Menu/Control/PanelContainer/MarginContainer"]
+[node name="Main Buttons Container" type="HBoxContainer" parent="Homebase Main Menu/Control/PanelContainer/MarginContainer" unique_id=316685427]
 layout_mode = 2
 theme_override_constants/separation = 8
 alignment = 1
 
-[node name="Mission Button" type="Button" parent="Homebase Main Menu/Control/PanelContainer/MarginContainer/Main Buttons Container"]
+[node name="Mission Button" type="Button" parent="Homebase Main Menu/Control/PanelContainer/MarginContainer/Main Buttons Container" unique_id=1518666472]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "Start Testing Mission"
 
-[node name="Party Setup" type="Button" parent="Homebase Main Menu/Control/PanelContainer/MarginContainer/Main Buttons Container"]
+[node name="Party Setup" type="Button" parent="Homebase Main Menu/Control/PanelContainer/MarginContainer/Main Buttons Container" unique_id=1378925809]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "Party Setup"
 
-[node name="Set Activities" type="Button" parent="Homebase Main Menu/Control/PanelContainer/MarginContainer/Main Buttons Container"]
+[node name="Set Activities" type="Button" parent="Homebase Main Menu/Control/PanelContainer/MarginContainer/Main Buttons Container" unique_id=1280472971]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "Set Activities"
 
-[node name="Recruit" type="Button" parent="Homebase Main Menu/Control/PanelContainer/MarginContainer/Main Buttons Container"]
+[node name="Recruit" type="Button" parent="Homebase Main Menu/Control/PanelContainer/MarginContainer/Main Buttons Container" unique_id=432794941]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "Summon"
 
-[node name="HomebaseMainMenu" type="Node" parent="." node_paths=PackedStringArray("_mission_button", "_party_setup_button", "_activities_button", "_party_setup_menu", "_activities_menu")]
+[node name="HomebaseMainMenu" type="Node" parent="." unique_id=1927035015 node_paths=PackedStringArray("_mission_button", "_party_setup_button", "_activities_button", "_party_setup_menu", "_activities_menu")]
 script = ExtResource("2_gs83c")
 _battle_scene = "uid://7kbrpbhs038f"
 _mission_button = NodePath("../Homebase Main Menu/Control/PanelContainer/MarginContainer/Main Buttons Container/Mission Button")
@@ -120,6 +120,6 @@ _party_setup_menu = NodePath("../Party Setup Menu")
 _activities_menu = NodePath("../Activities Menu")
 metadata/_custom_type_script = "uid://bokxi26l7lotn"
 
-[node name="HomebaseController" type="Node" parent="."]
+[node name="HomebaseController" type="Node" parent="." unique_id=638855743]
 script = ExtResource("5_21qpq")
 metadata/_custom_type_script = "uid://biqvupvb6q30p"

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="SkillData" load_steps=13 format=3 uid="uid://cix0ryioer8n1"]
+[gd_resource type="Resource" script_class="SkillData" format=3 uid="uid://cix0ryioer8n1"]
 
 [ext_resource type="Script" uid="uid://c0eaac5ubaplw" path="res://Scripts/Character/Skill/Targeting AOE/UnitSkillArea.gd" id="1_ckk63"]
 [ext_resource type="Script" uid="uid://b7py1wkn0b4gg" path="res://Scripts/Character/Skill/Effects/SkillEffect.gd" id="2_1atdu"]

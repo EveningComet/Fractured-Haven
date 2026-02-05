@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CreatureBlueprint" load_steps=22 format=3 uid="uid://lh5d0xhgsi52"]
+[gd_resource type="Resource" script_class="CreatureBlueprint" format=3 uid="uid://lh5d0xhgsi52"]
 
 [ext_resource type="Script" uid="uid://c0jl23t6vw8iv" path="res://Scripts/Character/CharacterStats.gd" id="1_ar71o"]
 [ext_resource type="Script" uid="uid://c2twaqy62eh5w" path="res://Scripts/Character/CreatureBlueprint.gd" id="1_tlwjb"]
